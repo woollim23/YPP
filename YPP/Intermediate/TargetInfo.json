@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "YPP",
+			"Path": "..\\Source\\YPP.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "YPPEditor",
+			"Path": "..\\Source\\YPPEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}

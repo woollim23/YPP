@@ -1,0 +1,14 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\users\\yelim\\documents\\github\\ypp\\ypp\\source\\ypp\\ypp.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\users\\yelim\\documents\\github\\ypp\\ypp\\intermediate\\build\\win64\\x64\\yppeditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
+        "Includes": [
+            "c:\\users\\yelim\\documents\\github\\ypp\\ypp\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\ypp\\definitions.ypp.h",
+            "c:\\users\\yelim\\documents\\github\\ypp\\ypp\\source\\ypp\\ypp.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

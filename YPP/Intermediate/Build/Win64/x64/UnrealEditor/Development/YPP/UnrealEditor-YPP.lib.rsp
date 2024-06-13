@@ -1,0 +1,17 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-YPP.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"C:\Users\Yelim\Documents\GitHub\YPP\YPP\Intermediate\Build\Win64\x64\YPPEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h.obj"
+"C:\Users\Yelim\Documents\GitHub\YPP\YPP\Intermediate\Build\Win64\x64\UnrealEditor\Development\YPP\YPP.init.gen.cpp.obj"
+"C:\Users\Yelim\Documents\GitHub\YPP\YPP\Intermediate\Build\Win64\x64\UnrealEditor\Development\YPP\YPPCharacter.gen.cpp.obj"
+"C:\Users\Yelim\Documents\GitHub\YPP\YPP\Intermediate\Build\Win64\x64\UnrealEditor\Development\YPP\YPPGameMode.gen.cpp.obj"
+"C:\Users\Yelim\Documents\GitHub\YPP\YPP\Intermediate\Build\Win64\x64\UnrealEditor\Development\YPP\YPPGameMode.cpp.obj"
+"C:\Users\Yelim\Documents\GitHub\YPP\YPP\Intermediate\Build\Win64\x64\UnrealEditor\Development\YPP\YPP.cpp.obj"
+"C:\Users\Yelim\Documents\GitHub\YPP\YPP\Intermediate\Build\Win64\x64\UnrealEditor\Development\YPP\YPPCharacter.cpp.obj"
+"C:\Users\Yelim\Documents\GitHub\YPP\YPP\Intermediate\Build\Win64\x64\UnrealEditor\Development\YPP\Default.rc2.res"
+/OUT:"C:\Users\Yelim\Documents\GitHub\YPP\YPP\Intermediate\Build\Win64\x64\UnrealEditor\Development\YPP\UnrealEditor-YPP.lib"
