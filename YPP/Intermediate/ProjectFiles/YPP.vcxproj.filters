@@ -11,6 +11,7 @@
     <None Include="..\..\Source\YPPEditor.Target.cs">
       <Filter>Source</Filter>
     </None>
+    <None Include="..\..\.vsconfig" />
     <Filter Include="Config">
       <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
     </Filter>
@@ -32,6 +33,18 @@
     <Filter Include="Source\YPP">
       <UniqueIdentifier>{66F23F1D-9606-307E-990E-9CD86B24415C}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\YPP\YPCharacter.cpp">
+      <Filter>Source\YPP</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\YPP\YPCharacter.h">
+      <Filter>Source\YPP</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\YPP\YPGameMode.cpp">
+      <Filter>Source\YPP</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\YPP\YPGameMode.h">
+      <Filter>Source\YPP</Filter>
+    </ClInclude>
     <None Include="..\..\Source\YPP\YPP.Build.cs">
       <Filter>Source\YPP</Filter>
     </None>
@@ -41,16 +54,10 @@
     <ClInclude Include="..\..\Source\YPP\YPP.h">
       <Filter>Source\YPP</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\YPP\YPPCharacter.cpp">
+    <ClCompile Include="..\..\Source\YPP\YPPlayerController.cpp">
       <Filter>Source\YPP</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\YPP\YPPCharacter.h">
-      <Filter>Source\YPP</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\YPP\YPPGameMode.cpp">
-      <Filter>Source\YPP</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\YPP\YPPGameMode.h">
+    <ClInclude Include="..\..\Source\YPP\YPPlayerController.h">
       <Filter>Source\YPP</Filter>
     </ClInclude>
   </ItemGroup>
