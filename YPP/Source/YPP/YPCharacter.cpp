@@ -63,17 +63,17 @@ void AYPCharacter::SetControlMode(EControlMode NewControlMode)
 		// 카메라 방향으로 캐릭터가 회전해서 이동
 		// 카메라 지지대 길이 450cm
 		//SpringArm->TargetArmLength = 450.0f;
-		//SpringArm->SetRelativeRotation(FRotator::ZeroRotator);
+		//SpringArm->SetRelativeRotation(FRotator::ZeroRotator); // 액터 움직임 카메라에 영향 X
 		ArmLengthTo = 450.0f;
-		SpringArm->bUsePawnControlRotation = true;
-		SpringArm->bInheritPitch = true;
-		SpringArm->bInheritRoll = true;
-		SpringArm->bInheritYaw = true;
-		SpringArm->bDoCollisionTest = true;
-		bUseControllerRotationYaw = false;
-		GetCharacterMovement()->bOrientRotationToMovement = true;
+		SpringArm->bUsePawnControlRotation = true; // 폰의 회전 허용
+		SpringArm->bInheritPitch = true; // 마우스의 움직임 반영, y축 마우스
+		SpringArm->bInheritRoll = true; // x축 마우스
+		SpringArm->bInheritYaw = true; // z축 마우스
+		SpringArm->bDoCollisionTest = true; // 벽에 충돌시 카메라 확대 줌
+		bUseControllerRotationYaw = false; // 이 설정을 하면 마우스를 좌우로 움직이면 캐릭터가 z축으로 회전하지만, 상하이동은 폰이 회전하지 않도록 막는다	
+		GetCharacterMovement()->bOrientRotationToMovement = true; // 캐릭터가 움직이는 방향으로 캐릭터를 자동으로 회전시켜줌
 		GetCharacterMovement()->bUseControllerDesiredRotation = false;
-		GetCharacterMovement()->RotationRate = FRotator(0.0f, 720.0f, 0.0f);
+		GetCharacterMovement()->RotationRate = FRotator(0.0f, 720.0f, 0.0f); // 캐릭터 회전속도 지정
 		break;
 	case EControlMode::DIABLO:
 		// 카메라 길이 800, 45도에서 시점 고정
@@ -134,6 +134,7 @@ void AYPCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
 	// 버튼을 누른 직후 ViewChange함수 호출
+	// BindAction, 액션 매핑 입력 설정과 연동하는 함수
 	PlayerInputComponent->BindAction(TEXT("ViewChange"), EInputEvent::IE_Pressed, this, &AYPCharacter::ViewChange);
 
 	// 언리얼은 InputComponent를 사용해 입력 설정을 연결 시키면,
@@ -146,14 +147,13 @@ void AYPCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 
 void AYPCharacter::UpDown(float NewAxisValue)
 {
-	// 함수 AddMovementInput() -> -1 ~ 1 사이의 입력 값을 폰 무브먼트 컴포넌트에 전달 해, 캐릭터를 움직이게 함
-	// 함수 GetActorForwardVector() 전진 후진 입력 값 받음
-	//AddMovementInput(GetActorForwardVector(), NewAxisValue);
 
 	switch (CurrentControlMode)
 	{
 	case EControlMode::GTA:
+		// 함수 AddMovementInput() -> -1 ~ 1 사이의 입력 값을 폰 무브먼트 컴포넌트에 전달 해, 캐릭터를 움직이게 
 		// 회전 값으로부터 시선 방향(X)의 벡터값 가져옴
+		// 언리얼엔진에서 시선방향은 x축
 		AddMovementInput(FRotationMatrix(FRotator(0.0f, GetControlRotation().Yaw, 0.0f)).GetUnitAxis(EAxis::X), NewAxisValue);
 		break;
 	case EControlMode::DIABLO:
@@ -164,13 +164,13 @@ void AYPCharacter::UpDown(float NewAxisValue)
 
 void AYPCharacter::LeftRight(float NewAxisValue)
 {
-	// 함수 GetActorRightVector() 왼쪽 오른쪽 입력 값 받음
-	//AddMovementInput(GetActorRightVector(), NewAxisValue);
 
 	switch (CurrentControlMode)
 	{
 	case EControlMode::GTA:
+		// 함수 AddMovementInput() -> -1 ~ 1 사이의 입력 값을 폰 무브먼트 컴포넌트에 전달 해, 캐릭터를 움직이게 
 		// 회전 값으로부터 우측 방향(Y)의 벡터값 가져옴
+		// 언리얼엔진에서 우측방향은 y축, z축은 캐릭터의 하늘 방향
 		AddMovementInput(FRotationMatrix(FRotator(0.0f, GetControlRotation().Yaw, 0.0f)).GetUnitAxis(EAxis::Y), NewAxisValue);
 		break;
 	case EControlMode::DIABLO:
@@ -184,7 +184,7 @@ void AYPCharacter::LookUp(float NewAxisValue)
 	switch (CurrentControlMode)
 	{
 	case EControlMode::GTA:
-		// 캐릭터 z축 회전 값 받음
+		// 캐릭터 y축 회전 값 받음
 		AddControllerPitchInput(NewAxisValue);
 		break;
 	}
@@ -195,7 +195,7 @@ void AYPCharacter::Turn(float NewAxisValue)
 	switch (CurrentControlMode)
 	{
 	case EControlMode::GTA:
-		// 캐릭터 y축 회전 값 받음
+		// 캐릭터 z축 회전 값 받음
 		AddControllerYawInput(NewAxisValue);
 		break;
 	}
