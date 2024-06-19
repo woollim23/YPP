@@ -6,12 +6,12 @@
 void AYPPlayerController::PostInitializeComponents()
 {
 	Super::PostInitializeComponents();
-	ABLOG_S(Warning);
+	//ABLOG_S(Warning);
 }
 
 void AYPPlayerController::OnPossess(APawn* aPawn)
 {
-	ABLOG_S(Warning);
+	//ABLOG_S(Warning);
 	Super::OnPossess(aPawn);
 }
 

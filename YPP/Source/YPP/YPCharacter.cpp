@@ -41,6 +41,8 @@ AYPCharacter::AYPCharacter()
 	ArmLengthSpeed = 3.0f;
 	ArmRotationSpeed = 10.0f;
 
+	// 점프 높이 기본값을 800으로 수정
+	GetCharacterMovement()->JumpZVelocity = 800.0f;
 }
 
 // Called when the game starts or when spawned
@@ -136,6 +138,8 @@ void AYPCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 	// 버튼을 누른 직후 ViewChange함수 호출
 	// BindAction, 액션 매핑 입력 설정과 연동하는 함수
 	PlayerInputComponent->BindAction(TEXT("ViewChange"), EInputEvent::IE_Pressed, this, &AYPCharacter::ViewChange);
+	// 점프 입력 바인딩
+	PlayerInputComponent->BindAction(TEXT("Jump"), EInputEvent::IE_Pressed, this, &ACharacter::Jump);
 
 	// 언리얼은 InputComponent를 사용해 입력 설정을 연결 시키면,
 	// 입력 신호는 자동으로 캐릭터의 멤버 함수의 인자로 전달 됨
