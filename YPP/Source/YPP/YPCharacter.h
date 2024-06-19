@@ -43,6 +43,7 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+	virtual void PostInitializeComponents() override;
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
@@ -65,4 +66,34 @@ private:
 
 	// 조작모드 시점 전환
 	void ViewChange();
+	// 공격 함수
+	void Attack();
+
+	// 애니메이션 몽타주 재생이 끝나면 발동하는 함수
+	UFUNCTION()
+	void OnAttackMontageEnded(UAnimMontage* Montage, bool bInterrupted);
+
+	void AttackStartComboState(); // 공격 시작할 때 관련 속성 지정
+	void AttackEndComboState(); // 공격 종료할 때 사용
+
+private:
+	// 현재 공격중인지 아닌지 파악하는 불 변수
+	UPROPERTY(VisibleInstanceOnly, BlueprintReadOnly, Category = Attack, Meta=(AllowPrivateAccess = true))
+	bool IsAttacking;
+	// 다음 콤보로 이동가능 여부
+	UPROPERTY(VisibleInstanceOnly, BlueprintReadOnly, Category = Attack, Meta = (AllowPrivateAccess = true))
+	bool CanNextCombo;
+	// 콤보 입력 여부 
+	UPROPERTY(VisibleInstanceOnly, BlueprintReadOnly, Category = Attack, Meta = (AllowPrivateAccess = true))
+	bool IsComboInputOn;
+	// 현재 실행중인 콤보 카운터
+	UPROPERTY(VisibleInstanceOnly, BlueprintReadOnly, Category = Attack, Meta = (AllowPrivateAccess = true))
+	int32 CurrentCombo;
+	// 콤보 카운터 최대치
+	UPROPERTY(VisibleInstanceOnly, BlueprintReadOnly, Category = Attack, Meta = (AllowPrivateAccess = true))
+	int32 MaxCombo;
+
+	// 애님 인스턴스를 자주 사용할 예정이므로 멤버 변수로 선언
+	UPROPERTY()
+	class UYPAnimInstance* YPAnim;
 };

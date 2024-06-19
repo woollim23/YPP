@@ -1,0 +1,29 @@
+// Copyright Epic Games, Inc. All Rights Reserved.
+/*===========================================================================
+	Generated code exported from UnrealHeaderTool.
+	DO NOT modify this manually! Edit the corresponding .h files instead!
+===========================================================================*/
+
+#include "UObject/GeneratedCppIncludes.h"
+PRAGMA_DISABLE_DEPRECATION_WARNINGS
+void EmptyLinkFunctionForGeneratedCodeYPP_init() {}
+	static FPackageRegistrationInfo Z_Registration_Info_UPackage__Script_YPP;
+	FORCENOINLINE UPackage* Z_Construct_UPackage__Script_YPP()
+	{
+		if (!Z_Registration_Info_UPackage__Script_YPP.OuterSingleton)
+		{
+			static const UECodeGen_Private::FPackageParams PackageParams = {
+				"/Script/YPP",
+				nullptr,
+				0,
+				PKG_CompiledIn | 0x00000000,
+				0x9C7FD6E5,
+				0x9384783C,
+				METADATA_PARAMS(0, nullptr)
+			};
+			UECodeGen_Private::ConstructUPackage(Z_Registration_Info_UPackage__Script_YPP.OuterSingleton, PackageParams);
+		}
+		return Z_Registration_Info_UPackage__Script_YPP.OuterSingleton;
+	}
+	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_YPP(Z_Construct_UPackage__Script_YPP, TEXT("/Script/YPP"), Z_Registration_Info_UPackage__Script_YPP, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x9C7FD6E5, 0x9384783C));
+PRAGMA_ENABLE_DEPRECATION_WARNINGS

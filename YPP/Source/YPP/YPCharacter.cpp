@@ -2,6 +2,7 @@
 
 
 #include "YPCharacter.h"
+#include "YPAnimInstance.h"
 
 // Sets default values
 AYPCharacter::AYPCharacter()
@@ -43,6 +44,11 @@ AYPCharacter::AYPCharacter()
 
 	// 점프 높이 기본값을 800으로 수정
 	GetCharacterMovement()->JumpZVelocity = 800.0f;
+
+	IsAttacking = false;
+
+	MaxCombo = 4;
+	AttackEndComboState();
 }
 
 // Called when the game starts or when spawned
@@ -130,6 +136,28 @@ void AYPCharacter::Tick(float DeltaTime)
 	}
 }
 
+void AYPCharacter::PostInitializeComponents()
+{
+	Super::PostInitializeComponents();
+	YPAnim = Cast<UYPAnimInstance>(GetMesh()->GetAnimInstance());
+	ABCHECK(nullptr != YPAnim); // 매크로 조건 안이 참이 아닐 경우 붉은 로그
+	
+	// 애님인스탠스에 몽타주재생이 끝나면 실행되는 델리게이트, OnAttackMontageEnded 함수가 자동으로 실행되도록 연결함
+	YPAnim->OnMontageEnded.AddDynamic(this, &AYPCharacter::OnAttackMontageEnded);
+
+	//
+	YPAnim->OnNextAttackCheck.AddLambda([this]() -> void {
+		ABLOG(Warning, TEXT("OnNextAttackCheck"));
+		CanNextCombo = false;
+
+		if (IsComboInputOn)
+		{
+			AttackStartComboState();
+			YPAnim->JumpToAttackMontageSection(CurrentCombo);
+		}
+	});
+}
+
 // Called to bind functionality to input
 void AYPCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
@@ -140,6 +168,8 @@ void AYPCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 	PlayerInputComponent->BindAction(TEXT("ViewChange"), EInputEvent::IE_Pressed, this, &AYPCharacter::ViewChange);
 	// 점프 입력 바인딩
 	PlayerInputComponent->BindAction(TEXT("Jump"), EInputEvent::IE_Pressed, this, &ACharacter::Jump);
+	// 공격 입력 바인딩
+	PlayerInputComponent->BindAction(TEXT("Attack"), EInputEvent::IE_Pressed, this, &AYPCharacter::Attack);
 
 	// 언리얼은 InputComponent를 사용해 입력 설정을 연결 시키면,
 	// 입력 신호는 자동으로 캐릭터의 멤버 함수의 인자로 전달 됨
@@ -222,4 +252,52 @@ void AYPCharacter::ViewChange()
 		SetControlMode(EControlMode::GTA);
 		break;
 	}
+}
+
+void AYPCharacter::Attack()
+{
+	//
+	if (IsAttacking)
+	{
+		ABCHECK(FMath::IsWithinInclusive<int32>(CurrentCombo, 1, MaxCombo));
+		if (CanNextCombo)
+		{
+			IsComboInputOn = true;
+		}
+	}
+	else
+	{
+		ABCHECK(CurrentCombo == 0);
+		AttackStartComboState();
+		YPAnim->PlayAttackMontage();
+		YPAnim->JumpToAttackMontageSection(CurrentCombo);
+		IsAttacking = true;
+	}
+}
+
+// 공격 몽타주가 끝나면 호출되는 함수
+void AYPCharacter::OnAttackMontageEnded(UAnimMontage* Montage, bool bInterrupted)
+{
+	ABCHECK(IsAttacking);
+	// 공격상태를 도로 팔스
+	ABCHECK(CurrentCombo > 0);
+	IsAttacking = false;
+	AttackEndComboState();
+}
+
+// 공격 시작할 때 관련 속성 지정
+void AYPCharacter::AttackStartComboState()
+{
+	CanNextCombo = true;
+	IsComboInputOn = false;
+	ABCHECK(FMath::IsWithinInclusive<int32>(CurrentCombo, 0, MaxCombo - 1));
+	CurrentCombo = FMath::Clamp<int32>(CurrentCombo + 1, 1, MaxCombo);
+}
+
+// 공격 종료할 때 사용
+void AYPCharacter::AttackEndComboState()
+{
+	IsComboInputOn = false;
+	CanNextCombo = false;
+	CurrentCombo = 0;
 }
