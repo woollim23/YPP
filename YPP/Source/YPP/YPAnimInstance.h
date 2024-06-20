@@ -33,11 +33,11 @@ public:
 	FOnAttackHitCheckDelegate OnAttackHitCheck;
 
 private:
-	// 노티파이 멤버 함수
+	// 노티파이 멤버 함수 - 어택 히트 체크
 	UFUNCTION()
 	void AnimNotify_AttackHitCheck();
-
-	//
+	 
+	// 노티파이 멤버 함수 - 다음 공격 체크
 	UFUNCTION()
 	void AnimNotify_NextAttackCheck();
 
