@@ -75,7 +75,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{A88E2D98-89BA-3DB9-8166-483098394282}</ProjectGuid>
+    <ProjectGuid>{5524918D-78FE-378F-97F8-A80A65CB23DA}</ProjectGuid>
     <RootNamespace>YPP</RootNamespace>
   </PropertyGroup>
   <Import Project="UECommon.props" />
