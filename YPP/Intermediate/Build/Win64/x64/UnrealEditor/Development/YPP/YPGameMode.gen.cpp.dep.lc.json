@@ -1,13 +1,13 @@
 {
     "Version": "1.2",
     "Data": {
-        "Source": "c:\\users\\yelim\\documents\\github\\ypp\\ypp\\intermediate\\build\\win64\\unrealeditor\\inc\\ypp\\uht\\ypgamemode.gen.cpp",
+        "Source": "c:\\git\\ypp\\ypp\\intermediate\\build\\win64\\unrealeditor\\inc\\ypp\\uht\\ypgamemode.gen.cpp",
         "ProvidedModule": "",
-        "PCH": "c:\\users\\yelim\\documents\\github\\ypp\\ypp\\intermediate\\build\\win64\\x64\\yppeditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
+        "PCH": "c:\\git\\ypp\\ypp\\intermediate\\build\\win64\\x64\\yppeditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
         "Includes": [
-            "c:\\users\\yelim\\documents\\github\\ypp\\ypp\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\ypp\\definitions.ypp.h",
-            "c:\\users\\yelim\\documents\\github\\ypp\\ypp\\source\\ypp\\ypgamemode.h",
-            "c:\\users\\yelim\\documents\\github\\ypp\\ypp\\source\\ypp\\ypp.h",
+            "c:\\git\\ypp\\ypp\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\ypp\\definitions.ypp.h",
+            "c:\\git\\ypp\\ypp\\source\\ypp\\ypgamemode.h",
+            "c:\\git\\ypp\\ypp\\source\\ypp\\ypp.h",
             "c:\\program files\\epic games\\ue_5.4\\engine\\source\\runtime\\engine\\public\\engineminimal.h",
             "c:\\program files\\epic games\\ue_5.4\\engine\\source\\runtime\\core\\public\\misc\\monolithicheaderboilerplate.h",
             "c:\\program files\\epic games\\ue_5.4\\engine\\source\\runtime\\coreuobject\\public\\coreuobject.h",
@@ -209,7 +209,7 @@
             "c:\\program files\\epic games\\ue_5.4\\engine\\source\\runtime\\engine\\classes\\kismet\\gameplaystaticstypes.h",
             "c:\\program files\\epic games\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\gameplaystaticstypes.generated.h",
             "c:\\program files\\epic games\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\gameplaystatics.generated.h",
-            "c:\\users\\yelim\\documents\\github\\ypp\\ypp\\intermediate\\build\\win64\\unrealeditor\\inc\\ypp\\uht\\ypgamemode.generated.h"
+            "c:\\git\\ypp\\ypp\\intermediate\\build\\win64\\unrealeditor\\inc\\ypp\\uht\\ypgamemode.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

@@ -1,11 +1,11 @@
-"C:\Users\Yelim\Documents\GitHub\YPP\YPP\Source\YPP\YPPlayerController.cpp"
-/FI"C:\Users\Yelim\Documents\GitHub\YPP\YPP\Intermediate\Build\Win64\x64\YPPEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h"
-/FI"C:\Users\Yelim\Documents\GitHub\YPP\YPP\Intermediate\Build\Win64\x64\UnrealEditor\Development\YPP\Definitions.YPP.h"
-/Yu"C:\Users\Yelim\Documents\GitHub\YPP\YPP\Intermediate\Build\Win64\x64\YPPEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h"
-/Fp"C:\Users\Yelim\Documents\GitHub\YPP\YPP\Intermediate\Build\Win64\x64\YPPEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h.pch"
-/Fo"C:\Users\Yelim\Documents\GitHub\YPP\YPP\Intermediate\Build\Win64\x64\UnrealEditor\Development\YPP\YPPlayerController.cpp.obj"
-/sourceDependencies "C:\Users\Yelim\Documents\GitHub\YPP\YPP\Intermediate\Build\Win64\x64\UnrealEditor\Development\YPP\YPPlayerController.cpp.dep.json"
-@"C:\Users\Yelim\Documents\GitHub\YPP\YPP\Intermediate\Build\Win64\x64\UnrealEditor\Development\YPP\YPP.Shared.rsp"
+"C:\Git\YPP\YPP\Source\YPP\YPPlayerController.cpp"
+/FI"C:\Git\YPP\YPP\Intermediate\Build\Win64\x64\YPPEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h"
+/FI"C:\Git\YPP\YPP\Intermediate\Build\Win64\x64\UnrealEditor\Development\YPP\Definitions.YPP.h"
+/Yu"C:\Git\YPP\YPP\Intermediate\Build\Win64\x64\YPPEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h"
+/Fp"C:\Git\YPP\YPP\Intermediate\Build\Win64\x64\YPPEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h.pch"
+/Fo"C:\Git\YPP\YPP\Intermediate\Build\Win64\x64\UnrealEditor\Development\YPP\YPPlayerController.cpp.obj"
+/sourceDependencies "C:\Git\YPP\YPP\Intermediate\Build\Win64\x64\UnrealEditor\Development\YPP\YPPlayerController.cpp.dep.json"
+@"C:\Git\YPP\YPP\Intermediate\Build\Win64\x64\UnrealEditor\Development\YPP\YPP.Shared.rsp"
 /Zc:inline
 /nologo
 /Oi

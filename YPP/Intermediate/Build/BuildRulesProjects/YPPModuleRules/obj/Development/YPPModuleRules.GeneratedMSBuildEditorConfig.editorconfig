@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = YPPModuleRules
-build_property.ProjectDir = C:\Users\Yelim\Documents\GitHub\YPP\YPP\Intermediate\Build\BuildRulesProjects\YPPModuleRules\
+build_property.ProjectDir = C:\Git\YPP\YPP\Intermediate\Build\BuildRulesProjects\YPPModuleRules\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

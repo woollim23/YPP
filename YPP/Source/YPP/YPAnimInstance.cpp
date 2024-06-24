@@ -37,33 +37,33 @@ void UYPAnimInstance::NativeUpdateAnimation(float DeltaSeconds)
 
 void UYPAnimInstance::PlayAttackMontage()
 {
-	
+	// 몽타쥬를 재생하는 함수
 	 Montage_Play(AttackMontage, 1.0f);
 	
 }
 
 void UYPAnimInstance::JumpToAttackMontageSection(int32 NewSection)
 {
-	//
+	// 얻어온 섹션 이름으로 <- 특정 섹션으로 이동한다
 	ABCHECK(Montage_IsPlaying(AttackMontage));
 	Montage_JumpToSection(GetAttackMontageSectionName(NewSection), AttackMontage);
 }
 
 void UYPAnimInstance::AnimNotify_AttackHitCheck()
 {
-	//
+	// NextAttackCheck 애니메이션 노티파이가 발생할 때마다 YPCharacter에 이를 전달하는 델리게이트
 	OnAttackHitCheck.Broadcast();
 }
 
 void UYPAnimInstance::AnimNotify_NextAttackCheck()
 {
-	//
+	// OnAttackHitCheck 애니메이션 노티파이가 발생할 때마다 YPCharacter에 이를 전달하는 델리게이트
 	OnNextAttackCheck.Broadcast();
 }
 
 FName UYPAnimInstance::GetAttackMontageSectionName(int32 Section)
 {
-	//
+	// 섹션 번호를 이용해서 이름을 얻어냄
 	ABCHECK(FMath::IsWithinInclusive<int32>(Section, 1, 4), NAME_None);
 	return FName(*FString::Printf(TEXT("Attack%d"), Section));
 }

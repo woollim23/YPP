@@ -145,7 +145,7 @@ void AYPCharacter::PostInitializeComponents()
 	// 애님인스탠스에 몽타주재생이 끝나면 실행되는 델리게이트, OnAttackMontageEnded 함수가 자동으로 실행되도록 연결함
 	YPAnim->OnMontageEnded.AddDynamic(this, &AYPCharacter::OnAttackMontageEnded);
 
-	//
+	// 람다 함수 지정, 헤더에 선언 필요x
 	YPAnim->OnNextAttackCheck.AddLambda([this]() -> void {
 		ABLOG(Warning, TEXT("OnNextAttackCheck"));
 		CanNextCombo = false;
@@ -153,6 +153,7 @@ void AYPCharacter::PostInitializeComponents()
 		if (IsComboInputOn)
 		{
 			AttackStartComboState();
+			// 현재 콤보에 맞는 몽타주 섹션으로 이동함
 			YPAnim->JumpToAttackMontageSection(CurrentCombo);
 		}
 	});
@@ -256,7 +257,6 @@ void AYPCharacter::ViewChange()
 
 void AYPCharacter::Attack()
 {
-	//
 	if (IsAttacking)
 	{
 		ABCHECK(FMath::IsWithinInclusive<int32>(CurrentCombo, 1, MaxCombo));
