@@ -49,6 +49,9 @@ AYPCharacter::AYPCharacter()
 
 	MaxCombo = 4;
 	AttackEndComboState();
+
+	// Ä¸½¶ ÄÄÆ÷³ÍÆ®ÀÇ ÄÝ¸®Àü ÇÁ·ÎÇÊ ÁöÁ¤
+	GetCapsuleComponent()->SetCollisionProfileName(TEXT("YPCharacter"));
 }
 
 // Called when the game starts or when spawned
