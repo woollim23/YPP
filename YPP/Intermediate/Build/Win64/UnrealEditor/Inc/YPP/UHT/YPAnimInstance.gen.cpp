@@ -147,11 +147,24 @@ struct Z_Construct_UClass_UYPAnimInstance_Statics
 		{ "ToolTip", "\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xc5\xb8\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd" },
 #endif
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_IsDead_MetaData[] = {
+		{ "AllowPrivateAccess", "TRUE" },
+		{ "Category", "Pawn" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// \xef\xbf\xbd\xd7\xb4\xef\xbf\xbd \xef\xbf\xbd\xd6\xb4\xcf\xb8\xef\xbf\xbd\xef\xbf\xbd\xcc\xbc\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xd3\xbc\xef\xbf\xbd\n" },
+#endif
+		{ "ModuleRelativePath", "YPAnimInstance.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "\xef\xbf\xbd\xd7\xb4\xef\xbf\xbd \xef\xbf\xbd\xd6\xb4\xcf\xb8\xef\xbf\xbd\xef\xbf\xbd\xcc\xbc\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xd3\xbc\xef\xbf\xbd" },
+#endif
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_CurrentPawnSpeed;
 	static void NewProp_IsInAir_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_IsInAir;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_AttackMontage;
+	static void NewProp_IsDead_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_IsDead;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
@@ -171,10 +184,16 @@ void Z_Construct_UClass_UYPAnimInstance_Statics::NewProp_IsInAir_SetBit(void* Ob
 }
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UYPAnimInstance_Statics::NewProp_IsInAir = { "IsInAir", nullptr, (EPropertyFlags)0x0040000000000015, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(UYPAnimInstance), &Z_Construct_UClass_UYPAnimInstance_Statics::NewProp_IsInAir_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_IsInAir_MetaData), NewProp_IsInAir_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UYPAnimInstance_Statics::NewProp_AttackMontage = { "AttackMontage", nullptr, (EPropertyFlags)0x0040000000030015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UYPAnimInstance, AttackMontage), Z_Construct_UClass_UAnimMontage_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_AttackMontage_MetaData), NewProp_AttackMontage_MetaData) };
+void Z_Construct_UClass_UYPAnimInstance_Statics::NewProp_IsDead_SetBit(void* Obj)
+{
+	((UYPAnimInstance*)Obj)->IsDead = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UYPAnimInstance_Statics::NewProp_IsDead = { "IsDead", nullptr, (EPropertyFlags)0x0040000000000015, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(UYPAnimInstance), &Z_Construct_UClass_UYPAnimInstance_Statics::NewProp_IsDead_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_IsDead_MetaData), NewProp_IsDead_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UYPAnimInstance_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UYPAnimInstance_Statics::NewProp_CurrentPawnSpeed,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UYPAnimInstance_Statics::NewProp_IsInAir,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UYPAnimInstance_Statics::NewProp_AttackMontage,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UYPAnimInstance_Statics::NewProp_IsDead,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UYPAnimInstance_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_UYPAnimInstance_Statics::DependentSingletons[])() = {
@@ -217,10 +236,10 @@ UYPAnimInstance::~UYPAnimInstance() {}
 struct Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_YPAnimInstance_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UYPAnimInstance, UYPAnimInstance::StaticClass, TEXT("UYPAnimInstance"), &Z_Registration_Info_UClass_UYPAnimInstance, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UYPAnimInstance), 651222007U) },
+		{ Z_Construct_UClass_UYPAnimInstance, UYPAnimInstance::StaticClass, TEXT("UYPAnimInstance"), &Z_Registration_Info_UClass_UYPAnimInstance, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UYPAnimInstance), 3935572320U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_YPAnimInstance_h_1209738978(TEXT("/Script/YPP"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_YPAnimInstance_h_441478566(TEXT("/Script/YPP"),
 	Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_YPAnimInstance_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_YPAnimInstance_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

@@ -3,6 +3,8 @@
 
 #include "YPCharacter.h"
 #include "YPAnimInstance.h"
+#include "DrawDebugHelpers.h"
+#include "Engine/DamageEvents.h"
 
 // Sets default values
 AYPCharacter::AYPCharacter()
@@ -52,6 +54,11 @@ AYPCharacter::AYPCharacter()
 
 	// 캡슐 컴포넌트의 콜리전 프로필 지정
 	GetCapsuleComponent()->SetCollisionProfileName(TEXT("YPCharacter"));
+
+	// AttackCheck 함수의 SweepSingleByChannel에 사용
+	// if ENABLE_DRAW_DEBUG에도 사용
+	AttackRange = 200.0f; // 공격 범위
+	AttackRadius = 50.0f; // 반지름
 }
 
 // Called when the game starts or when spawned
@@ -150,7 +157,6 @@ void AYPCharacter::PostInitializeComponents()
 
 	// 람다 함수 지정, 헤더에 선언 필요x
 	YPAnim->OnNextAttackCheck.AddLambda([this]() -> void {
-		ABLOG(Warning, TEXT("OnNextAttackCheck"));
 		CanNextCombo = false;
 
 		if (IsComboInputOn)
@@ -160,6 +166,25 @@ void AYPCharacter::PostInitializeComponents()
 			YPAnim->JumpToAttackMontageSection(CurrentCombo);
 		}
 	});
+	
+	// OnAttackHitCheck 애니메이션 노티파이가 발생할 때마다 YPCharacter에 이를 전달하는 델리게이트
+	YPAnim->OnAttackHitCheck.AddUObject(this, &AYPCharacter::AttackCheck);
+}
+
+// TakeDamage 함수를 오버라이드해 액터가 받은 대미지를 처리하는 로직을 추가함
+// Super 키워드를 사용해 부모 클래스의 로직을 먼저 실행 시켜줘야 함
+float AYPCharacter::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)
+{
+	float FinalDamage = Super::TakeDamage(DamageAmount, DamageEvent, EventInstigator, DamageCauser);
+	ABLOG(Warning, TEXT("Actor : %s took Damage : %f"), *GetName(), FinalDamage);
+
+	if (FinalDamage > 0.0f)
+	{
+		YPAnim->SetDeadAnim(); // 데드 애니메이션 재생
+		SetActorEnableCollision(false); // 충돌 이벤트 끔
+	}
+
+	return FinalDamage;
 }
 
 // Called to bind functionality to input
@@ -303,4 +328,56 @@ void AYPCharacter::AttackEndComboState()
 	IsComboInputOn = false;
 	CanNextCombo = false;
 	CurrentCombo = 0;
+}
+
+// 공격 유효 타격 탐지 함수
+void AYPCharacter::AttackCheck()
+{
+	// 충돌 감지시 충돌된 액터에 관련된 정보를 얻기 위한 구조체
+	FHitResult HitResult;
+	
+	// 채널을 이용하여 범위 내를 특정 도형모양으로 휩쓸어 탐색한다(히트체크)
+	// 공격 명령을 내리는 자신은 탐지에 감지되지 않도록 포인터 this를 무시할 액터 목록에 포함시킴
+	FCollisionQueryParams Params(NAME_None, false, this);
+	bool bResult = GetWorld()->SweepSingleByChannel(
+		HitResult, // 충돌된 액터에 관련된 정보를 얻기 위한 구조체
+		GetActorLocation(), // 탐색 시작 위치
+		GetActorLocation() + GetActorForwardVector() * AttackRange, // 탐색 종료 위치
+		FQuat::Identity, // 피격판정할 도형의 회전 값, 회전 사용 X
+		ECollisionChannel::ECC_GameTraceChannel2, // 콜리전 채널 할당
+		FCollisionShape::MakeSphere(AttackRadius), // 탐지할 도형 제작
+		Params // 스윕에 대한 추가적인 매개변수, 구조체 기본값으로 설정
+		);
+
+#if ENABLE_DRAW_DEBUG
+	FVector TraceVec = GetActorForwardVector() * AttackRange; // 시선 방향 벡터
+	FVector Center = GetActorLocation() + TraceVec * 0.5f; // 벡터의 중점
+	float HalfHeight = AttackRange * 0.5f + AttackRadius; //  벡터 길이의 절반
+	FQuat CapsuleRot = FRotationMatrix::MakeFromZ(TraceVec).ToQuat(); // 캡슐의 Z벡터를 캐릭터 시선방향으로 회전
+	FColor DrawColor = bResult ? FColor::Green : FColor::Red;
+	float DebugLifeTime = 5.0f;
+
+	DrawDebugCapsule(GetWorld(),
+		Center,
+		HalfHeight,
+		AttackRadius,
+		CapsuleRot,
+		DrawColor,
+		false,
+		DebugLifeTime);
+
+
+#endif
+	if (bResult)
+	{
+		if (HitResult.HasValidHitObjectHandle())
+		{
+			ABLOG(Warning, TEXT("Hit Actor Name : %s"), *HitResult.ToString());
+
+			FDamageEvent DamageEvent;
+			// 액터에 대미지를 전달하는 함수
+			// 전달할 대미지 세기, 대미지 종류, 공격 명령을 내린 가해자, 대미지 전달을 위해 사용한 도구
+			HitResult.GetActor()->TakeDamage(50.0f, DamageEvent, GetController(), this);
+		}
+	}
 }

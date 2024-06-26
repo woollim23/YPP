@@ -44,6 +44,8 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 	virtual void PostInitializeComponents() override;
+	// TakeDamage 함수를 오버라이드해 액터가 받은 대미지를 처리하는 로직을 추가함
+	virtual float TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser) override;
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
@@ -72,9 +74,12 @@ private:
 	// 애니메이션 몽타주 재생이 끝나면 발동하는 함수
 	UFUNCTION()
 	void OnAttackMontageEnded(UAnimMontage* Montage, bool bInterrupted);
-
-	void AttackStartComboState(); // 공격 시작할 때 관련 속성 지정
-	void AttackEndComboState(); // 공격 종료할 때 사용
+	// 공격 시작할 때 관련 속성 지정
+	void AttackStartComboState();
+	// 공격 종료할 때 사용
+	void AttackEndComboState();
+	// 공격 유효 타격 탐지 함수
+	void AttackCheck();
 
 private:
 	// 현재 공격중인지 아닌지 파악하는 불 변수
@@ -96,4 +101,15 @@ private:
 	// 애님 인스턴스를 자주 사용할 예정이므로 멤버 변수로 선언
 	UPROPERTY()
 	class UYPAnimInstance* YPAnim;
+
+	// 공격 범위
+	// AttackCheck 함수의 SweepSingleByChannel에 사용
+	// if ENABLE_DRAW_DEBUG에도 사용
+	UPROPERTY(VisibleInstanceOnly, BlueprintReadOnly, Category = Attack, Meta = (AllowPrivateAccess = true))
+	float AttackRange;
+	// 반지름
+	// AttackCheck 함수의 SweepSingleByChannel에 사용
+	// if ENABLE_DRAW_DEBUG에도 사용
+	UPROPERTY(VisibleInstanceOnly, BlueprintReadOnly, Category = Attack, Meta = (AllowPrivateAccess = true))
+	float AttackRadius;
 };

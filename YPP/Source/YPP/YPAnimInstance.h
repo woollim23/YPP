@@ -34,6 +34,8 @@ public:
 	FOnNextAttackCheckDelegate OnNextAttackCheck;
 	// OnAttackHitCheck 애니메이션 노티파이가 발생할 때마다 YPCharacter에 이를 전달하는 델리게이트
 	FOnAttackHitCheckDelegate OnAttackHitCheck;
+	// 죽음 확인 속성을 트루로
+	void SetDeadAnim() { IsDead = true; }
 
 private:
 	// 노티파이 멤버 함수 - 어택 히트 체크
@@ -57,4 +59,7 @@ private:
 	// 어택 몽타주 저장할 변수
 	UPROPERTY(VisibleDefaultsOnly, BlueprintReadOnly, Category = Attack, Meta = (AllowPrivateAccess = true))
 	UAnimMontage* AttackMontage;
+	// 죽는 애니메이션 재생을 위한 속성
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Pawn, Meta = (AllowPrivateAccess = true))
+	bool IsDead;
 };
