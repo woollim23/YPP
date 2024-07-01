@@ -3,6 +3,7 @@
 
 #include "YPCharacter.h"
 #include "YPAnimInstance.h"
+#include "YPWeapon.h"
 #include "DrawDebugHelpers.h"
 #include "Engine/DamageEvents.h"
 
@@ -66,6 +67,17 @@ void AYPCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	/* void SetWeapon를 구현하게 되어 삭제됨
+	// 무기 액터 생성하기
+	FName WeaponSocket(TEXT("hand_rSocket"));
+	// 새롭게 액터를 생성하는 명령어
+	// 인자 : 생성할 액터의 클래스, 액터가 앞으로 생성할 위치 및 회전
+	auto CurWeapon = GetWorld()->SpawnActor<AYPWeapon>(FVector::ZeroVector, FRotator::ZeroRotator);
+	if (nullptr != CurWeapon)
+	{
+		CurWeapon->AttachToComponent(GetMesh(), FAttachmentTransformRules::SnapToTargetIncludingScale, WeaponSocket);
+	}
+	*/
 }
 
 // 컨트롤 모드 세팅 함수
@@ -206,6 +218,27 @@ void AYPCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 	PlayerInputComponent->BindAxis(TEXT("LeftRight"), this, &AYPCharacter::LeftRight);
 	PlayerInputComponent->BindAxis(TEXT("Turn"), this, &AYPCharacter::Turn);
 	PlayerInputComponent->BindAxis(TEXT("LookUp"), this, &AYPCharacter::LookUp);
+}
+
+// 무기를 장착할 수 있는지 확인하는 함수
+bool AYPCharacter::CanSetWeapon()
+{
+	return (nullptr == CurrentWeapon);
+}
+
+// 캐릭터에 무기를 장착시키는 함수
+void AYPCharacter::SetWeapon(AYPWeapon* NewWeapon)
+{
+	ABCHECK(nullptr != NewWeapon && nullptr == CurrentWeapon);
+	FName WeaponSocket(TEXT("hand_rSocket"));
+	if (nullptr != NewWeapon)
+	{
+		// 현재 무기가 없으면 핸드 소켓에 무기를 장착시키고
+		NewWeapon->AttachToComponent(GetMesh(), FAttachmentTransformRules::SnapToTargetNotIncludingScale, WeaponSocket);
+		// 무기 액터의 소유자를 캐릭터로 변경함
+		NewWeapon->SetOwner(this);
+		CurrentWeapon = NewWeapon;
+	}
 }
 
 void AYPCharacter::UpDown(float NewAxisValue)

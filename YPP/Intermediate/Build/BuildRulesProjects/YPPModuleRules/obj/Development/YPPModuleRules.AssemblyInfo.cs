@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("YPPModuleRules")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Development")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+767e7860bbce901ac67edf2f96faf2ec30463de7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a6cc1bae2f7aff34b7457b9078ab27db7c71b7a8")]
 [assembly: System.Reflection.AssemblyProductAttribute("YPPModuleRules")]
 [assembly: System.Reflection.AssemblyTitleAttribute("YPPModuleRules")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -51,6 +51,12 @@
     <ClInclude Include="..\..\Source\YPP\YPGameMode.h">
       <Filter>Source\YPP</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\YPP\YPItemBox.cpp">
+      <Filter>Source\YPP</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\YPP\YPItemBox.h">
+      <Filter>Source\YPP</Filter>
+    </ClInclude>
     <None Include="..\..\Source\YPP\YPP.Build.cs">
       <Filter>Source\YPP</Filter>
     </None>
@@ -64,6 +70,12 @@
       <Filter>Source\YPP</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\YPP\YPPlayerController.h">
+      <Filter>Source\YPP</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\YPP\YPWeapon.cpp">
+      <Filter>Source\YPP</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\YPP\YPWeapon.h">
       <Filter>Source\YPP</Filter>
     </ClInclude>
   </ItemGroup>
