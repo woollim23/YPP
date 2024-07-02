@@ -45,6 +45,18 @@
     <ClInclude Include="..\..\Source\YPP\YPCharacter.h">
       <Filter>Source\YPP</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\YPP\YPCharacterStatComponent.cpp">
+      <Filter>Source\YPP</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\YPP\YPCharacterStatComponent.h">
+      <Filter>Source\YPP</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\YPP\YPGameInstance.cpp">
+      <Filter>Source\YPP</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\YPP\YPGameInstance.h">
+      <Filter>Source\YPP</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\YPP\YPGameMode.cpp">
       <Filter>Source\YPP</Filter>
     </ClCompile>

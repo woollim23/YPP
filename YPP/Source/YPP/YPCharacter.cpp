@@ -4,6 +4,7 @@
 #include "YPCharacter.h"
 #include "YPAnimInstance.h"
 #include "YPWeapon.h"
+#include "YPCharacterStatComponent.h"
 #include "DrawDebugHelpers.h"
 #include "Engine/DamageEvents.h"
 
@@ -15,6 +16,7 @@ AYPCharacter::AYPCharacter()
 
 	SpringArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("SPRINGARM"));
 	Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("CAMERA"));
+	CharacterStat = CreateDefaultSubobject<UYPCharacterStatComponent>(TEXT("CHARACTERSTAT"));
 
 	SpringArm->SetupAttachment(GetCapsuleComponent());
 	Camera->SetupAttachment(SpringArm);
@@ -162,7 +164,7 @@ void AYPCharacter::PostInitializeComponents()
 {
 	Super::PostInitializeComponents();
 	YPAnim = Cast<UYPAnimInstance>(GetMesh()->GetAnimInstance());
-	ABCHECK(nullptr != YPAnim); // 매크로 조건 안이 참이 아닐 경우 붉은 로그
+	YPCHECK(nullptr != YPAnim); // 매크로 조건 안이 참이 아닐 경우 붉은 로그
 	
 	// 애님인스탠스에 몽타주재생이 끝나면 실행되는 델리게이트, OnAttackMontageEnded 함수가 자동으로 실행되도록 연결함
 	YPAnim->OnMontageEnded.AddDynamic(this, &AYPCharacter::OnAttackMontageEnded);
@@ -181,6 +183,15 @@ void AYPCharacter::PostInitializeComponents()
 	
 	// OnAttackHitCheck 애니메이션 노티파이가 발생할 때마다 YPCharacter에 이를 전달하는 델리게이트
 	YPAnim->OnAttackHitCheck.AddUObject(this, &AYPCharacter::AttackCheck);
+
+	// 브로드캐스트로 발동하는 체력 0 감지 델리게이트
+	CharacterStat->OnHPIsZero.AddLambda([this]() -> void {
+		ABLOG(Warning, TEXT("OnHPIsZero"));
+		// 죽는 애니메이션 재생
+		YPAnim->SetDeadAnim();
+		// 충돌 끔
+		SetActorEnableCollision(false);
+		});
 }
 
 // TakeDamage 함수를 오버라이드해 액터가 받은 대미지를 처리하는 로직을 추가함
@@ -190,11 +201,8 @@ float AYPCharacter::TakeDamage(float DamageAmount, FDamageEvent const& DamageEve
 	float FinalDamage = Super::TakeDamage(DamageAmount, DamageEvent, EventInstigator, DamageCauser);
 	ABLOG(Warning, TEXT("Actor : %s took Damage : %f"), *GetName(), FinalDamage);
 
-	if (FinalDamage > 0.0f)
-	{
-		YPAnim->SetDeadAnim(); // 데드 애니메이션 재생
-		SetActorEnableCollision(false); // 충돌 이벤트 끔
-	}
+	// 피해입은 데미지 전달
+	CharacterStat->SetDamage(FinalDamage);
 
 	return FinalDamage;
 }
@@ -229,7 +237,7 @@ bool AYPCharacter::CanSetWeapon()
 // 캐릭터에 무기를 장착시키는 함수
 void AYPCharacter::SetWeapon(AYPWeapon* NewWeapon)
 {
-	ABCHECK(nullptr != NewWeapon && nullptr == CurrentWeapon);
+	YPCHECK(nullptr != NewWeapon && nullptr == CurrentWeapon);
 	FName WeaponSocket(TEXT("hand_rSocket"));
 	if (nullptr != NewWeapon)
 	{
@@ -320,7 +328,7 @@ void AYPCharacter::Attack()
 {
 	if (IsAttacking)
 	{
-		ABCHECK(FMath::IsWithinInclusive<int32>(CurrentCombo, 1, MaxCombo));
+		YPCHECK(FMath::IsWithinInclusive<int32>(CurrentCombo, 1, MaxCombo));
 		if (CanNextCombo)
 		{
 			IsComboInputOn = true;
@@ -328,7 +336,7 @@ void AYPCharacter::Attack()
 	}
 	else
 	{
-		ABCHECK(CurrentCombo == 0);
+		YPCHECK(CurrentCombo == 0);
 		AttackStartComboState();
 		YPAnim->PlayAttackMontage();
 		YPAnim->JumpToAttackMontageSection(CurrentCombo);
@@ -339,9 +347,9 @@ void AYPCharacter::Attack()
 // 공격 몽타주가 끝나면 호출되는 함수
 void AYPCharacter::OnAttackMontageEnded(UAnimMontage* Montage, bool bInterrupted)
 {
-	ABCHECK(IsAttacking);
+	YPCHECK(IsAttacking);
 	// 공격상태를 도로 팔스
-	ABCHECK(CurrentCombo > 0);
+	YPCHECK(CurrentCombo > 0);
 	IsAttacking = false;
 	AttackEndComboState();
 }
@@ -351,7 +359,7 @@ void AYPCharacter::AttackStartComboState()
 {
 	CanNextCombo = true;
 	IsComboInputOn = false;
-	ABCHECK(FMath::IsWithinInclusive<int32>(CurrentCombo, 0, MaxCombo - 1));
+	YPCHECK(FMath::IsWithinInclusive<int32>(CurrentCombo, 0, MaxCombo - 1));
 	CurrentCombo = FMath::Clamp<int32>(CurrentCombo + 1, 1, MaxCombo);
 }
 
@@ -410,7 +418,7 @@ void AYPCharacter::AttackCheck()
 			FDamageEvent DamageEvent;
 			// 액터에 대미지를 전달하는 함수
 			// 전달할 대미지 세기, 대미지 종류, 공격 명령을 내린 가해자, 대미지 전달을 위해 사용한 도구
-			HitResult.GetActor()->TakeDamage(50.0f, DamageEvent, GetController(), this);
+			HitResult.GetActor()->TakeDamage(CharacterStat->GetAttack(), DamageEvent, GetController(), this);
 		}
 	}
 }

@@ -65,7 +65,7 @@ void AYPItemBox::OnCharacterOverlap(UPrimitiveComponent* overlappedComp, AActor*
 	ABLOG_S(Warning);
 
 	auto YPCharacter = Cast<AYPCharacter>(OtherActor);
-	ABCHECK(nullptr != YPCharacter);
+	YPCHECK(nullptr != YPCharacter);
 
 	if (nullptr != YPCharacter && nullptr != WeaponItemClass)
 	{

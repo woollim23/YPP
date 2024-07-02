@@ -58,8 +58,9 @@ public:
 	UPROPERTY(VisibleAnywhere, Category = Weapon)
 	class AYPWeapon* CurrentWeapon;
 
-	UPROPERTY(VisibleAnywhere, Category = Weapon)
-	USkeletalMeshComponent* Weapon;
+	// Ä³¸¯ÅÍ ½ºÅÈ ÄÄÆ÷³ÍÆ®
+	UPROPERTY(VisibleAnywhere, Category = Stat)
+	class UYPCharacterStatComponent* CharacterStat;
 
 	UPROPERTY(VisibleAnywhere, Category = Camera)
 	USpringArmComponent* SpringArm;

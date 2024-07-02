@@ -13,13 +13,13 @@ void EmptyLinkFunctionForGeneratedCodeYPCharacter() {}
 ENGINE_API UClass* Z_Construct_UClass_ACharacter();
 ENGINE_API UClass* Z_Construct_UClass_UAnimMontage_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
-ENGINE_API UClass* Z_Construct_UClass_USkeletalMeshComponent_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_USpringArmComponent_NoRegister();
 UPackage* Z_Construct_UPackage__Script_YPP();
 YPP_API UClass* Z_Construct_UClass_AYPCharacter();
 YPP_API UClass* Z_Construct_UClass_AYPCharacter_NoRegister();
 YPP_API UClass* Z_Construct_UClass_AYPWeapon_NoRegister();
 YPP_API UClass* Z_Construct_UClass_UYPAnimInstance_NoRegister();
+YPP_API UClass* Z_Construct_UClass_UYPCharacterStatComponent_NoRegister();
 // End Cross Module References
 
 // Begin Class AYPCharacter Function OnAttackMontageEnded
@@ -112,10 +112,16 @@ struct Z_Construct_UClass_AYPCharacter_Statics
 		{ "ToolTip", "\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd" },
 #endif
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Weapon_MetaData[] = {
-		{ "Category", "Weapon" },
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CharacterStat_MetaData[] = {
+		{ "Category", "Stat" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// \xc4\xb3\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xc6\xae\n" },
+#endif
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "YPCharacter.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "\xc4\xb3\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xc6\xae" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_SpringArm_MetaData[] = {
 		{ "Category", "Camera" },
@@ -215,7 +221,7 @@ struct Z_Construct_UClass_AYPCharacter_Statics
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_CurrentWeapon;
-	static const UECodeGen_Private::FObjectPropertyParams NewProp_Weapon;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_CharacterStat;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_SpringArm;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_Camera;
 	static void NewProp_IsAttacking_SetBit(void* Obj);
@@ -241,7 +247,7 @@ struct Z_Construct_UClass_AYPCharacter_Statics
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AYPCharacter_Statics::NewProp_CurrentWeapon = { "CurrentWeapon", nullptr, (EPropertyFlags)0x0010000000020001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AYPCharacter, CurrentWeapon), Z_Construct_UClass_AYPWeapon_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CurrentWeapon_MetaData), NewProp_CurrentWeapon_MetaData) };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AYPCharacter_Statics::NewProp_Weapon = { "Weapon", nullptr, (EPropertyFlags)0x00100000000a0009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AYPCharacter, Weapon), Z_Construct_UClass_USkeletalMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Weapon_MetaData), NewProp_Weapon_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AYPCharacter_Statics::NewProp_CharacterStat = { "CharacterStat", nullptr, (EPropertyFlags)0x00100000000a0009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AYPCharacter, CharacterStat), Z_Construct_UClass_UYPCharacterStatComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CharacterStat_MetaData), NewProp_CharacterStat_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AYPCharacter_Statics::NewProp_SpringArm = { "SpringArm", nullptr, (EPropertyFlags)0x00100000000a0009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AYPCharacter, SpringArm), Z_Construct_UClass_USpringArmComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SpringArm_MetaData), NewProp_SpringArm_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AYPCharacter_Statics::NewProp_Camera = { "Camera", nullptr, (EPropertyFlags)0x00100000000a0009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AYPCharacter, Camera), Z_Construct_UClass_UCameraComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Camera_MetaData), NewProp_Camera_MetaData) };
 void Z_Construct_UClass_AYPCharacter_Statics::NewProp_IsAttacking_SetBit(void* Obj)
@@ -266,7 +272,7 @@ const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AYPCharacter_St
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AYPCharacter_Statics::NewProp_AttackRadius = { "AttackRadius", nullptr, (EPropertyFlags)0x0040000000020815, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AYPCharacter, AttackRadius), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_AttackRadius_MetaData), NewProp_AttackRadius_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AYPCharacter_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AYPCharacter_Statics::NewProp_CurrentWeapon,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AYPCharacter_Statics::NewProp_Weapon,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AYPCharacter_Statics::NewProp_CharacterStat,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AYPCharacter_Statics::NewProp_SpringArm,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AYPCharacter_Statics::NewProp_Camera,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AYPCharacter_Statics::NewProp_IsAttacking,
@@ -319,10 +325,10 @@ AYPCharacter::~AYPCharacter() {}
 struct Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_YPCharacter_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AYPCharacter, AYPCharacter::StaticClass, TEXT("AYPCharacter"), &Z_Registration_Info_UClass_AYPCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AYPCharacter), 3530853335U) },
+		{ Z_Construct_UClass_AYPCharacter, AYPCharacter::StaticClass, TEXT("AYPCharacter"), &Z_Registration_Info_UClass_AYPCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AYPCharacter), 2337383151U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_YPCharacter_h_484141128(TEXT("/Script/YPP"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_YPCharacter_h_1896790236(TEXT("/Script/YPP"),
 	Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_YPCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_YPCharacter_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
