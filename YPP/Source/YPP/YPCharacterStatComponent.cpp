@@ -47,7 +47,7 @@ void UYPCharacterStatComponent::SetNewLevel(int32 NewLevel)
 	if (nullptr != CurrentStatData)
 	{
 		Level = NewLevel;
-		CurrentHP = CurrentStatData->MaxHP;
+		SetHP(CurrentStatData->MaxHP);
 	}
 	else
 	{
@@ -60,10 +60,20 @@ void UYPCharacterStatComponent::SetDamage(float NewDamage)
 {
 	YPCHECK(nullptr != CurrentStatData);
 	// 현재 체력에서 받은 데미지 만큼 뺌
-	CurrentHP = FMath::Clamp<float>(CurrentHP - NewDamage, 0.0f, CurrentStatData->MaxHP);
+	SetHP(FMath::Clamp<float>(CurrentHP - NewDamage, 0.0f, CurrentStatData->MaxHP));
 
-	if (CurrentHP <= 0.0f)
+}
+
+void UYPCharacterStatComponent::SetHP(float NewHP)
+{
+	CurrentHP = NewHP;
+	// 체력 변화 감지 하면 브로드캐스트 하는 델리게이트
+	OnHpChanged.Broadcast();
+	//
+	if (CurrentHP <= KINDA_SMALL_NUMBER)
 	{
+		// 체력을 0으로 변경
+		CurrentHP = 0.0f;
 		// 체력 0을 감지하는 델리게이트 발동
 		OnHPIsZero.Broadcast();
 	}
@@ -74,4 +84,11 @@ float UYPCharacterStatComponent::GetAttack()
 	YPCHECK(nullptr != CurrentStatData, 0.0f);
 	// 현재 공격 데미지를 리턴해줌
 	return CurrentStatData->Attack;
+}
+
+float UYPCharacterStatComponent::GetHPRatio()
+{
+	YPCHECK(nullptr != CurrentStatData, 0.0f);
+	// 0 이나 현재 체력 비율 리턴
+	return (CurrentStatData->MaxHP < KINDA_SMALL_NUMBER) ? 0.0f : (CurrentHP / CurrentStatData->MaxHP);
 }

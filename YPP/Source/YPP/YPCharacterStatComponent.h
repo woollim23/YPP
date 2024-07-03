@@ -8,6 +8,8 @@
 
 // 체력 0을 감지하는 델리게이트
 DECLARE_MULTICAST_DELEGATE(FOnHPIsZeroDelegate);
+// 체력 변화 감지 델리게이트
+DECLARE_MULTICAST_DELEGATE(FOnHPChangedDelegate);
 
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
@@ -32,9 +34,18 @@ public :
 	void SetNewLevel(int32 NewLevel);
 	// 받은 데미지 체력 설정
 	void SetDamage(float NewDamage);
+	// 체력 설정 
+	void SetHP(float NewHP);
+	// 공격데미지 스탯을 리턴해줌
 	float GetAttack();
+	// 체력바 비율
+	float GetHPRatio();
+
 	// 체력 0을 감지하는 델리게이트
 	FOnHPIsZeroDelegate OnHPIsZero;
+	// 체력 변화 감지 델리게이트
+	FOnHPChangedDelegate OnHpChanged;
+
 
 private:
 	struct FYPCharacterData* CurrentStatData = nullptr;
@@ -44,6 +55,4 @@ private:
 	// Transient : 데이터 직렬화에서 제외시킴
 	UPROPERTY(Transient, VisibleInstanceOnly, Category = Stat, Meta = (AllowPrivateAccess = true))
 	float CurrentHP;
-
-		
 };

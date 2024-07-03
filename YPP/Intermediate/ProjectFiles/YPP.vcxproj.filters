@@ -51,6 +51,12 @@
     <ClInclude Include="..\..\Source\YPP\YPCharacterStatComponent.h">
       <Filter>Source\YPP</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\YPP\YPCharacterWidget.cpp">
+      <Filter>Source\YPP</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\YPP\YPCharacterWidget.h">
+      <Filter>Source\YPP</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\YPP\YPGameInstance.cpp">
       <Filter>Source\YPP</Filter>
     </ClCompile>

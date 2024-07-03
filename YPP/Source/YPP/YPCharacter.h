@@ -68,6 +68,9 @@ public:
 	UPROPERTY(VisibleAnywhere, Category = Camera)
 	UCameraComponent* Camera;
 
+	UPROPERTY(VisibleAnywhere, Category = UI)
+	class UWidgetComponent* HPBarWidget;
+
 private:
 	// 위아래 방향키 입력 함수
 	void UpDown(float NewAxisValue);

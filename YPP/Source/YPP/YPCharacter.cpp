@@ -5,8 +5,10 @@
 #include "YPAnimInstance.h"
 #include "YPWeapon.h"
 #include "YPCharacterStatComponent.h"
+#include "YPCharacterWidget.h"
 #include "DrawDebugHelpers.h"
 #include "Engine/DamageEvents.h"
+#include "Components/WidgetComponent.h"
 
 // Sets default values
 AYPCharacter::AYPCharacter()
@@ -17,9 +19,11 @@ AYPCharacter::AYPCharacter()
 	SpringArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("SPRINGARM"));
 	Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("CAMERA"));
 	CharacterStat = CreateDefaultSubobject<UYPCharacterStatComponent>(TEXT("CHARACTERSTAT"));
+	HPBarWidget = CreateDefaultSubobject<UWidgetComponent>(TEXT("HPBARWIDGET"));
 
 	SpringArm->SetupAttachment(GetCapsuleComponent());
 	Camera->SetupAttachment(SpringArm);
+	HPBarWidget->SetupAttachment(GetMesh());
 
 	GetMesh()->SetRelativeLocationAndRotation(FVector(0.0f, 0.0f, -88.0f), FRotator(0.0f, -90.0f, 0.0f));
 	SpringArm->TargetArmLength = 400.0f;
@@ -62,6 +66,16 @@ AYPCharacter::AYPCharacter()
 	// if ENABLE_DRAW_DEBUG에도 사용
 	AttackRange = 200.0f; // 공격 범위
 	AttackRadius = 50.0f; // 반지름
+
+	// 체력바 UI 설정
+	HPBarWidget->SetRelativeLocation(FVector(0.0f, 0.0f, 180.0f));
+	HPBarWidget->SetWidgetSpace(EWidgetSpace::Screen);
+	static ConstructorHelpers::FClassFinder<UUserWidget> UI_HUD(TEXT("/Game/Book/UI/UI_HPBar.UI_HPBar_C"));
+	if (UI_HUD.Succeeded())
+	{
+		HPBarWidget->SetWidgetClass(UI_HUD.Class);
+		HPBarWidget->SetDrawSize(FVector2D(150.0f, 50.0f));
+	}
 }
 
 // Called when the game starts or when spawned
@@ -69,17 +83,12 @@ void AYPCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 	
-	/* void SetWeapon를 구현하게 되어 삭제됨
-	// 무기 액터 생성하기
-	FName WeaponSocket(TEXT("hand_rSocket"));
-	// 새롭게 액터를 생성하는 명령어
-	// 인자 : 생성할 액터의 클래스, 액터가 앞으로 생성할 위치 및 회전
-	auto CurWeapon = GetWorld()->SpawnActor<AYPWeapon>(FVector::ZeroVector, FRotator::ZeroRotator);
-	if (nullptr != CurWeapon)
+	// 캐릭터 컴포넌트와 UI 위젯을 연결함
+	auto CharacterWidget = Cast<UYPCharacterWidget>(HPBarWidget->GetUserWidgetObject());
+	if (nullptr != CharacterWidget)
 	{
-		CurWeapon->AttachToComponent(GetMesh(), FAttachmentTransformRules::SnapToTargetIncludingScale, WeaponSocket);
+		CharacterWidget->BindCharacterStat(CharacterStat);
 	}
-	*/
 }
 
 // 컨트롤 모드 세팅 함수
@@ -191,7 +200,8 @@ void AYPCharacter::PostInitializeComponents()
 		YPAnim->SetDeadAnim();
 		// 충돌 끔
 		SetActorEnableCollision(false);
-		});
+	});
+
 }
 
 // TakeDamage 함수를 오버라이드해 액터가 받은 대미지를 처리하는 로직을 추가함
