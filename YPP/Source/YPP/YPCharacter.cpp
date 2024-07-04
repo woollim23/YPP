@@ -6,6 +6,7 @@
 #include "YPWeapon.h"
 #include "YPCharacterStatComponent.h"
 #include "YPCharacterWidget.h"
+#include "YPAIController.h"
 #include "DrawDebugHelpers.h"
 #include "Engine/DamageEvents.h"
 #include "Components/WidgetComponent.h"
@@ -76,6 +77,10 @@ AYPCharacter::AYPCharacter()
 		HPBarWidget->SetWidgetClass(UI_HUD.Class);
 		HPBarWidget->SetDrawSize(FVector2D(150.0f, 50.0f));
 	}
+
+	AIControllerClass = AYPAIController::StaticClass();
+	// 앞으로 생성되는 플레이어가 조종하는 것 외의 모든 캐릭터는 YPAIController의 지배를 받음
+	AutoPossessAI = EAutoPossessAI::PlacedInWorldOrSpawned;
 }
 
 // Called when the game starts or when spawned
@@ -195,7 +200,7 @@ void AYPCharacter::PostInitializeComponents()
 
 	// 브로드캐스트로 발동하는 체력 0 감지 델리게이트
 	CharacterStat->OnHPIsZero.AddLambda([this]() -> void {
-		ABLOG(Warning, TEXT("OnHPIsZero"));
+		YPLOG(Warning, TEXT("OnHPIsZero"));
 		// 죽는 애니메이션 재생
 		YPAnim->SetDeadAnim();
 		// 충돌 끔
@@ -209,7 +214,7 @@ void AYPCharacter::PostInitializeComponents()
 float AYPCharacter::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)
 {
 	float FinalDamage = Super::TakeDamage(DamageAmount, DamageEvent, EventInstigator, DamageCauser);
-	ABLOG(Warning, TEXT("Actor : %s took Damage : %f"), *GetName(), FinalDamage);
+	YPLOG(Warning, TEXT("Actor : %s took Damage : %f"), *GetName(), FinalDamage);
 
 	// 피해입은 데미지 전달
 	CharacterStat->SetDamage(FinalDamage);
@@ -423,7 +428,7 @@ void AYPCharacter::AttackCheck()
 	{
 		if (HitResult.HasValidHitObjectHandle())
 		{
-			ABLOG(Warning, TEXT("Hit Actor Name : %s"), *HitResult.ToString());
+			YPLOG(Warning, TEXT("Hit Actor Name : %s"), *HitResult.ToString());
 
 			FDamageEvent DamageEvent;
 			// 액터에 대미지를 전달하는 함수

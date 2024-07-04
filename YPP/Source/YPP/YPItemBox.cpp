@@ -62,7 +62,7 @@ void AYPItemBox::PostInitializeComponents()
 
 void AYPItemBox::OnCharacterOverlap(UPrimitiveComponent* overlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	ABLOG_S(Warning);
+	YPLOG_S(Warning);
 
 	auto YPCharacter = Cast<AYPCharacter>(OtherActor);
 	YPCHECK(nullptr != YPCharacter);
@@ -86,7 +86,7 @@ void AYPItemBox::OnCharacterOverlap(UPrimitiveComponent* overlappedComp, AActor*
 		else
 		{
 			// 캐릭터가 이미 무기를 들고 있으면 문구 출력
-			ABLOG(Warning, TEXT("%s can't equip weapon currently."), *YPCharacter->GetName());
+			YPLOG(Warning, TEXT("%s can't equip weapon currently."), *YPCharacter->GetName());
 		}
 	}
 }

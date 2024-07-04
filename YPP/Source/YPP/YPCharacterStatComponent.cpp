@@ -51,7 +51,7 @@ void UYPCharacterStatComponent::SetNewLevel(int32 NewLevel)
 	}
 	else
 	{
-		ABLOG(Error, TEXT("Level (%d) data doesn't exist"), NewLevel);
+		YPLOG(Error, TEXT("Level (%d) data doesn't exist"), NewLevel);
 	}
 }
 

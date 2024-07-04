@@ -19,7 +19,7 @@ UYPGameInstance::UYPGameInstance()
 void UYPGameInstance::Init()
 {
 	Super::Init();
-	ABLOG(Warning,TEXT("DropExp of Level 20 YPCharacter : %d"), GetYPCharacterData(20)->DropExp);
+	YPLOG(Warning,TEXT("DropExp of Level 20 YPCharacter : %d"), GetYPCharacterData(20)->DropExp);
 }
 
 FYPCharacterData* UYPGameInstance::GetYPCharacterData(int32 Level)

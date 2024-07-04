@@ -13,7 +13,7 @@ AYPGameMode::AYPGameMode()
 
 void AYPGameMode::PostLogin(APlayerController* NewPlayer)
 {
-	//ABLOG(Warning, TEXT("PostLogin Begin"));
+	//YPLOG(Warning, TEXT("PostLogin Begin"));
 	Super::PostLogin(NewPlayer);
-	//ABLOG(Warning, TEXT("PostLogin End"));
+	//YPLOG(Warning, TEXT("PostLogin End"));
 }

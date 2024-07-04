@@ -33,6 +33,12 @@
     <Filter Include="Source\YPP">
       <UniqueIdentifier>{66F23F1D-9606-307E-990E-9CD86B24415C}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\YPP\YPAIController.cpp">
+      <Filter>Source\YPP</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\YPP\YPAIController.h">
+      <Filter>Source\YPP</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\YPP\YPAnimInstance.cpp">
       <Filter>Source\YPP</Filter>
     </ClCompile>
