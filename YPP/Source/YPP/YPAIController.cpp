@@ -2,43 +2,45 @@
 
 
 #include "YPAIController.h"
-#include "NavigationSystem.h"
-#include "Blueprint/AIBlueprintHelperLibrary.h"
+#include "BehaviorTree/BehaviorTree.h"
+#include "BehaviorTree/BlackboardData.h"
+#include "BehaviorTree/BlackboardComponent.h"
+
+// 정적 변수로 선언, npc 생성 위치 변수
+const FName AYPAIController::HomePosKey(TEXT("HomePos"));
+// npc가 이동할 위치 변수
+const FName AYPAIController::PatrolPosKey(TEXT("PatrolPos"));
 
 AYPAIController::AYPAIController()
 {
-	// 탐색 타이머
-	RepeatInterval = 3.0f;
+	// 만들어둔 블랙보드 데이터 불러옴
+	static ConstructorHelpers::FObjectFinder<UBlackboardData> BBObject(TEXT("/Script/AIModule.BlackboardData'/Game/Book/AI/BB_YPCharacter.BB_YPCharacter'"));
+	if (BBObject.Succeeded())
+	{
+		BBAsset = BBObject.Object;
+	}
+
+	// 만들어둔 비헤비어트리 불러옴
+	static ConstructorHelpers::FObjectFinder<UBehaviorTree> BTObject(TEXT("/Script/AIModule.BehaviorTree'/Game/Book/AI/BT_YPCharacter.BT_YPCharacter'"));
+	if (BTObject.Succeeded())
+	{
+		BTAsset = BTObject.Object;
+	}
 }
 
 void AYPAIController::OnPossess(APawn* InPawn)
 {
 	Super::OnPossess(InPawn);
-	// AI컨트롤러에 타이머를 설치, 3초로 타이머를 맞춤, 3초마다 목적지로 이동
-	GetWorld()->GetTimerManager().SetTimer(RepeatTimerHandle, this, &AYPAIController::OnRepeatTimer, RepeatInterval, true);
-}
 
-void AYPAIController::OnUnPossess()
-{
-	Super::OnUnPossess();
-	GetWorld()->GetTimerManager().ClearTimer(RepeatTimerHandle);
-}
-
-void AYPAIController::OnRepeatTimer()
-{
-	auto CurrentPawn = GetPawn();
-	YPCHECK(nullptr != CurrentPawn);
-
-
-	UNavigationSystemV1* NavSystem = UNavigationSystemV1::GetNavigationSystem(GetWorld());
-	if (nullptr == NavSystem) return;
-
-	// 반경 500 이내로 랜덤으로 목적지를 가져옴
-	FNavLocation NextLocation;
-	if (NavSystem->GetRandomPointInNavigableRadius(FVector::ZeroVector, 500.0f, NextLocation))
+	UBlackboardComponent* BlackboardComp = Blackboard.Get();
+	if (UseBlackboard(BBAsset, BlackboardComp))
 	{
-		// 목적지로 폰을 이동시킴
-		UAIBlueprintHelperLibrary::SimpleMoveToLocation(this, NextLocation);
-		YPLOG(Warning, TEXT("Next Location : %s"), *NextLocation.Location.ToString());
+		// HomePosKey의 위치값을 폰의 초기 위치로 설정
+		BlackboardComp->SetValueAsVector(HomePosKey, InPawn->GetActorLocation()); 
+		if (!RunBehaviorTree(BTAsset))
+		{
+			YPLOG(Error, TEXT("AIController couldn't run behavior tree!"));
+		}
 	}
+	this->Blackboard = BlackboardComp;
 }

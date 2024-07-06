@@ -18,11 +18,17 @@ class YPP_API AYPAIController : public AAIController
 public:
 	AYPAIController();
 	virtual void OnPossess(APawn* InPawn) override;
-	virtual void OnUnPossess() override;
+
+	// npc 생성 위치 변수
+	static const FName HomePosKey;
+	// npc가 이동할 위치 변수
+	static const FName PatrolPosKey;
 
 private:
-	void OnRepeatTimer();
+	UPROPERTY()
+	class UBehaviorTree* BTAsset;
 
-	FTimerHandle RepeatTimerHandle;
-	float RepeatInterval;
+	UPROPERTY()
+	class UBlackboardData* BBAsset;
+
 };
