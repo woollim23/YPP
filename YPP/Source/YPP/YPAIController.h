@@ -23,6 +23,9 @@ public:
 	static const FName HomePosKey;
 	// npc가 이동할 위치 변수
 	static const FName PatrolPosKey;
+	// 플레이어 캐릭터를 탐지하는 변수
+	static const FName TargetKey;
+
 
 private:
 	UPROPERTY()
