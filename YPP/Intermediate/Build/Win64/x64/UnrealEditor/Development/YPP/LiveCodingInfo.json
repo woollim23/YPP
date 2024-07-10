@@ -1,5 +1,39 @@
 {
 	"RemapUnityFiles": 
 	{
+		"Module.YPP.cpp.obj": [
+			"BTDecorator_IsInAttackRange.gen.cpp.obj",
+			"BTService_Detect.gen.cpp.obj",
+			"BTTask_FindPatrolPos.gen.cpp.obj",
+			"YPAIController.gen.cpp.obj",
+			"YPAnimInstance.gen.cpp.obj",
+			"YPCharacter.gen.cpp.obj",
+			"YPCharacterStatComponent.gen.cpp.obj",
+			"YPCharacterWidget.gen.cpp.obj",
+			"YPGameInstance.gen.cpp.obj",
+			"YPGameMode.gen.cpp.obj",
+			"YPItemBox.gen.cpp.obj",
+			"YPPlayerController.gen.cpp.obj",
+			"YPWeapon.gen.cpp.obj",
+			"YPAIController.cpp.obj",
+			"YPAnimInstance.cpp.obj",
+			"YPCharacterStatComponent.cpp.obj",
+			"YPCharacterWidget.cpp.obj",
+			"YPGameInstance.cpp.obj",
+			"YPGameMode.cpp.obj",
+			"YPItemBox.cpp.obj",
+			"YPP.cpp.obj",
+			"YPPlayerController.cpp.obj",
+			"YPWeapon.cpp.obj",
+			"BTTask_Attack.gen.cpp.obj",
+			"BTTask_TurnToTarget.gen.cpp.obj",
+			"YPP.init.gen.cpp.obj",
+			"BTDecorator_IsInAttackRange.cpp.obj",
+			"BTService_Detect.cpp.obj",
+			"BTTask_Attack.cpp.obj",
+			"BTTask_FindPatrolPos.cpp.obj",
+			"BTTask_TurnToTarget.cpp.obj",
+			"YPCharacter.cpp.obj"
+		]
 	}
 }

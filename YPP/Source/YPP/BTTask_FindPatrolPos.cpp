@@ -16,7 +16,7 @@ EBTNodeResult::Type UBTTask_FindPatrolPos::ExecuteTask(UBehaviorTreeComponent& O
 	// 오너 컴포넌트와, 노드 메모리를 전달
 	EBTNodeResult::Type Result = Super::ExecuteTask(OwnerComp, NodeMemory);
 
-	// 폰을 가져옴
+	// 폰(NPC)을 가져옴
 	auto ControllingPawn = OwnerComp.GetAIOwner()->GetPawn();
 	// 폰이 없으면 실패 반환
 	if (nullptr == ControllingPawn)
@@ -26,6 +26,7 @@ EBTNodeResult::Type UBTTask_FindPatrolPos::ExecuteTask(UBehaviorTreeComponent& O
 	if (nullptr == NavSystem)
 		return EBTNodeResult::Failed;
 
+	// NPC의 현재 위치 저장
 	FVector Origin = OwnerComp.GetBlackboardComponent()->GetValueAsVector(AYPAIController::HomePosKey);
 	FNavLocation NextPatrol;
 

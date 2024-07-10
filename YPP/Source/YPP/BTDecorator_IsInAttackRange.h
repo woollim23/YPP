@@ -18,6 +18,7 @@ public:
 	UBTDecorator_IsInAttackRange();
 
 protected:
-	// 원하는 조건이 달성됐는지 파악하는 함수
+	// 데코레이터 클래스는 이 함수를 상속 받아 원하는 조건이 달성됐는지 파악하도록 설계됨
+	// const로 선언되어 멤버 변수 변경이 불가능
 	virtual bool CalculateRawConditionValue(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory) const override;
 };

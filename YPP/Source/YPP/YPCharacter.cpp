@@ -143,6 +143,12 @@ void AYPCharacter::SetControlMode(EControlMode NewControlMode)
 		// 캐릭터가 부드럽게 회전하도록 보완 (회전 속도 지정)
 		GetCharacterMovement()->RotationRate = FRotator(0.0f, 720.0f, 0.0f);
 		break;
+	case EControlMode::NPC:
+		bUseControllerRotationYaw = false;
+		GetCharacterMovement()->bUseControllerDesiredRotation = false;
+		GetCharacterMovement()->bOrientRotationToMovement = true;
+		GetCharacterMovement()->RotationRate = FRotator(0.0f, 480.0f, 0.0f);
+		break;
 	}
 }
 
@@ -222,6 +228,22 @@ float AYPCharacter::TakeDamage(float DamageAmount, FDamageEvent const& DamageEve
 	return FinalDamage;
 }
 
+void AYPCharacter::PossessedBy(AController* NewController)
+{
+	Super::PossessedBy(NewController);
+
+	if (IsPlayerControlled())
+	{
+		SetControlMode(EControlMode::DIABLO);
+		GetCharacterMovement()->MaxWalkSpeed = 600.0f;
+	}
+	else
+	{
+		SetControlMode(EControlMode::NPC);
+		GetCharacterMovement()->MaxWalkSpeed = 300.0f;
+	}
+}
+
 // Called to bind functionality to input
 void AYPCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
@@ -261,6 +283,26 @@ void AYPCharacter::SetWeapon(AYPWeapon* NewWeapon)
 		// 무기 액터의 소유자를 캐릭터로 변경함
 		NewWeapon->SetOwner(this);
 		CurrentWeapon = NewWeapon;
+	}
+}
+
+void AYPCharacter::Attack()
+{
+	if (IsAttacking)
+	{
+		YPCHECK(FMath::IsWithinInclusive<int32>(CurrentCombo, 1, MaxCombo));
+		if (CanNextCombo)
+		{
+			IsComboInputOn = true;
+		}
+	}
+	else
+	{
+		YPCHECK(CurrentCombo == 0);
+		AttackStartComboState();
+		YPAnim->PlayAttackMontage();
+		YPAnim->JumpToAttackMontageSection(CurrentCombo);
+		IsAttacking = true;
 	}
 }
 
@@ -339,25 +381,7 @@ void AYPCharacter::ViewChange()
 	}
 }
 
-void AYPCharacter::Attack()
-{
-	if (IsAttacking)
-	{
-		YPCHECK(FMath::IsWithinInclusive<int32>(CurrentCombo, 1, MaxCombo));
-		if (CanNextCombo)
-		{
-			IsComboInputOn = true;
-		}
-	}
-	else
-	{
-		YPCHECK(CurrentCombo == 0);
-		AttackStartComboState();
-		YPAnim->PlayAttackMontage();
-		YPAnim->JumpToAttackMontageSection(CurrentCombo);
-		IsAttacking = true;
-	}
-}
+
 
 // 공격 몽타주가 끝나면 호출되는 함수
 void AYPCharacter::OnAttackMontageEnded(UAnimMontage* Montage, bool bInterrupted)
@@ -367,6 +391,12 @@ void AYPCharacter::OnAttackMontageEnded(UAnimMontage* Montage, bool bInterrupted
 	YPCHECK(CurrentCombo > 0);
 	IsAttacking = false;
 	AttackEndComboState();
+
+	// 플레이어의 공격이 종료되면 공격 태스크에서 해당 알림을 받을 수 있도록 하는 델리게이트
+	// 공격이 종료될 때 이를 호출하게 함
+	// 태스크에서 람다 함수를 해당 델리게이트에 등록하고 틱 함수로직에서 이를 파악
+	// FinishLatenTask 함수를 호출하여 태스크 종료하도록 함
+	OnAttackEnd.Broadcast();
 }
 
 // 공격 시작할 때 관련 속성 지정

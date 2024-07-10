@@ -6,6 +6,10 @@
 #include "GameFramework/Character.h"
 #include "YPCharacter.generated.h"
 
+// 플레이어의 공격이 종료되면 공격 태스크에서 해당 알림을 받을 수 있도록 하는 델리게이트
+// 공격이 종료될 때 이를 호출하게 함
+DECLARE_MULTICAST_DELEGATE(FOnAttackEndDelegate);
+
 UCLASS()
 class YPP_API AYPCharacter : public ACharacter
 {
@@ -23,7 +27,8 @@ protected:
 	enum class EControlMode
 	{
 		GTA,
-		DIABLO
+		DIABLO,
+		NPC
 	};
 
 	// 조작 모드 전환을 쉽게 해주는 
@@ -46,6 +51,7 @@ public:
 	virtual void PostInitializeComponents() override;
 	// TakeDamage 함수를 오버라이드해 액터가 받은 대미지를 처리하는 로직을 추가함
 	virtual float TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser) override;
+	virtual void PossessedBy(AController* NewController) override;
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
@@ -71,6 +77,15 @@ public:
 	UPROPERTY(VisibleAnywhere, Category = UI)
 	class UWidgetComponent* HPBarWidget;
 
+	// 공격 함수
+	void Attack();
+
+	// 플레이어의 공격이 종료되면 공격 태스크에서 해당 알림을 받을 수 있도록 하는 델리게이트
+	// 공격이 종료될 때 이를 호출하게 함
+	// 태스크에서 람다 함수를 해당 델리게이트에 등록하고 틱 함수로직에서 이를 파악
+	// FinishLatenTask 함수를 호출하여 태스크 종료하도록 함
+	FOnAttackEndDelegate OnAttackEnd;
+
 private:
 	// 위아래 방향키 입력 함수
 	void UpDown(float NewAxisValue);
@@ -83,8 +98,6 @@ private:
 
 	// 조작모드 시점 전환
 	void ViewChange();
-	// 공격 함수
-	void Attack();
 
 	// 애니메이션 몽타주 재생이 끝나면 발동하는 함수
 	UFUNCTION()

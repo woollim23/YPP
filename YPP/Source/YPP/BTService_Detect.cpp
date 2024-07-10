@@ -39,6 +39,8 @@ void UBTService_Detect::TickNode(UBehaviorTreeComponent& OwnerComp, uint8* NodeM
 	// 나 자신은 무시한채로 서칭하기위한 인자들을 받음
 	FCollisionQueryParams CollisionQueryParam(NAME_None, false, ControllingPawn);
 	// 충돌 서치
+	// OverlapMultiByChannel : 반경내 모든 캐릭터를 감지하는 함수. 
+	// 반경 내에 감지된 모든 캐릭터 정보는 목록으로 관리하는 데 적합한 언리얼 엔진의 자료구조인 TArray로 전달됨.
 	bool bResult = World->OverlapMultiByChannel(
 		OverlapResults, // 결과 받는 곳
 		Center, // 현재 위치
@@ -55,6 +57,7 @@ void UBTService_Detect::TickNode(UBehaviorTreeComponent& OwnerComp, uint8* NodeM
 		{
 			// 탐색 범위내에 있는 캐릭터(플레이어) 값을 받아옴
 			AYPCharacter* YPCharacter = Cast<AYPCharacter>(OverlapResult.GetActor());
+			// IsPlayerController -> 플레이어 콘트롤러 인지 확인하는 함수
 			// 진짜로 원하던 타겟(유저)인지 확인
 			// 크로스 체킹, 위에서 한번 아래서 한번 총 두번 체크한셈
 			if (YPCharacter && YPCharacter->GetController()->IsPlayerController())

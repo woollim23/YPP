@@ -45,10 +45,22 @@
     <ClInclude Include="..\..\Source\YPP\BTService_Detect.h">
       <Filter>Source\YPP</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\YPP\BTTask_Attack.cpp">
+      <Filter>Source\YPP</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\YPP\BTTask_Attack.h">
+      <Filter>Source\YPP</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\YPP\BTTask_FindPatrolPos.cpp">
       <Filter>Source\YPP</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\YPP\BTTask_FindPatrolPos.h">
+      <Filter>Source\YPP</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\YPP\BTTask_TurnToTarget.cpp">
+      <Filter>Source\YPP</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\YPP\BTTask_TurnToTarget.h">
       <Filter>Source\YPP</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\YPP\YPAIController.cpp">

@@ -13,6 +13,7 @@ UBTDecorator_IsInAttackRange::UBTDecorator_IsInAttackRange()
 	NodeName = TEXT("CanAttack");
 }
 
+// 데코레이터 클래스는 이 함수를 상속 받아 원하는 조건이 달성됐는지 파악하도록 설계됨
 bool UBTDecorator_IsInAttackRange::CalculateRawConditionValue(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory) const
 {
 	bool bResult = Super::CalculateRawConditionValue(OwnerComp, NodeMemory);
@@ -21,10 +22,12 @@ bool UBTDecorator_IsInAttackRange::CalculateRawConditionValue(UBehaviorTreeCompo
 	if(nullptr == ControllingPawn)
 		return false;
 
+	// 목표물(플레이어 캐릭터) 오브젝트를 저장
 	auto Target = Cast<AYPCharacter>(OwnerComp.GetBlackboardComponent()->GetValueAsObject(AYPAIController::TargetKey));
 	if (nullptr == Target)
 		return false;
 
+	// 타겟과의 거리가 200 이하인지 여부 확인
 	bResult = (Target->GetDistanceTo(ControllingPawn) <= 200.0f);
 	return bResult;
 }
