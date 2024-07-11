@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "YPP/YPAnimInstance.h"
+#include "YPP/Public/YPAnimInstance.h"
 #include "Runtime/Engine/Classes/Components/SkeletalMeshComponent.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeYPAnimInstance() {}
@@ -26,7 +26,7 @@ struct Z_Construct_UFunction_UYPAnimInstance_AnimNotify_AttackHitCheck_Statics
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// \xef\xbf\xbd\xef\xbf\xbd\xc6\xbc\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xd4\xbc\xef\xbf\xbd - \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xc6\xae \xc3\xbc\xc5\xa9\n" },
 #endif
-		{ "ModuleRelativePath", "YPAnimInstance.h" },
+		{ "ModuleRelativePath", "Public/YPAnimInstance.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "\xef\xbf\xbd\xef\xbf\xbd\xc6\xbc\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xd4\xbc\xef\xbf\xbd - \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xc6\xae \xc3\xbc\xc5\xa9" },
 #endif
@@ -61,7 +61,7 @@ struct Z_Construct_UFunction_UYPAnimInstance_AnimNotify_NextAttackCheck_Statics
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// \xef\xbf\xbd\xef\xbf\xbd\xc6\xbc\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xd4\xbc\xef\xbf\xbd - \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xc3\xbc\xc5\xa9\n" },
 #endif
-		{ "ModuleRelativePath", "YPAnimInstance.h" },
+		{ "ModuleRelativePath", "Public/YPAnimInstance.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "\xef\xbf\xbd\xef\xbf\xbd\xc6\xbc\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xd4\xbc\xef\xbf\xbd - \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xc3\xbc\xc5\xa9" },
 #endif
@@ -112,7 +112,7 @@ struct Z_Construct_UClass_UYPAnimInstance_Statics
 #endif
 		{ "HideCategories", "AnimInstance" },
 		{ "IncludePath", "YPAnimInstance.h" },
-		{ "ModuleRelativePath", "YPAnimInstance.h" },
+		{ "ModuleRelativePath", "Public/YPAnimInstance.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CurrentPawnSpeed_MetaData[] = {
 		{ "AllowPrivateAccess", "TRUE" },
@@ -120,7 +120,7 @@ struct Z_Construct_UClass_UYPAnimInstance_Statics
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xd3\xb5\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\n" },
 #endif
-		{ "ModuleRelativePath", "YPAnimInstance.h" },
+		{ "ModuleRelativePath", "Public/YPAnimInstance.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xd3\xb5\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd" },
 #endif
@@ -131,7 +131,7 @@ struct Z_Construct_UClass_UYPAnimInstance_Statics
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xdf\xbf\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xd6\xb4\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\n" },
 #endif
-		{ "ModuleRelativePath", "YPAnimInstance.h" },
+		{ "ModuleRelativePath", "Public/YPAnimInstance.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xdf\xbf\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xd6\xb4\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd" },
 #endif
@@ -142,7 +142,7 @@ struct Z_Construct_UClass_UYPAnimInstance_Statics
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xc5\xb8\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\n" },
 #endif
-		{ "ModuleRelativePath", "YPAnimInstance.h" },
+		{ "ModuleRelativePath", "Public/YPAnimInstance.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xc5\xb8\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd" },
 #endif
@@ -153,7 +153,7 @@ struct Z_Construct_UClass_UYPAnimInstance_Statics
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// \xef\xbf\xbd\xd7\xb4\xef\xbf\xbd \xef\xbf\xbd\xd6\xb4\xcf\xb8\xef\xbf\xbd\xef\xbf\xbd\xcc\xbc\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xd3\xbc\xef\xbf\xbd\n" },
 #endif
-		{ "ModuleRelativePath", "YPAnimInstance.h" },
+		{ "ModuleRelativePath", "Public/YPAnimInstance.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "\xef\xbf\xbd\xd7\xb4\xef\xbf\xbd \xef\xbf\xbd\xd6\xb4\xcf\xb8\xef\xbf\xbd\xef\xbf\xbd\xcc\xbc\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xd3\xbc\xef\xbf\xbd" },
 #endif
@@ -168,8 +168,8 @@ struct Z_Construct_UClass_UYPAnimInstance_Statics
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
-		{ &Z_Construct_UFunction_UYPAnimInstance_AnimNotify_AttackHitCheck, "AnimNotify_AttackHitCheck" }, // 2957644621
-		{ &Z_Construct_UFunction_UYPAnimInstance_AnimNotify_NextAttackCheck, "AnimNotify_NextAttackCheck" }, // 3667486533
+		{ &Z_Construct_UFunction_UYPAnimInstance_AnimNotify_AttackHitCheck, "AnimNotify_AttackHitCheck" }, // 3218902018
+		{ &Z_Construct_UFunction_UYPAnimInstance_AnimNotify_NextAttackCheck, "AnimNotify_NextAttackCheck" }, // 311161854
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -233,14 +233,14 @@ UYPAnimInstance::~UYPAnimInstance() {}
 // End Class UYPAnimInstance
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_YPAnimInstance_h_Statics
+struct Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_YPAnimInstance_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UYPAnimInstance, UYPAnimInstance::StaticClass, TEXT("UYPAnimInstance"), &Z_Registration_Info_UClass_UYPAnimInstance, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UYPAnimInstance), 3935572320U) },
+		{ Z_Construct_UClass_UYPAnimInstance, UYPAnimInstance::StaticClass, TEXT("UYPAnimInstance"), &Z_Registration_Info_UClass_UYPAnimInstance, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UYPAnimInstance), 2752963059U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_YPAnimInstance_h_441478566(TEXT("/Script/YPP"),
-	Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_YPAnimInstance_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_YPAnimInstance_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_YPAnimInstance_h_3139698320(TEXT("/Script/YPP"),
+	Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_YPAnimInstance_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_YPAnimInstance_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration

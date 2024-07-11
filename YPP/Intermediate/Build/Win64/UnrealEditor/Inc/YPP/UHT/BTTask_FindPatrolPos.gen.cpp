@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "YPP/BTTask_FindPatrolPos.h"
+#include "YPP/Public/BTTask_FindPatrolPos.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeBTTask_FindPatrolPos() {}
 
@@ -33,7 +33,7 @@ struct Z_Construct_UClass_UBTTask_FindPatrolPos_Statics
 		{ "Comment", "/**\n * \n */" },
 #endif
 		{ "IncludePath", "BTTask_FindPatrolPos.h" },
-		{ "ModuleRelativePath", "BTTask_FindPatrolPos.h" },
+		{ "ModuleRelativePath", "Public/BTTask_FindPatrolPos.h" },
 	};
 #endif // WITH_METADATA
 	static UObject* (*const DependentSingletons[])();
@@ -79,14 +79,14 @@ UBTTask_FindPatrolPos::~UBTTask_FindPatrolPos() {}
 // End Class UBTTask_FindPatrolPos
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_BTTask_FindPatrolPos_h_Statics
+struct Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_BTTask_FindPatrolPos_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UBTTask_FindPatrolPos, UBTTask_FindPatrolPos::StaticClass, TEXT("UBTTask_FindPatrolPos"), &Z_Registration_Info_UClass_UBTTask_FindPatrolPos, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UBTTask_FindPatrolPos), 3258127652U) },
+		{ Z_Construct_UClass_UBTTask_FindPatrolPos, UBTTask_FindPatrolPos::StaticClass, TEXT("UBTTask_FindPatrolPos"), &Z_Registration_Info_UClass_UBTTask_FindPatrolPos, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UBTTask_FindPatrolPos), 2669218356U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_BTTask_FindPatrolPos_h_1455279200(TEXT("/Script/YPP"),
-	Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_BTTask_FindPatrolPos_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_BTTask_FindPatrolPos_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_BTTask_FindPatrolPos_h_3016781518(TEXT("/Script/YPP"),
+	Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_BTTask_FindPatrolPos_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_BTTask_FindPatrolPos_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration

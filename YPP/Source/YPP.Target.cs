@@ -10,6 +10,8 @@ public class YPPTarget : TargetRules
 		Type = TargetType.Game;
 		DefaultBuildSettings = BuildSettingsVersion.V5;
 		IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_1;
-		ExtraModuleNames.Add("YPP");
-	}
+		//ExtraModuleNames.Add("YPP");
+
+        ExtraModuleNames.AddRange(new string[] { "YPP", "YPPSetting" });
+    }
 }

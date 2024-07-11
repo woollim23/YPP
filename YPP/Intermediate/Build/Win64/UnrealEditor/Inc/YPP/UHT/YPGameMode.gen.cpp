@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "YPP/YPGameMode.h"
+#include "YPP/Public/YPGameMode.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeYPGameMode() {}
 
@@ -34,7 +34,7 @@ struct Z_Construct_UClass_AYPGameMode_Statics
 #endif
 		{ "HideCategories", "Info Rendering MovementReplication Replication Actor Input Movement Collision Rendering HLOD WorldPartition DataLayers Transformation" },
 		{ "IncludePath", "YPGameMode.h" },
-		{ "ModuleRelativePath", "YPGameMode.h" },
+		{ "ModuleRelativePath", "Public/YPGameMode.h" },
 		{ "ShowCategories", "Input|MouseInput Input|TouchInput" },
 	};
 #endif // WITH_METADATA
@@ -81,14 +81,14 @@ AYPGameMode::~AYPGameMode() {}
 // End Class AYPGameMode
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_YPGameMode_h_Statics
+struct Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_YPGameMode_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AYPGameMode, AYPGameMode::StaticClass, TEXT("AYPGameMode"), &Z_Registration_Info_UClass_AYPGameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AYPGameMode), 4230727013U) },
+		{ Z_Construct_UClass_AYPGameMode, AYPGameMode::StaticClass, TEXT("AYPGameMode"), &Z_Registration_Info_UClass_AYPGameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AYPGameMode), 4222701974U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_YPGameMode_h_3315807733(TEXT("/Script/YPP"),
-	Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_YPGameMode_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_YPGameMode_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_YPGameMode_h_402404599(TEXT("/Script/YPP"),
+	Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_YPGameMode_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_YPGameMode_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration

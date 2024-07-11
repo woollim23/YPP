@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "YPP/YPWeapon.h"
+#include "YPP/Public/YPWeapon.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeYPWeapon() {}
 
@@ -31,12 +31,12 @@ struct Z_Construct_UClass_AYPWeapon_Statics
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[] = {
 		{ "IncludePath", "YPWeapon.h" },
-		{ "ModuleRelativePath", "YPWeapon.h" },
+		{ "ModuleRelativePath", "Public/YPWeapon.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Weapon_MetaData[] = {
 		{ "Category", "Weapon" },
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "YPWeapon.h" },
+		{ "ModuleRelativePath", "Public/YPWeapon.h" },
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_Weapon;
@@ -89,14 +89,14 @@ AYPWeapon::~AYPWeapon() {}
 // End Class AYPWeapon
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_YPWeapon_h_Statics
+struct Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_YPWeapon_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AYPWeapon, AYPWeapon::StaticClass, TEXT("AYPWeapon"), &Z_Registration_Info_UClass_AYPWeapon, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AYPWeapon), 2791321183U) },
+		{ Z_Construct_UClass_AYPWeapon, AYPWeapon::StaticClass, TEXT("AYPWeapon"), &Z_Registration_Info_UClass_AYPWeapon, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AYPWeapon), 3702582097U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_YPWeapon_h_229892348(TEXT("/Script/YPP"),
-	Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_YPWeapon_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_YPWeapon_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_YPWeapon_h_986264950(TEXT("/Script/YPP"),
+	Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_YPWeapon_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_YPWeapon_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration

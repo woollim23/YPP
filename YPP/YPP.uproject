@@ -5,13 +5,23 @@
 	"Description": "",
 	"Modules": [
 		{
+			"Name": "YPPSetting",
+			"Type": "Runtime",
+			"LoadingPhase": "PreDefault",
+			"AdditionalDependencies": [
+				"CoreUObject"
+			]
+			
+		},
+		{
 			"Name": "YPP",
 			"Type": "Runtime",
 			"LoadingPhase": "Default",
 			"AdditionalDependencies": [
 				"Engine",
 				"UMG",
-				"AIModule"
+				"AIModule",
+				"YPPSetting"
 			]
 		}
 	],
@@ -21,14 +31,7 @@
 			"Enabled": true,
 			"TargetAllowList": [
 				"Editor"
-			]
-		},
-		{
-			"Name": "VisualStudioTools",
-			"Enabled": true,
-			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/362651520df94e4fa65492dbcba44ae2",
-			"SupportedTargetPlatforms": [
-				"Win64"
+
 			]
 		}
 	]

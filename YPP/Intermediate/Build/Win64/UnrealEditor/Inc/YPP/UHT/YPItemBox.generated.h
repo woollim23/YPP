@@ -18,12 +18,12 @@ struct FHitResult;
 #endif
 #define YPP_YPItemBox_generated_h
 
-#define FID_Git_YPP_YPP_Source_YPP_YPItemBox_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_Git_YPP_YPP_Source_YPP_Public_YPItemBox_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
 	DECLARE_FUNCTION(execOnEffectFinished); \
 	DECLARE_FUNCTION(execOnCharacterOverlap);
 
 
-#define FID_Git_YPP_YPP_Source_YPP_YPItemBox_h_12_INCLASS_NO_PURE_DECLS \
+#define FID_Git_YPP_YPP_Source_YPP_Public_YPItemBox_h_12_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAYPItemBox(); \
 	friend struct Z_Construct_UClass_AYPItemBox_Statics; \
@@ -32,7 +32,7 @@ public: \
 	DECLARE_SERIALIZER(AYPItemBox)
 
 
-#define FID_Git_YPP_YPP_Source_YPP_YPItemBox_h_12_ENHANCED_CONSTRUCTORS \
+#define FID_Git_YPP_YPP_Source_YPP_Public_YPItemBox_h_12_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	AYPItemBox(AYPItemBox&&); \
@@ -44,13 +44,13 @@ public: \
 	NO_API virtual ~AYPItemBox();
 
 
-#define FID_Git_YPP_YPP_Source_YPP_YPItemBox_h_9_PROLOG
-#define FID_Git_YPP_YPP_Source_YPP_YPItemBox_h_12_GENERATED_BODY \
+#define FID_Git_YPP_YPP_Source_YPP_Public_YPItemBox_h_9_PROLOG
+#define FID_Git_YPP_YPP_Source_YPP_Public_YPItemBox_h_12_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Git_YPP_YPP_Source_YPP_YPItemBox_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_Git_YPP_YPP_Source_YPP_YPItemBox_h_12_INCLASS_NO_PURE_DECLS \
-	FID_Git_YPP_YPP_Source_YPP_YPItemBox_h_12_ENHANCED_CONSTRUCTORS \
+	FID_Git_YPP_YPP_Source_YPP_Public_YPItemBox_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_Git_YPP_YPP_Source_YPP_Public_YPItemBox_h_12_INCLASS_NO_PURE_DECLS \
+	FID_Git_YPP_YPP_Source_YPP_Public_YPItemBox_h_12_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -58,7 +58,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> YPP_API UClass* StaticClass<class AYPItemBox>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_Git_YPP_YPP_Source_YPP_YPItemBox_h
+#define CURRENT_FILE_ID FID_Git_YPP_YPP_Source_YPP_Public_YPItemBox_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

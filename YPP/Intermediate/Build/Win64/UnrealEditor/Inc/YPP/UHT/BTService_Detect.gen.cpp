@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "YPP/BTService_Detect.h"
+#include "YPP/Public/BTService_Detect.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeBTService_Detect() {}
 
@@ -33,7 +33,7 @@ struct Z_Construct_UClass_UBTService_Detect_Statics
 		{ "Comment", "/**\n * \n */" },
 #endif
 		{ "IncludePath", "BTService_Detect.h" },
-		{ "ModuleRelativePath", "BTService_Detect.h" },
+		{ "ModuleRelativePath", "Public/BTService_Detect.h" },
 	};
 #endif // WITH_METADATA
 	static UObject* (*const DependentSingletons[])();
@@ -79,14 +79,14 @@ UBTService_Detect::~UBTService_Detect() {}
 // End Class UBTService_Detect
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_BTService_Detect_h_Statics
+struct Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_BTService_Detect_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UBTService_Detect, UBTService_Detect::StaticClass, TEXT("UBTService_Detect"), &Z_Registration_Info_UClass_UBTService_Detect, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UBTService_Detect), 2269297323U) },
+		{ Z_Construct_UClass_UBTService_Detect, UBTService_Detect::StaticClass, TEXT("UBTService_Detect"), &Z_Registration_Info_UClass_UBTService_Detect, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UBTService_Detect), 1197454852U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_BTService_Detect_h_3547257941(TEXT("/Script/YPP"),
-	Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_BTService_Detect_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_BTService_Detect_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_BTService_Detect_h_439618826(TEXT("/Script/YPP"),
+	Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_BTService_Detect_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_BTService_Detect_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration

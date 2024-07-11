@@ -1,0 +1,14 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\git\\ypp\\ypp\\source\\yppsetting\\private\\yppcharactersetting.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\git\\ypp\\ypp\\intermediate\\build\\win64\\x64\\yppeditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.inclorderunreal5_1.h.pch",
+        "Includes": [
+            "c:\\git\\ypp\\ypp\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\yppsetting\\definitions.yppsetting.h",
+            "c:\\git\\ypp\\ypp\\source\\yppsetting\\public\\yppcharactersetting.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

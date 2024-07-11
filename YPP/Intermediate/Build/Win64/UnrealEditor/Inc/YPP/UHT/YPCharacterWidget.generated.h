@@ -14,7 +14,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define YPP_YPCharacterWidget_generated_h
 
-#define FID_Git_YPP_YPP_Source_YPP_YPCharacterWidget_h_15_INCLASS_NO_PURE_DECLS \
+#define FID_Git_YPP_YPP_Source_YPP_Public_YPCharacterWidget_h_15_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUYPCharacterWidget(); \
 	friend struct Z_Construct_UClass_UYPCharacterWidget_Statics; \
@@ -23,7 +23,7 @@ public: \
 	DECLARE_SERIALIZER(UYPCharacterWidget)
 
 
-#define FID_Git_YPP_YPP_Source_YPP_YPCharacterWidget_h_15_ENHANCED_CONSTRUCTORS \
+#define FID_Git_YPP_YPP_Source_YPP_Public_YPCharacterWidget_h_15_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UYPCharacterWidget(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 private: \
@@ -37,12 +37,12 @@ public: \
 	NO_API virtual ~UYPCharacterWidget();
 
 
-#define FID_Git_YPP_YPP_Source_YPP_YPCharacterWidget_h_12_PROLOG
-#define FID_Git_YPP_YPP_Source_YPP_YPCharacterWidget_h_15_GENERATED_BODY \
+#define FID_Git_YPP_YPP_Source_YPP_Public_YPCharacterWidget_h_12_PROLOG
+#define FID_Git_YPP_YPP_Source_YPP_Public_YPCharacterWidget_h_15_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Git_YPP_YPP_Source_YPP_YPCharacterWidget_h_15_INCLASS_NO_PURE_DECLS \
-	FID_Git_YPP_YPP_Source_YPP_YPCharacterWidget_h_15_ENHANCED_CONSTRUCTORS \
+	FID_Git_YPP_YPP_Source_YPP_Public_YPCharacterWidget_h_15_INCLASS_NO_PURE_DECLS \
+	FID_Git_YPP_YPP_Source_YPP_Public_YPCharacterWidget_h_15_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -50,7 +50,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> YPP_API UClass* StaticClass<class UYPCharacterWidget>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_Git_YPP_YPP_Source_YPP_YPCharacterWidget_h
+#define CURRENT_FILE_ID FID_Git_YPP_YPP_Source_YPP_Public_YPCharacterWidget_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

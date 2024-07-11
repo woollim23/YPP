@@ -14,7 +14,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define YPP_BTDecorator_IsInAttackRange_generated_h
 
-#define FID_Git_YPP_YPP_Source_YPP_BTDecorator_IsInAttackRange_h_15_INCLASS_NO_PURE_DECLS \
+#define FID_Git_YPP_YPP_Source_YPP_Public_BTDecorator_IsInAttackRange_h_15_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUBTDecorator_IsInAttackRange(); \
 	friend struct Z_Construct_UClass_UBTDecorator_IsInAttackRange_Statics; \
@@ -23,7 +23,7 @@ public: \
 	DECLARE_SERIALIZER(UBTDecorator_IsInAttackRange)
 
 
-#define FID_Git_YPP_YPP_Source_YPP_BTDecorator_IsInAttackRange_h_15_ENHANCED_CONSTRUCTORS \
+#define FID_Git_YPP_YPP_Source_YPP_Public_BTDecorator_IsInAttackRange_h_15_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	UBTDecorator_IsInAttackRange(UBTDecorator_IsInAttackRange&&); \
@@ -35,12 +35,12 @@ public: \
 	NO_API virtual ~UBTDecorator_IsInAttackRange();
 
 
-#define FID_Git_YPP_YPP_Source_YPP_BTDecorator_IsInAttackRange_h_12_PROLOG
-#define FID_Git_YPP_YPP_Source_YPP_BTDecorator_IsInAttackRange_h_15_GENERATED_BODY \
+#define FID_Git_YPP_YPP_Source_YPP_Public_BTDecorator_IsInAttackRange_h_12_PROLOG
+#define FID_Git_YPP_YPP_Source_YPP_Public_BTDecorator_IsInAttackRange_h_15_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Git_YPP_YPP_Source_YPP_BTDecorator_IsInAttackRange_h_15_INCLASS_NO_PURE_DECLS \
-	FID_Git_YPP_YPP_Source_YPP_BTDecorator_IsInAttackRange_h_15_ENHANCED_CONSTRUCTORS \
+	FID_Git_YPP_YPP_Source_YPP_Public_BTDecorator_IsInAttackRange_h_15_INCLASS_NO_PURE_DECLS \
+	FID_Git_YPP_YPP_Source_YPP_Public_BTDecorator_IsInAttackRange_h_15_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -48,7 +48,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> YPP_API UClass* StaticClass<class UBTDecorator_IsInAttackRange>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_Git_YPP_YPP_Source_YPP_BTDecorator_IsInAttackRange_h
+#define CURRENT_FILE_ID FID_Git_YPP_YPP_Source_YPP_Public_BTDecorator_IsInAttackRange_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

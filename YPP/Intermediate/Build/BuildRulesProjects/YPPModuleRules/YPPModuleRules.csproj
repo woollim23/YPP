@@ -17,6 +17,7 @@
   <ItemGroup>
   <Compile Include="..\..\..\..\Source\YPP.Target.cs"><Link>Source\YPP.Target.cs</Link></Compile>
   <Compile Include="..\..\..\..\Source\YPPEditor.Target.cs"><Link>Source\YPPEditor.Target.cs</Link></Compile>
+  <Compile Include="..\..\..\..\Source\YPPSetting\YPPSetting.Build.cs"><Link>Source\YPPSetting\YPPSetting.Build.cs</Link></Compile>
   <Compile Include="..\..\..\..\Source\YPP\YPP.Build.cs"><Link>Source\YPP\YPP.Build.cs</Link></Compile>
   </ItemGroup>
 </Project>

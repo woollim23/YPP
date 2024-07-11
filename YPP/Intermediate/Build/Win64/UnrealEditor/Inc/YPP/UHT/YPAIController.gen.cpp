@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "YPP/YPAIController.h"
+#include "YPP/Public/YPAIController.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeYPAIController() {}
 
@@ -36,13 +36,13 @@ struct Z_Construct_UClass_AYPAIController_Statics
 #endif
 		{ "HideCategories", "Collision Rendering Transformation" },
 		{ "IncludePath", "YPAIController.h" },
-		{ "ModuleRelativePath", "YPAIController.h" },
+		{ "ModuleRelativePath", "Public/YPAIController.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_BTAsset_MetaData[] = {
-		{ "ModuleRelativePath", "YPAIController.h" },
+		{ "ModuleRelativePath", "Public/YPAIController.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_BBAsset_MetaData[] = {
-		{ "ModuleRelativePath", "YPAIController.h" },
+		{ "ModuleRelativePath", "Public/YPAIController.h" },
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_BTAsset;
@@ -98,14 +98,14 @@ AYPAIController::~AYPAIController() {}
 // End Class AYPAIController
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_YPAIController_h_Statics
+struct Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_YPAIController_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AYPAIController, AYPAIController::StaticClass, TEXT("AYPAIController"), &Z_Registration_Info_UClass_AYPAIController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AYPAIController), 260569696U) },
+		{ Z_Construct_UClass_AYPAIController, AYPAIController::StaticClass, TEXT("AYPAIController"), &Z_Registration_Info_UClass_AYPAIController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AYPAIController), 3586508691U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_YPAIController_h_1691730319(TEXT("/Script/YPP"),
-	Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_YPAIController_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_YPAIController_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_YPAIController_h_142691593(TEXT("/Script/YPP"),
+	Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_YPAIController_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_YPAIController_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration

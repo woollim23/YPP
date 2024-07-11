@@ -1,13 +1,13 @@
 {
     "Version": "1.2",
     "Data": {
-        "Source": "c:\\git\\ypp\\ypp\\source\\ypp\\bttask_attack.cpp",
+        "Source": "c:\\git\\ypp\\ypp\\source\\ypp\\private\\bttask_attack.cpp",
         "ProvidedModule": "",
         "PCH": "c:\\git\\ypp\\ypp\\intermediate\\build\\win64\\x64\\yppeditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.inclorderunreal5_1.h.pch",
         "Includes": [
             "c:\\git\\ypp\\ypp\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\ypp\\definitions.ypp.h",
-            "c:\\git\\ypp\\ypp\\source\\ypp\\bttask_attack.h",
-            "c:\\git\\ypp\\ypp\\source\\ypp\\ypp.h",
+            "c:\\git\\ypp\\ypp\\source\\ypp\\public\\bttask_attack.h",
+            "c:\\git\\ypp\\ypp\\source\\ypp\\public\\ypp.h",
             "c:\\program files\\epic games\\ue_5.4\\engine\\source\\runtime\\engine\\public\\engineminimal.h",
             "c:\\program files\\epic games\\ue_5.4\\engine\\source\\runtime\\core\\public\\misc\\monolithicheaderboilerplate.h",
             "c:\\program files\\epic games\\ue_5.4\\engine\\source\\runtime\\coreuobject\\public\\coreuobject.h",
@@ -232,7 +232,7 @@
             "c:\\program files\\epic games\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\aimodule\\uht\\btnode.generated.h",
             "c:\\program files\\epic games\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\aimodule\\uht\\bttasknode.generated.h",
             "c:\\git\\ypp\\ypp\\intermediate\\build\\win64\\unrealeditor\\inc\\ypp\\uht\\bttask_attack.generated.h",
-            "c:\\git\\ypp\\ypp\\source\\ypp\\ypaicontroller.h",
+            "c:\\git\\ypp\\ypp\\source\\ypp\\public\\ypaicontroller.h",
             "c:\\program files\\epic games\\ue_5.4\\engine\\source\\runtime\\aimodule\\classes\\aicontroller.h",
             "c:\\program files\\epic games\\ue_5.4\\engine\\source\\runtime\\aimodule\\classes\\navigation\\pathfollowingcomponent.h",
             "c:\\program files\\epic games\\ue_5.4\\engine\\source\\runtime\\navigationsystem\\public\\navigationdata.h",
@@ -248,7 +248,7 @@
             "c:\\program files\\epic games\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\visualloggerdebugsnapshotinterface.generated.h",
             "c:\\program files\\epic games\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\aimodule\\uht\\aicontroller.generated.h",
             "c:\\git\\ypp\\ypp\\intermediate\\build\\win64\\unrealeditor\\inc\\ypp\\uht\\ypaicontroller.generated.h",
-            "c:\\git\\ypp\\ypp\\source\\ypp\\ypcharacter.h",
+            "c:\\git\\ypp\\ypp\\source\\ypp\\public\\ypcharacter.h",
             "c:\\git\\ypp\\ypp\\intermediate\\build\\win64\\unrealeditor\\inc\\ypp\\uht\\ypcharacter.generated.h"
         ],
         "ImportedModules": [],

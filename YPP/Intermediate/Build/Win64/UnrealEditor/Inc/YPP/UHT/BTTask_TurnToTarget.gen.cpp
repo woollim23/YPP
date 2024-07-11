@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "YPP/BTTask_TurnToTarget.h"
+#include "YPP/Public/BTTask_TurnToTarget.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeBTTask_TurnToTarget() {}
 
@@ -33,7 +33,7 @@ struct Z_Construct_UClass_UBTTask_TurnToTarget_Statics
 		{ "Comment", "/**\n * \n */" },
 #endif
 		{ "IncludePath", "BTTask_TurnToTarget.h" },
-		{ "ModuleRelativePath", "BTTask_TurnToTarget.h" },
+		{ "ModuleRelativePath", "Public/BTTask_TurnToTarget.h" },
 	};
 #endif // WITH_METADATA
 	static UObject* (*const DependentSingletons[])();
@@ -79,14 +79,14 @@ UBTTask_TurnToTarget::~UBTTask_TurnToTarget() {}
 // End Class UBTTask_TurnToTarget
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_BTTask_TurnToTarget_h_Statics
+struct Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_BTTask_TurnToTarget_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UBTTask_TurnToTarget, UBTTask_TurnToTarget::StaticClass, TEXT("UBTTask_TurnToTarget"), &Z_Registration_Info_UClass_UBTTask_TurnToTarget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UBTTask_TurnToTarget), 1653107108U) },
+		{ Z_Construct_UClass_UBTTask_TurnToTarget, UBTTask_TurnToTarget::StaticClass, TEXT("UBTTask_TurnToTarget"), &Z_Registration_Info_UClass_UBTTask_TurnToTarget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UBTTask_TurnToTarget), 1734673023U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_BTTask_TurnToTarget_h_3891466172(TEXT("/Script/YPP"),
-	Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_BTTask_TurnToTarget_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_BTTask_TurnToTarget_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_BTTask_TurnToTarget_h_3619396627(TEXT("/Script/YPP"),
+	Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_BTTask_TurnToTarget_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_BTTask_TurnToTarget_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration

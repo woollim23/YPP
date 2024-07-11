@@ -6,8 +6,8 @@
         "PCH": "c:\\git\\ypp\\ypp\\intermediate\\build\\win64\\x64\\yppeditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.inclorderunreal5_1.h.pch",
         "Includes": [
             "c:\\git\\ypp\\ypp\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\ypp\\definitions.ypp.h",
-            "c:\\git\\ypp\\ypp\\source\\ypp\\bttask_attack.h",
-            "c:\\git\\ypp\\ypp\\source\\ypp\\ypp.h",
+            "c:\\git\\ypp\\ypp\\source\\ypp\\public\\bttask_attack.h",
+            "c:\\git\\ypp\\ypp\\source\\ypp\\public\\ypp.h",
             "c:\\program files\\epic games\\ue_5.4\\engine\\source\\runtime\\engine\\public\\engineminimal.h",
             "c:\\program files\\epic games\\ue_5.4\\engine\\source\\runtime\\core\\public\\misc\\monolithicheaderboilerplate.h",
             "c:\\program files\\epic games\\ue_5.4\\engine\\source\\runtime\\coreuobject\\public\\coreuobject.h",

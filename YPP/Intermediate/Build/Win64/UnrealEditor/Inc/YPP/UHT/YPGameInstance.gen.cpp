@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "YPP/YPGameInstance.h"
+#include "YPP/Public/YPGameInstance.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeYPGameInstance() {}
 
@@ -39,27 +39,27 @@ struct Z_Construct_UScriptStruct_FYPCharacterData_Statics
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Struct_MetaDataParams[] = {
 		{ "BlueprintType", "true" },
-		{ "ModuleRelativePath", "YPGameInstance.h" },
+		{ "ModuleRelativePath", "Public/YPGameInstance.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Level_MetaData[] = {
 		{ "Category", "Data" },
-		{ "ModuleRelativePath", "YPGameInstance.h" },
+		{ "ModuleRelativePath", "Public/YPGameInstance.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_MaxHP_MetaData[] = {
 		{ "Category", "Data" },
-		{ "ModuleRelativePath", "YPGameInstance.h" },
+		{ "ModuleRelativePath", "Public/YPGameInstance.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Attack_MetaData[] = {
 		{ "Category", "Data" },
-		{ "ModuleRelativePath", "YPGameInstance.h" },
+		{ "ModuleRelativePath", "Public/YPGameInstance.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_DropExp_MetaData[] = {
 		{ "Category", "Data" },
-		{ "ModuleRelativePath", "YPGameInstance.h" },
+		{ "ModuleRelativePath", "Public/YPGameInstance.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_NextExp_MetaData[] = {
 		{ "Category", "Data" },
-		{ "ModuleRelativePath", "YPGameInstance.h" },
+		{ "ModuleRelativePath", "Public/YPGameInstance.h" },
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FIntPropertyParams NewProp_Level;
@@ -127,13 +127,13 @@ struct Z_Construct_UClass_UYPGameInstance_Statics
 		{ "Comment", "/**\n * \n */" },
 #endif
 		{ "IncludePath", "YPGameInstance.h" },
-		{ "ModuleRelativePath", "YPGameInstance.h" },
+		{ "ModuleRelativePath", "Public/YPGameInstance.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_YPCharacterTable_MetaData[] = {
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xcc\xba\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xcd\xb8\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xcf\xb4\xef\xbf\xbd \xef\xbf\xbd\xf0\xb8\xae\xbe\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xc6\xae\n// \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xce\xbd\xef\xbf\xbd\xef\xbf\xbd\xcf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xcf\xb0\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xd6\xbc\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xdb\xb7\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd,\n// \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xd2\xb7\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xcc\xb4\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\n" },
 #endif
-		{ "ModuleRelativePath", "YPGameInstance.h" },
+		{ "ModuleRelativePath", "Public/YPGameInstance.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xcc\xba\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xcd\xb8\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xcf\xb4\xef\xbf\xbd \xef\xbf\xbd\xf0\xb8\xae\xbe\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xc6\xae\n\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xce\xbd\xef\xbf\xbd\xef\xbf\xbd\xcf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xcf\xb0\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xd6\xbc\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xdb\xb7\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd,\n\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xd2\xb7\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xcc\xb4\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd" },
 #endif
@@ -189,18 +189,18 @@ UYPGameInstance::~UYPGameInstance() {}
 // End Class UYPGameInstance
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_YPGameInstance_h_Statics
+struct Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_YPGameInstance_h_Statics
 {
 	static constexpr FStructRegisterCompiledInInfo ScriptStructInfo[] = {
-		{ FYPCharacterData::StaticStruct, Z_Construct_UScriptStruct_FYPCharacterData_Statics::NewStructOps, TEXT("YPCharacterData"), &Z_Registration_Info_UScriptStruct_YPCharacterData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FYPCharacterData), 932351893U) },
+		{ FYPCharacterData::StaticStruct, Z_Construct_UScriptStruct_FYPCharacterData_Statics::NewStructOps, TEXT("YPCharacterData"), &Z_Registration_Info_UScriptStruct_YPCharacterData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FYPCharacterData), 2422058695U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UYPGameInstance, UYPGameInstance::StaticClass, TEXT("UYPGameInstance"), &Z_Registration_Info_UClass_UYPGameInstance, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UYPGameInstance), 1530226363U) },
+		{ Z_Construct_UClass_UYPGameInstance, UYPGameInstance::StaticClass, TEXT("UYPGameInstance"), &Z_Registration_Info_UClass_UYPGameInstance, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UYPGameInstance), 1630283530U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_YPGameInstance_h_2744907492(TEXT("/Script/YPP"),
-	Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_YPGameInstance_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_YPGameInstance_h_Statics::ClassInfo),
-	Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_YPGameInstance_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_YPGameInstance_h_Statics::ScriptStructInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_YPGameInstance_h_1442868229(TEXT("/Script/YPP"),
+	Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_YPGameInstance_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_YPGameInstance_h_Statics::ClassInfo),
+	Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_YPGameInstance_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_YPGameInstance_h_Statics::ScriptStructInfo),
 	nullptr, 0);
 // End Registration
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

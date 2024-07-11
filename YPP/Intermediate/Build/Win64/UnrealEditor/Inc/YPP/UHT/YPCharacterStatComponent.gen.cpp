@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "YPP/YPCharacterStatComponent.h"
+#include "YPP/Public/YPCharacterStatComponent.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeYPCharacterStatComponent() {}
 
@@ -32,12 +32,12 @@ struct Z_Construct_UClass_UYPCharacterStatComponent_Statics
 		{ "BlueprintSpawnableComponent", "" },
 		{ "ClassGroupNames", "Custom" },
 		{ "IncludePath", "YPCharacterStatComponent.h" },
-		{ "ModuleRelativePath", "YPCharacterStatComponent.h" },
+		{ "ModuleRelativePath", "Public/YPCharacterStatComponent.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Level_MetaData[] = {
 		{ "AllowPrivateAccess", "TRUE" },
 		{ "Category", "Stat" },
-		{ "ModuleRelativePath", "YPCharacterStatComponent.h" },
+		{ "ModuleRelativePath", "Public/YPCharacterStatComponent.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CurrentHP_MetaData[] = {
 		{ "AllowPrivateAccess", "TRUE" },
@@ -45,7 +45,7 @@ struct Z_Construct_UClass_UYPCharacterStatComponent_Statics
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// Transient : \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xc8\xad\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xdc\xbd\xef\xbf\xbd\xc5\xb4\n" },
 #endif
-		{ "ModuleRelativePath", "YPCharacterStatComponent.h" },
+		{ "ModuleRelativePath", "Public/YPCharacterStatComponent.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Transient : \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xc8\xad\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xdc\xbd\xef\xbf\xbd\xc5\xb4" },
 #endif
@@ -104,14 +104,14 @@ UYPCharacterStatComponent::~UYPCharacterStatComponent() {}
 // End Class UYPCharacterStatComponent
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_YPCharacterStatComponent_h_Statics
+struct Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_YPCharacterStatComponent_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UYPCharacterStatComponent, UYPCharacterStatComponent::StaticClass, TEXT("UYPCharacterStatComponent"), &Z_Registration_Info_UClass_UYPCharacterStatComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UYPCharacterStatComponent), 3257044213U) },
+		{ Z_Construct_UClass_UYPCharacterStatComponent, UYPCharacterStatComponent::StaticClass, TEXT("UYPCharacterStatComponent"), &Z_Registration_Info_UClass_UYPCharacterStatComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UYPCharacterStatComponent), 3067223100U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_YPCharacterStatComponent_h_3532848142(TEXT("/Script/YPP"),
-	Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_YPCharacterStatComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_YPCharacterStatComponent_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_YPCharacterStatComponent_h_2486617307(TEXT("/Script/YPP"),
+	Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_YPCharacterStatComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_YPCharacterStatComponent_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration

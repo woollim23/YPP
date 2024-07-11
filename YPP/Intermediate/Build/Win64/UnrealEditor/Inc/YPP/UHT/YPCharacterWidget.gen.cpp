@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "YPP/YPCharacterWidget.h"
+#include "YPP/Public/YPCharacterWidget.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeYPCharacterWidget() {}
 
@@ -34,11 +34,11 @@ struct Z_Construct_UClass_UYPCharacterWidget_Statics
 		{ "Comment", "/**\n * \n */" },
 #endif
 		{ "IncludePath", "YPCharacterWidget.h" },
-		{ "ModuleRelativePath", "YPCharacterWidget.h" },
+		{ "ModuleRelativePath", "Public/YPCharacterWidget.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_HPProgressBar_MetaData[] = {
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "YPCharacterWidget.h" },
+		{ "ModuleRelativePath", "Public/YPCharacterWidget.h" },
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_HPProgressBar;
@@ -92,14 +92,14 @@ UYPCharacterWidget::~UYPCharacterWidget() {}
 // End Class UYPCharacterWidget
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_YPCharacterWidget_h_Statics
+struct Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_YPCharacterWidget_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UYPCharacterWidget, UYPCharacterWidget::StaticClass, TEXT("UYPCharacterWidget"), &Z_Registration_Info_UClass_UYPCharacterWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UYPCharacterWidget), 887332089U) },
+		{ Z_Construct_UClass_UYPCharacterWidget, UYPCharacterWidget::StaticClass, TEXT("UYPCharacterWidget"), &Z_Registration_Info_UClass_UYPCharacterWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UYPCharacterWidget), 2056493544U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_YPCharacterWidget_h_3780785102(TEXT("/Script/YPP"),
-	Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_YPCharacterWidget_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_YPCharacterWidget_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_YPCharacterWidget_h_3510134137(TEXT("/Script/YPP"),
+	Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_YPCharacterWidget_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_YPCharacterWidget_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration
