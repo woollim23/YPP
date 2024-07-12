@@ -5,6 +5,7 @@
 #include "YPP.h"
 #include "Engine/DataTable.h"
 #include "Engine/GameInstance.h"
+#include "Engine/StreamableManager.h"
 #include "YPGameInstance.generated.h"
 
 USTRUCT(BlueprintType)
@@ -44,7 +45,10 @@ public:
 	
 	// 게임이 시작될 때 가장 먼저 호출됨
 	virtual void Init() override;
+	// book->gamedata -> 캐릭터 데이터 파일
 	FYPCharacterData* GetYPCharacterData(int32 Level);
+	// 언리얼 엔진에서 게임 진행 중에도 비동기 방식으로 애셋을 로딩하는 클래스
+	FStreamableManager StreamableManager;
 
 private:
 	// 테이블 데이터를 관리하는 언리얼 오브젝트

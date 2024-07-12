@@ -14,7 +14,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define YPP_YPGameInstance_generated_h
 
-#define FID_Git_YPP_YPP_Source_YPP_Public_YPGameInstance_h_13_GENERATED_BODY \
+#define FID_Git_YPP_YPP_Source_YPP_Public_YPGameInstance_h_14_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FYPCharacterData_Statics; \
 	YPP_API static class UScriptStruct* StaticStruct(); \
 	typedef FTableRowBase Super;
@@ -22,7 +22,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 template<> YPP_API UScriptStruct* StaticStruct<struct FYPCharacterData>();
 
-#define FID_Git_YPP_YPP_Source_YPP_Public_YPGameInstance_h_40_INCLASS_NO_PURE_DECLS \
+#define FID_Git_YPP_YPP_Source_YPP_Public_YPGameInstance_h_41_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUYPGameInstance(); \
 	friend struct Z_Construct_UClass_UYPGameInstance_Statics; \
@@ -31,7 +31,7 @@ public: \
 	DECLARE_SERIALIZER(UYPGameInstance)
 
 
-#define FID_Git_YPP_YPP_Source_YPP_Public_YPGameInstance_h_40_ENHANCED_CONSTRUCTORS \
+#define FID_Git_YPP_YPP_Source_YPP_Public_YPGameInstance_h_41_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	UYPGameInstance(UYPGameInstance&&); \
@@ -43,12 +43,12 @@ public: \
 	NO_API virtual ~UYPGameInstance();
 
 
-#define FID_Git_YPP_YPP_Source_YPP_Public_YPGameInstance_h_37_PROLOG
-#define FID_Git_YPP_YPP_Source_YPP_Public_YPGameInstance_h_40_GENERATED_BODY \
+#define FID_Git_YPP_YPP_Source_YPP_Public_YPGameInstance_h_38_PROLOG
+#define FID_Git_YPP_YPP_Source_YPP_Public_YPGameInstance_h_41_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Git_YPP_YPP_Source_YPP_Public_YPGameInstance_h_40_INCLASS_NO_PURE_DECLS \
-	FID_Git_YPP_YPP_Source_YPP_Public_YPGameInstance_h_40_ENHANCED_CONSTRUCTORS \
+	FID_Git_YPP_YPP_Source_YPP_Public_YPGameInstance_h_41_INCLASS_NO_PURE_DECLS \
+	FID_Git_YPP_YPP_Source_YPP_Public_YPGameInstance_h_41_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

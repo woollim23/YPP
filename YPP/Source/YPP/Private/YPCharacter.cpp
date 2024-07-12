@@ -7,6 +7,8 @@
 #include "YPCharacterStatComponent.h"
 #include "YPCharacterWidget.h"
 #include "YPAIController.h"
+#include "YPCharacterSetting.h"
+#include "YPGameInstance.h"
 #include "DrawDebugHelpers.h"
 #include "Engine/DamageEvents.h"
 #include "Components/WidgetComponent.h"
@@ -81,6 +83,16 @@ AYPCharacter::AYPCharacter()
 	AIControllerClass = AYPAIController::StaticClass();
 	// 앞으로 생성되는 플레이어가 조종하는 것 외의 모든 캐릭터는 YPAIController의 지배를 받음
 	AutoPossessAI = EAutoPossessAI::PlacedInWorldOrSpawned;
+	/*
+	auto DefaultSetting = GetDefault<UYPCharacterSetting>();
+	if (DefaultSetting->CharacterAssets.Num() > 0)
+	{
+		for (auto CharacterAsset : DefaultSetting->CharacterAssets)
+		{
+			YPLOG(Warning, TEXT("Character Asset : %s"), *CharacterAsset.ToString());
+		}
+	}
+	*/
 }
 
 // Called when the game starts or when spawned
@@ -92,7 +104,21 @@ void AYPCharacter::BeginPlay()
 	auto CharacterWidget = Cast<UYPCharacterWidget>(HPBarWidget->GetUserWidgetObject());
 	if (nullptr != CharacterWidget)
 	{
-		CharacterWidget->BindCharacterStat(CharacterStat);
+		CharacterWidget->BindCharacterStat(CharacterStat); 
+	}
+	
+	//
+	if (!IsPlayerControlled())
+	{
+		auto DefaultSetting = GetDefault<UYPCharacterSetting>();
+		int32 RandIndex = FMath::RandRange(0, DefaultSetting->CharacterAssets.Num() - 1);
+		CharacterAssetToLoad = DefaultSetting->CharacterAssets[RandIndex];
+
+		auto YPGameInstance = Cast<UYPGameInstance>(GetGameInstance());
+		if (nullptr != YPGameInstance)
+		{
+			AssetStreamingHandle = YPGameInstance->StreamableManager.RequestAsyncLoad(CharacterAssetToLoad, FStreamableDelegate::CreateUObject(this, &AYPCharacter::OnAssetLoadCompleted));
+		}
 	}
 }
 
@@ -465,5 +491,15 @@ void AYPCharacter::AttackCheck()
 			// 전달할 대미지 세기, 대미지 종류, 공격 명령을 내린 가해자, 대미지 전달을 위해 사용한 도구
 			HitResult.GetActor()->TakeDamage(CharacterStat->GetAttack(), DamageEvent, GetController(), this);
 		}
+	}
+}
+
+void AYPCharacter::OnAssetLoadCompleted()
+{
+	USkeletalMesh* AssetLoaded = Cast<USkeletalMesh>(AssetStreamingHandle->GetLoadedAsset());
+	AssetStreamingHandle.Reset();
+	if (nullptr != AssetLoaded)
+	{
+		GetMesh()->SetSkeletalMesh(AssetLoaded);
 	}
 }

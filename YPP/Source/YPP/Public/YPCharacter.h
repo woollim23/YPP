@@ -108,6 +108,8 @@ private:
 	void AttackEndComboState();
 	// 공격 유효 타격 탐지 함수
 	void AttackCheck();
+	//
+	void OnAssetLoadCompleted();
 
 private:
 	// 현재 공격중인지 아닌지 파악하는 불 변수
@@ -140,4 +142,8 @@ private:
 	// if ENABLE_DRAW_DEBUG에도 사용
 	UPROPERTY(VisibleInstanceOnly, BlueprintReadOnly, Category = Attack, Meta = (AllowPrivateAccess = true))
 	float AttackRadius;
+
+	//
+	FSoftObjectPath CharacterAssetToLoad = FSoftObjectPath(nullptr);
+	TSharedPtr<struct FStreamableHandle> AssetStreamingHandle;
 };
