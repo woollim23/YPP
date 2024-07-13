@@ -24,6 +24,7 @@
 #include "C:/Git/YPP/YPP/Source/YPP/Private/YPAnimInstance.cpp"
 #include "C:/Git/YPP/YPP/Source/YPP/Private/YPCharacterStatComponent.cpp"
 #include "C:/Git/YPP/YPP/Source/YPP/Private/YPCharacterWidget.cpp"
+#include "C:/Git/YPP/YPP/Source/YPP/Private/YPGameInstance.cpp"
 #include "C:/Git/YPP/YPP/Source/YPP/Private/YPGameMode.cpp"
 #include "C:/Git/YPP/YPP/Source/YPP/Private/YPItemBox.cpp"
 #include "C:/Git/YPP/YPP/Source/YPP/Private/YPP.cpp"

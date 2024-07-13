@@ -25,6 +25,7 @@
 			"BTTask_TurnToTarget.cpp.obj",
 			"YPAIController.cpp.obj",
 			"YPAnimInstance.cpp.obj",
+			"YPCharacter.cpp.obj",
 			"YPCharacterStatComponent.cpp.obj",
 			"YPCharacterWidget.cpp.obj",
 			"YPGameInstance.cpp.obj",
@@ -32,8 +33,7 @@
 			"YPItemBox.cpp.obj",
 			"YPP.cpp.obj",
 			"YPPlayerController.cpp.obj",
-			"YPWeapon.cpp.obj",
-			"YPCharacter.cpp.obj"
+			"YPWeapon.cpp.obj"
 		]
 	}
 }

@@ -27,13 +27,13 @@
 			"YPAnimInstance.cpp.obj",
 			"YPCharacterStatComponent.cpp.obj",
 			"YPCharacterWidget.cpp.obj",
+			"YPGameInstance.cpp.obj",
 			"YPGameMode.cpp.obj",
 			"YPItemBox.cpp.obj",
 			"YPP.cpp.obj",
 			"YPPlayerController.cpp.obj",
 			"YPWeapon.cpp.obj",
-			"YPCharacter.cpp.obj",
-			"YPGameInstance.cpp.obj"
+			"YPCharacter.cpp.obj"
 		]
 	}
 }
