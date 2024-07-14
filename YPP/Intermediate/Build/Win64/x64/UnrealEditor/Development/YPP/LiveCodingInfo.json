@@ -15,7 +15,6 @@
 			"YPGameInstance.gen.cpp.obj",
 			"YPGameMode.gen.cpp.obj",
 			"YPItemBox.gen.cpp.obj",
-			"YPP.init.gen.cpp.obj",
 			"YPPlayerController.gen.cpp.obj",
 			"YPWeapon.gen.cpp.obj",
 			"BTDecorator_IsInAttackRange.cpp.obj",
@@ -25,6 +24,7 @@
 			"BTTask_TurnToTarget.cpp.obj",
 			"YPAIController.cpp.obj",
 			"YPAnimInstance.cpp.obj",
+			"YPCharacter.cpp.obj",
 			"YPCharacterStatComponent.cpp.obj",
 			"YPCharacterWidget.cpp.obj",
 			"YPGameInstance.cpp.obj",
@@ -33,7 +33,9 @@
 			"YPP.cpp.obj",
 			"YPPlayerController.cpp.obj",
 			"YPWeapon.cpp.obj",
-			"YPCharacter.cpp.obj"
+			"YPP.init.gen.cpp.obj",
+			"YPSection.gen.cpp.obj",
+			"YPSection.cpp.obj"
 		]
 	}
 }
