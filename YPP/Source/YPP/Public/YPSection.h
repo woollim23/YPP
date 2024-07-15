@@ -14,7 +14,7 @@ class YPP_API AYPSection : public AActor
 public:	
 	// Sets default values for this actor's properties
 	AYPSection();
-	// 레벨에서 미리 완료 스테이트의 설정을 적용함
+	// 에디터와 연동되는 함수, 에디터 작업에서 선택한 액터의 속성이나 트랜스폼 정보가 변경될때 실행 되는 함수
 	virtual void OnConstruction(const FTransform& Transform) override;
 
 protected:
@@ -22,7 +22,7 @@ protected:
 	virtual void BeginPlay() override;
 
 private:
-	// (READY, BATTLE, COMPLETE) 스테이트 열거
+	// (READY, BATTLE, COMPLETE) 스테이트 열거형 -> 문 여닫 여부 결정
 	enum class ESectionState :uint8
 	{
 		READY = 0,

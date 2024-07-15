@@ -33,7 +33,7 @@ AYPAIController::AYPAIController()
 void AYPAIController::OnPossess(APawn* InPawn)
 {
 	Super::OnPossess(InPawn);
-
+	/*
 	UBlackboardComponent* BlackboardComp = Blackboard.Get();
 	if (UseBlackboard(BBAsset, BlackboardComp))
 	{
@@ -45,4 +45,27 @@ void AYPAIController::OnPossess(APawn* InPawn)
 		}
 	}
 	this->Blackboard = BlackboardComp;
+	*/
+}
+
+void AYPAIController::RunAI()
+{
+	UBlackboardComponent* BlackboardComp = Blackboard.Get();
+	if (UseBlackboard(BBAsset, BlackboardComp))
+	{
+		BlackboardComp->SetValueAsVector(HomePosKey, GetPawn()->GetActorLocation());
+		if (!RunBehaviorTree(BTAsset))
+		{
+			YPLOG(Error, TEXT("AIController couldn't run behavior tree!"));
+		}
+	}
+}
+
+void AYPAIController::StopAI()
+{
+	auto BehaviorTreeComponent = Cast<UBehaviorTreeComponent>(BrainComponent);
+	if (nullptr != BehaviorTreeComponent)
+	{
+		BehaviorTreeComponent->StopTree(EBTStopMode::Safe);
+	}
 }

@@ -18,6 +18,10 @@ class YPP_API AYPCharacter : public ACharacter
 public:
 	// Sets default values for this character's properties
 	AYPCharacter();
+	// 캐릭터 스테이트 설정
+	void SetCharacterState(ECharacterState NewState);
+	// 캐릭터 스테이트 가져오기
+	ECharacterState GetCharacterState() const;
 
 protected:
 	// Called when the game starts or when spawned
@@ -143,7 +147,27 @@ private:
 	UPROPERTY(VisibleInstanceOnly, BlueprintReadOnly, Category = Attack, Meta = (AllowPrivateAccess = true))
 	float AttackRadius;
 
-	//
+	int32 AssetIndex = 0;
+
+	// npc 에셋 주소
 	FSoftObjectPath CharacterAssetToLoad = FSoftObjectPath(nullptr);
 	TSharedPtr<struct FStreamableHandle> AssetStreamingHandle;
+
+	// 현재 캐릭터 스테이트
+	UPROPERTY(Transient, VisibleInstanceOnly, BlueprintReadOnly, Category = State, Meta = (AllowPrivateAccess = true))
+	ECharacterState CurrentState;
+	// 플레이어 캐릭터가 맞는지
+	UPROPERTY(Transient, VisibleInstanceOnly, BlueprintReadOnly, Category = State, Meta = (AllowPrivateAccess = true))
+	bool bIsPlayer;
+	// AI컨트롤러
+	UPROPERTY()
+	class AYPAIController* YPAIController;
+	// 플레이어 컨트롤러
+	UPROPERTY()
+	class AYPPlayerController* YPPlayerController;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = State, Meta = (AllowPrivateAccess = true))
+	float DeadTimer;
+
+	FTimerHandle DeadTimerHandle = {};
 };

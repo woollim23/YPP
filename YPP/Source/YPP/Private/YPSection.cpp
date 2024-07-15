@@ -26,7 +26,7 @@ AYPSection::AYPSection()
 		YPLOG(Error, TEXT("Failed to load staticmesh asset. : %s"), *AssetPath);
 	}
 
-	// 트리거 설정
+	// 맵 충돌 트리거 생성(박스)
 	Trigger = CreateDefaultSubobject<UBoxComponent>(TEXT("TRIGGER"));
 	Trigger->SetBoxExtent(FVector(775.0f, 775.0f, 300.0f));
 	Trigger->SetupAttachment(RootComponent);
@@ -54,7 +54,7 @@ AYPSection::AYPSection()
 		NewGate->SetRelativeLocation(FVector(0.0f, -80.5f, 0.0f));
 		GateMeshes.Add(NewGate);
 
-		// 게이트 트리거 설정
+		// 게이트 충돌 트리거 생성(박스) - 문이 여러개라서 배열에 저장 후 게이트 트리거에 추가
 		UBoxComponent* NewGateTrigger = CreateDefaultSubobject<UBoxComponent>(*GateSocket.ToString().Append(TEXT("Trigger")));
 		NewGateTrigger->SetBoxExtent(FVector(100.0f, 100.0f, 300.0f));
 		NewGateTrigger->SetupAttachment(RootComponent, GateSocket);
@@ -73,7 +73,7 @@ AYPSection::AYPSection()
 	ItemBoxSpawnTime = 5.0f;
 }
 
-// 레벨에서 미리 완료 스테이트의 설정을 적용함
+// 에디터와 연동되는 함수, 에디터 작업에서 선택한 액터의 속성이나 트랜스폼 정보가 변경될때 실행 되는 함수
 void AYPSection::OnConstruction(const FTransform& Transform)
 {
 	Super::OnConstruction(Transform);
@@ -85,35 +85,43 @@ void AYPSection::BeginPlay()
 {
 	Super::BeginPlay();
 	
-	// 스테이트 설정 함수
+	// 스테이트 설정 함수 - 게임 시작시 스테이트 설정
 	SetState(bNoBattle ? ESectionState::COMPLETE : ESectionState::READY);
 }
 
+// 스테이트 설정 함수 -> 충돌 트리거에 콜리전프로필 연결
 void AYPSection::SetState(ESectionState NewState)
 {
 	switch (NewState)
 	{
 	case ESectionState::READY:
 	{
+		// 맵 트리거에 -> YPTrigger
 		Trigger->SetCollisionProfileName(TEXT("YPTrigger"));
 		for (UBoxComponent* GateTrigger : GateTriggers)
 		{
+			// 게이트 트리거 충돌감지X로 변경
 			GateTrigger->SetCollisionProfileName(TEXT("NoCollision"));
 		}
 
+		// 문열어둠
 		OperateGates(true);
 		break;
 	}
 	case ESectionState::BATTLE:
 	{
+		// 전투중엔 문조작하지 못하도록 충돌감지 끄기
+		// 맵 트리거 충돌감지X로 변경
 		Trigger->SetCollisionProfileName(TEXT("NoCollision"));
 		for (UBoxComponent* GateTrigger : GateTriggers)
 		{
+			// 게이트 트리거 충돌감지X로 변경
 			GateTrigger->SetCollisionProfileName(TEXT("NoCollision"));
 		}
-
+		// 문 닫아둠
 		OperateGates(false);
 
+		// 정해둔 시간 뒤에 NPC, 아이템 박스 생성
 		GetWorld()->GetTimerManager().SetTimer(SpawnNPCTimeHandle, FTimerDelegate::CreateUObject(this, &AYPSection::OnNPCSpawn), EnemySpawnTime, false);
 		GetWorld()->GetTimerManager().SetTimer(SpawnItemBoxTimerHandle, FTimerDelegate::CreateLambda([this]()->void {
 			FVector2D RandXY = FMath::RandPointInCircle(600.0f);
@@ -123,9 +131,11 @@ void AYPSection::SetState(ESectionState NewState)
 	}
 	case ESectionState::COMPLETE:
 	{
+		// 전투종료 됐으므로 박스와 npc가 생성되지 않도록 맵 트리거 충돌 끔
 		Trigger->SetCollisionProfileName(TEXT("NoCollision"));
 		for (UBoxComponent* GateTrigger : GateTriggers)
 		{
+			// 게이트 트리거 On
 			GateTrigger->SetCollisionProfileName(TEXT("YPTrigger"));
 		}
 
@@ -145,16 +155,17 @@ void AYPSection::OperateGates(bool bOpen)
 	}
 }
 
-// Trigger
+// 맵 트리거 델리게이트 연동 함수
 void AYPSection::OnTriggerBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
+	// 현재 상태가 준비 단계 -> 배틀 상태로 변경
 	if (CurrentState == ESectionState::READY)
 	{
 		SetState(ESectionState::BATTLE);
 	}
 }
 
-// NewGateTrigger
+// 게이트 트리거 델리게이트 연동 함수
 void AYPSection::OnGateTriggerBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
 	YPCHECK(OverlappedComponent->ComponentTags.Num() == 1);
@@ -166,6 +177,7 @@ void AYPSection::OnGateTriggerBeginOverlap(UPrimitiveComponent* OverlappedCompon
 
 	FVector NewLocation = Mesh->GetSocketLocation(SocketName);
 
+	// 게이트들 티어레이에 저장
 	TArray<FOverlapResult> OverlapResults;
 	FCollisionQueryParams CollisionQueryParam(NAME_None, false, this);
 	FCollisionObjectQueryParams ObjectQueryParam(FCollisionObjectQueryParams::InitType::AllObjects);
@@ -180,6 +192,7 @@ void AYPSection::OnGateTriggerBeginOverlap(UPrimitiveComponent* OverlappedCompon
 
 	if (!bResult)
 	{
+		// 새로운 섹션 만들기
 		auto NewSection = GetWorld()->SpawnActor<AYPSection>(NewLocation, FRotator::ZeroRotator);
 	}
 	else
@@ -190,5 +203,6 @@ void AYPSection::OnGateTriggerBeginOverlap(UPrimitiveComponent* OverlappedCompon
 
 void AYPSection::OnNPCSpawn()
 {
+	// 새로운 NPC 생성
 	GetWorld()->SpawnActor<AYPCharacter>(GetActorLocation() + FVector::UpVector * 88.0f, FRotator::ZeroRotator);
 }

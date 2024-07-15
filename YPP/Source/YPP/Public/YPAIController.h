@@ -26,6 +26,8 @@ public:
 	// 플레이어 캐릭터를 탐지하는 변수
 	static const FName TargetKey;
 
+	void RunAI();
+	void StopAI();
 
 private:
 	UPROPERTY()

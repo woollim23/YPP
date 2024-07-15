@@ -9,6 +9,7 @@
 #include "YPAIController.h"
 #include "YPCharacterSetting.h"
 #include "YPGameInstance.h"
+#include "YPPlayerController.h"
 #include "DrawDebugHelpers.h"
 #include "Engine/DamageEvents.h"
 #include "Components/WidgetComponent.h"
@@ -83,16 +84,94 @@ AYPCharacter::AYPCharacter()
 	AIControllerClass = AYPAIController::StaticClass();
 	// 앞으로 생성되는 플레이어가 조종하는 것 외의 모든 캐릭터는 YPAIController의 지배를 받음
 	AutoPossessAI = EAutoPossessAI::PlacedInWorldOrSpawned;
-	/*
-	auto DefaultSetting = GetDefault<UYPCharacterSetting>();
-	if (DefaultSetting->CharacterAssets.Num() > 0)
+	
+
+	AssetIndex = 4;
+
+	SetActorHiddenInGame(true);
+	HPBarWidget->SetHiddenInGame(true);
+	SetCanBeDamaged(false);
+
+	DeadTimer = 5.0f;
+}
+
+void AYPCharacter::SetCharacterState(ECharacterState NewState)
+{
+	YPCHECK(CurrentState != NewState);
+	CurrentState = NewState;
+
+	switch (CurrentState)
 	{
-		for (auto CharacterAsset : DefaultSetting->CharacterAssets)
+	case ECharacterState::LOADING:
+	{
+		if (bIsPlayer)
 		{
-			YPLOG(Warning, TEXT("Character Asset : %s"), *CharacterAsset.ToString());
+			DisableInput(YPPlayerController);
+		}
+		SetActorHiddenInGame(true);
+		HPBarWidget->SetHiddenInGame(true);
+		SetCanBeDamaged(false);
+		break;
+	}
+	case ECharacterState::READY:
+	{
+		SetActorHiddenInGame(false);
+		HPBarWidget->SetHiddenInGame(false);
+		SetCanBeDamaged(true);
+
+		CharacterStat->OnHPIsZero.AddLambda([this]()->void {
+			SetCharacterState(ECharacterState::DEAD);
+		});
+		break;
+
+		if (bIsPlayer)
+		{
+			SetControlMode(EControlMode::DIABLO);
+			GetCharacterMovement()->MaxWalkSpeed = 600.0f;
+			EnableInput(YPPlayerController);
+		}
+		else
+		{
+			SetControlMode(EControlMode::NPC);
+			GetCharacterMovement()->MaxWalkSpeed = 400.0f;
+			YPAIController->RunAI();
 		}
 	}
-	*/
+	case ECharacterState::DEAD:
+	{
+		SetActorHiddenInGame(false);
+		GetMesh()->SetHiddenInGame(false);
+		HPBarWidget->SetHiddenInGame(true);
+		YPAnim->SetDeadAnim();
+		SetCanBeDamaged(false);
+
+		if (bIsPlayer)
+		{
+			DisableInput(YPPlayerController);
+		}
+		else
+		{
+			YPAIController->StopAI();
+		}
+
+		GetWorld()->GetTimerManager().SetTimer(DeadTimerHandle, FTimerDelegate::CreateLambda([this]()-> void {
+			if (bIsPlayer)
+			{
+				YPPlayerController->RestartLevel();
+			}
+			else
+			{
+				Destroy();
+			}
+			}), DeadTimer, false);
+		break;
+	}
+	}
+}
+
+ECharacterState AYPCharacter::GetCharacterState() const
+{
+	return CurrentState;
 }
 
 // Called when the game starts or when spawned
@@ -106,8 +185,42 @@ void AYPCharacter::BeginPlay()
 	{
 		CharacterWidget->BindCharacterStat(CharacterStat); 
 	}
+
+	bIsPlayer = IsPlayerControlled();
+	if (bIsPlayer)
+	{
+		// 플레이어 컨트롤러 저장 변수
+		YPPlayerController = Cast<AYPPlayerController>(GetController());
+		YPCHECK(nullptr != YPPlayerController);
+	}
+	else
+	{
+		// AI 컨트롤러 저장 변수
+		YPAIController = Cast<AYPAIController>(GetController());
+		YPCHECK(nullptr != YPAIController);
+	}
+
+	auto DefaultSetting = GetDefault<UYPCharacterSetting>();
+
+	// 플레이어가 캐릭터를 조종하는 경우에는 임시로 4번 INDEX의 캐릭터 에셋을 사용
+	// AI가 조종하는 NPC인 경우 캐릭터 애셋 목록에서 랜덤으로 가져온다
+	if (bIsPlayer)
+	{
+		AssetIndex = 4;
+	}
+	else
+	{
+		AssetIndex = FMath::RandRange(0, DefaultSetting->CharacterAssets.Num() - 1);
+	}
+
+	CharacterAssetToLoad = DefaultSetting->CharacterAssets[AssetIndex];
+	auto YPGameInstance = Cast<UYPGameInstance>(GetGameInstance());
+	YPCHECK(nullptr != YPGameInstance);
+	AssetStreamingHandle = YPGameInstance->StreamableManager.RequestAsyncLoad(CharacterAssetToLoad, FStreamableDelegate::CreateUObject(this, &AYPCharacter::OnAssetLoadCompleted));
+	SetCharacterState(ECharacterState::LOADING);
 	
-	//
+	/*
+	// 랜덤으로 NPC 가져옴
 	if (!IsPlayerControlled())
 	{
 		auto DefaultSetting = GetDefault<UYPCharacterSetting>();
@@ -120,6 +233,7 @@ void AYPCharacter::BeginPlay()
 			AssetStreamingHandle = YPGameInstance->StreamableManager.RequestAsyncLoad(CharacterAssetToLoad, FStreamableDelegate::CreateUObject(this, &AYPCharacter::OnAssetLoadCompleted));
 		}
 	}
+	*/
 }
 
 // 컨트롤 모드 세팅 함수
@@ -498,8 +612,8 @@ void AYPCharacter::OnAssetLoadCompleted()
 {
 	USkeletalMesh* AssetLoaded = Cast<USkeletalMesh>(AssetStreamingHandle->GetLoadedAsset());
 	AssetStreamingHandle.Reset();
-	if (nullptr != AssetLoaded)
-	{
-		GetMesh()->SetSkeletalMesh(AssetLoaded);
-	}
+	YPCHECK(nullptr != AssetLoaded);
+	GetMesh()->SetSkeletalMesh(AssetLoaded);
+	
+	SetCharacterState(ECharacterState::READY);
 }

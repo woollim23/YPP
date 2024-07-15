@@ -206,7 +206,11 @@
             "c:\\program files\\epic games\\ue_5.4\\engine\\source\\runtime\\engine\\classes\\kismet\\gameplaystaticstypes.h",
             "c:\\program files\\epic games\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\gameplaystaticstypes.generated.h",
             "c:\\program files\\epic games\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\gameplaystatics.generated.h",
-            "c:\\git\\ypp\\ypp\\intermediate\\build\\win64\\unrealeditor\\inc\\ypp\\uht\\ypsection.generated.h"
+            "c:\\git\\ypp\\ypp\\intermediate\\build\\win64\\unrealeditor\\inc\\ypp\\uht\\ypsection.generated.h",
+            "c:\\git\\ypp\\ypp\\source\\ypp\\public\\ypcharacter.h",
+            "c:\\git\\ypp\\ypp\\intermediate\\build\\win64\\unrealeditor\\inc\\ypp\\uht\\ypcharacter.generated.h",
+            "c:\\git\\ypp\\ypp\\source\\ypp\\public\\ypitembox.h",
+            "c:\\git\\ypp\\ypp\\intermediate\\build\\win64\\unrealeditor\\inc\\ypp\\uht\\ypitembox.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

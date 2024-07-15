@@ -16,11 +16,14 @@ ENGINE_API UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_USpringArmComponent_NoRegister();
 UMG_API UClass* Z_Construct_UClass_UWidgetComponent_NoRegister();
 UPackage* Z_Construct_UPackage__Script_YPP();
+YPP_API UClass* Z_Construct_UClass_AYPAIController_NoRegister();
 YPP_API UClass* Z_Construct_UClass_AYPCharacter();
 YPP_API UClass* Z_Construct_UClass_AYPCharacter_NoRegister();
+YPP_API UClass* Z_Construct_UClass_AYPPlayerController_NoRegister();
 YPP_API UClass* Z_Construct_UClass_AYPWeapon_NoRegister();
 YPP_API UClass* Z_Construct_UClass_UYPAnimInstance_NoRegister();
 YPP_API UClass* Z_Construct_UClass_UYPCharacterStatComponent_NoRegister();
+YPP_API UEnum* Z_Construct_UEnum_YPP_ECharacterState();
 // End Cross Module References
 
 // Begin Class AYPCharacter Function OnAttackMontageEnded
@@ -225,6 +228,51 @@ struct Z_Construct_UClass_AYPCharacter_Statics
 		{ "ToolTip", "\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\nAttackCheck \xef\xbf\xbd\xd4\xbc\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd SweepSingleByChannel\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\nif ENABLE_DRAW_DEBUG\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd" },
 #endif
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CurrentState_MetaData[] = {
+		{ "AllowPrivateAccess", "TRUE" },
+		{ "Category", "State" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xc4\xb3\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xc6\xae\n" },
+#endif
+		{ "ModuleRelativePath", "Public/YPCharacter.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xc4\xb3\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xc6\xae" },
+#endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bIsPlayer_MetaData[] = {
+		{ "AllowPrivateAccess", "TRUE" },
+		{ "Category", "State" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// \xef\xbf\xbd\xc3\xb7\xef\xbf\xbd\xef\xbf\xbd\xcc\xbe\xef\xbf\xbd \xc4\xb3\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xcd\xb0\xef\xbf\xbd \xef\xbf\xbd\xc2\xb4\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\n" },
+#endif
+		{ "ModuleRelativePath", "Public/YPCharacter.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "\xef\xbf\xbd\xc3\xb7\xef\xbf\xbd\xef\xbf\xbd\xcc\xbe\xef\xbf\xbd \xc4\xb3\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xcd\xb0\xef\xbf\xbd \xef\xbf\xbd\xc2\xb4\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd" },
+#endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_YPAIController_MetaData[] = {
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// AI\xef\xbf\xbd\xef\xbf\xbd\xc6\xae\xef\xbf\xbd\xd1\xb7\xef\xbf\xbd\n" },
+#endif
+		{ "ModuleRelativePath", "Public/YPCharacter.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "AI\xef\xbf\xbd\xef\xbf\xbd\xc6\xae\xef\xbf\xbd\xd1\xb7\xef\xbf\xbd" },
+#endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_YPPlayerController_MetaData[] = {
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// \xef\xbf\xbd\xc3\xb7\xef\xbf\xbd\xef\xbf\xbd\xcc\xbe\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xc6\xae\xef\xbf\xbd\xd1\xb7\xef\xbf\xbd\n" },
+#endif
+		{ "ModuleRelativePath", "Public/YPCharacter.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "\xef\xbf\xbd\xc3\xb7\xef\xbf\xbd\xef\xbf\xbd\xcc\xbe\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xc6\xae\xef\xbf\xbd\xd1\xb7\xef\xbf\xbd" },
+#endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_DeadTimer_MetaData[] = {
+		{ "AllowPrivateAccess", "TRUE" },
+		{ "Category", "State" },
+		{ "ModuleRelativePath", "Public/YPCharacter.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_CurrentWeapon;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_CharacterStat;
@@ -242,6 +290,13 @@ struct Z_Construct_UClass_AYPCharacter_Statics
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_YPAnim;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_AttackRange;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_AttackRadius;
+	static const UECodeGen_Private::FBytePropertyParams NewProp_CurrentState_Underlying;
+	static const UECodeGen_Private::FEnumPropertyParams NewProp_CurrentState;
+	static void NewProp_bIsPlayer_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsPlayer;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_YPAIController;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_YPPlayerController;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_DeadTimer;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
@@ -278,6 +333,16 @@ const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AYPCharacter_Stat
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AYPCharacter_Statics::NewProp_YPAnim = { "YPAnim", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AYPCharacter, YPAnim), Z_Construct_UClass_UYPAnimInstance_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_YPAnim_MetaData), NewProp_YPAnim_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AYPCharacter_Statics::NewProp_AttackRange = { "AttackRange", nullptr, (EPropertyFlags)0x0040000000020815, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AYPCharacter, AttackRange), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_AttackRange_MetaData), NewProp_AttackRange_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AYPCharacter_Statics::NewProp_AttackRadius = { "AttackRadius", nullptr, (EPropertyFlags)0x0040000000020815, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AYPCharacter, AttackRadius), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_AttackRadius_MetaData), NewProp_AttackRadius_MetaData) };
+const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_AYPCharacter_Statics::NewProp_CurrentState_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_AYPCharacter_Statics::NewProp_CurrentState = { "CurrentState", nullptr, (EPropertyFlags)0x0040000000022815, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AYPCharacter, CurrentState), Z_Construct_UEnum_YPP_ECharacterState, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CurrentState_MetaData), NewProp_CurrentState_MetaData) }; // 3663399047
+void Z_Construct_UClass_AYPCharacter_Statics::NewProp_bIsPlayer_SetBit(void* Obj)
+{
+	((AYPCharacter*)Obj)->bIsPlayer = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AYPCharacter_Statics::NewProp_bIsPlayer = { "bIsPlayer", nullptr, (EPropertyFlags)0x0040000000022815, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AYPCharacter), &Z_Construct_UClass_AYPCharacter_Statics::NewProp_bIsPlayer_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bIsPlayer_MetaData), NewProp_bIsPlayer_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AYPCharacter_Statics::NewProp_YPAIController = { "YPAIController", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AYPCharacter, YPAIController), Z_Construct_UClass_AYPAIController_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_YPAIController_MetaData), NewProp_YPAIController_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AYPCharacter_Statics::NewProp_YPPlayerController = { "YPPlayerController", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AYPCharacter, YPPlayerController), Z_Construct_UClass_AYPPlayerController_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_YPPlayerController_MetaData), NewProp_YPPlayerController_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AYPCharacter_Statics::NewProp_DeadTimer = { "DeadTimer", nullptr, (EPropertyFlags)0x0040000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AYPCharacter, DeadTimer), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_DeadTimer_MetaData), NewProp_DeadTimer_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AYPCharacter_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AYPCharacter_Statics::NewProp_CurrentWeapon,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AYPCharacter_Statics::NewProp_CharacterStat,
@@ -292,6 +357,12 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AYPCharac
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AYPCharacter_Statics::NewProp_YPAnim,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AYPCharacter_Statics::NewProp_AttackRange,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AYPCharacter_Statics::NewProp_AttackRadius,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AYPCharacter_Statics::NewProp_CurrentState_Underlying,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AYPCharacter_Statics::NewProp_CurrentState,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AYPCharacter_Statics::NewProp_bIsPlayer,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AYPCharacter_Statics::NewProp_YPAIController,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AYPCharacter_Statics::NewProp_YPPlayerController,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AYPCharacter_Statics::NewProp_DeadTimer,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AYPCharacter_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_AYPCharacter_Statics::DependentSingletons[])() = {
@@ -334,10 +405,10 @@ AYPCharacter::~AYPCharacter() {}
 struct Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_YPCharacter_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AYPCharacter, AYPCharacter::StaticClass, TEXT("AYPCharacter"), &Z_Registration_Info_UClass_AYPCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AYPCharacter), 1577231302U) },
+		{ Z_Construct_UClass_AYPCharacter, AYPCharacter::StaticClass, TEXT("AYPCharacter"), &Z_Registration_Info_UClass_AYPCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AYPCharacter), 3308765805U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_YPCharacter_h_1625857232(TEXT("/Script/YPP"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_YPCharacter_h_4205886542(TEXT("/Script/YPP"),
 	Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_YPCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_YPCharacter_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

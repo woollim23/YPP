@@ -4,6 +4,16 @@
 
 #include "EngineMinimal.h"
 
+// 캐릭터의 스테이트
+UENUM(BlueprintType)
+enum class ECharacterState :uint8
+{
+	PREINIT,
+	LOADING,
+	READY,
+	DEAD
+};
+
 DECLARE_LOG_CATEGORY_EXTERN(YPP, Log, All);
 #define YPLOG_CALLINFO (FString(__FUNCTION__) + TEXT("(") + FString::FromInt(__LINE__) + TEXT(")"))
 #define YPLOG_S(Verbosity) UE_LOG(YPP, Verbosity, TEXT("%s"), *YPLOG_CALLINFO)
