@@ -59,13 +59,11 @@ AYPCharacter::AYPCharacter()
 	GetCharacterMovement()->JumpZVelocity = 800.0f;
 
 	IsAttacking = false;
-
 	MaxCombo = 4;
 	AttackEndComboState();
 
 	// 캡슐 컴포넌트의 콜리전 프로필 지정
 	GetCapsuleComponent()->SetCollisionProfileName(TEXT("YPCharacter"));
-
 	// AttackCheck 함수의 SweepSingleByChannel에 사용
 	// if ENABLE_DRAW_DEBUG에도 사용
 	AttackRange = 200.0f; // 공격 범위
@@ -122,7 +120,12 @@ void AYPCharacter::SetCharacterState(ECharacterState NewState)
 		CharacterStat->OnHPIsZero.AddLambda([this]()->void {
 			SetCharacterState(ECharacterState::DEAD);
 		});
-		break;
+		// 캐릭터 컴포넌트와 UI 위젯을 연결함
+		auto CharacterWidget = Cast<UYPCharacterWidget>(HPBarWidget->GetUserWidgetObject());
+		if (nullptr != CharacterWidget)
+		{
+			CharacterWidget->BindCharacterStat(CharacterStat);
+		}
 
 		if (bIsPlayer)
 		{
@@ -136,6 +139,8 @@ void AYPCharacter::SetCharacterState(ECharacterState NewState)
 			GetCharacterMovement()->MaxWalkSpeed = 400.0f;
 			YPAIController->RunAI();
 		}
+
+		break;
 	}
 	case ECharacterState::DEAD:
 	{
@@ -178,13 +183,7 @@ ECharacterState AYPCharacter::GetCharacterState() const
 void AYPCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-	
-	// 캐릭터 컴포넌트와 UI 위젯을 연결함
-	auto CharacterWidget = Cast<UYPCharacterWidget>(HPBarWidget->GetUserWidgetObject());
-	if (nullptr != CharacterWidget)
-	{
-		CharacterWidget->BindCharacterStat(CharacterStat); 
-	}
+
 
 	bIsPlayer = IsPlayerControlled();
 	if (bIsPlayer)
@@ -219,21 +218,6 @@ void AYPCharacter::BeginPlay()
 	AssetStreamingHandle = YPGameInstance->StreamableManager.RequestAsyncLoad(CharacterAssetToLoad, FStreamableDelegate::CreateUObject(this, &AYPCharacter::OnAssetLoadCompleted));
 	SetCharacterState(ECharacterState::LOADING);
 	
-	/*
-	// 랜덤으로 NPC 가져옴
-	if (!IsPlayerControlled())
-	{
-		auto DefaultSetting = GetDefault<UYPCharacterSetting>();
-		int32 RandIndex = FMath::RandRange(0, DefaultSetting->CharacterAssets.Num() - 1);
-		CharacterAssetToLoad = DefaultSetting->CharacterAssets[RandIndex];
-
-		auto YPGameInstance = Cast<UYPGameInstance>(GetGameInstance());
-		if (nullptr != YPGameInstance)
-		{
-			AssetStreamingHandle = YPGameInstance->StreamableManager.RequestAsyncLoad(CharacterAssetToLoad, FStreamableDelegate::CreateUObject(this, &AYPCharacter::OnAssetLoadCompleted));
-		}
-	}
-	*/
 }
 
 // 컨트롤 모드 세팅 함수
