@@ -601,6 +601,10 @@
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_1)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_1)</ForcedIncludeFiles>
     </ClCompile>
+    <ClCompile Include="..\..\Source\YPP\Private\YPPlayerState.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_1)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_1)</ForcedIncludeFiles>
+    </ClCompile>
     <ClCompile Include="..\..\Source\YPP\Private\YPSection.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_1)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_1)</ForcedIncludeFiles>
@@ -624,6 +628,7 @@
     <ClInclude Include="..\..\Source\YPP\Public\YPItemBox.h"/>
     <ClInclude Include="..\..\Source\YPP\Public\YPP.h"/>
     <ClInclude Include="..\..\Source\YPP\Public\YPPlayerController.h"/>
+    <ClInclude Include="..\..\Source\YPP\Public\YPPlayerState.h"/>
     <ClInclude Include="..\..\Source\YPP\Public\YPSection.h"/>
     <ClInclude Include="..\..\Source\YPP\Public\YPWeapon.h"/>
   </ItemGroup>

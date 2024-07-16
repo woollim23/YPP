@@ -4,16 +4,20 @@
 #include "YPGameMode.h"
 #include "YPCharacter.h"
 #include "YPPlayerController.h"
+#include "YPPlayerState.h"
 
 AYPGameMode::AYPGameMode()
 {
 	DefaultPawnClass = AYPCharacter::StaticClass();
 	PlayerControllerClass = AYPPlayerController::StaticClass();
+	PlayerStateClass = AYPPlayerState::StaticClass();
 }
 
 void AYPGameMode::PostLogin(APlayerController* NewPlayer)
 {
-	//YPLOG(Warning, TEXT("PostLogin Begin"));
 	Super::PostLogin(NewPlayer);
-	//YPLOG(Warning, TEXT("PostLogin End"));
+
+	auto YPPlayerState = Cast<AYPPlayerState>(NewPlayer->PlayerState);
+	YPCHECK(nullptr != YPPlayerState);
+	YPPlayerState->InitPlayerData();
 }

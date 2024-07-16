@@ -117,6 +117,9 @@
     <ClCompile Include="..\..\Source\YPP\Private\YPPlayerController.cpp">
       <Filter>Source\YPP\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\YPP\Private\YPPlayerState.cpp">
+      <Filter>Source\YPP\Private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\YPP\Private\YPSection.cpp">
       <Filter>Source\YPP\Private</Filter>
     </ClCompile>
@@ -169,6 +172,9 @@
       <Filter>Source\YPP\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\YPP\Public\YPPlayerController.h">
+      <Filter>Source\YPP\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\YPP\Public\YPPlayerState.h">
       <Filter>Source\YPP\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\YPP\Public\YPSection.h">

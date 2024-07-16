@@ -10,6 +10,7 @@
 #include "YPCharacterSetting.h"
 #include "YPGameInstance.h"
 #include "YPPlayerController.h"
+#include "YPPlayerState.h"
 #include "DrawDebugHelpers.h"
 #include "Engine/DamageEvents.h"
 #include "Components/WidgetComponent.h"
@@ -105,6 +106,11 @@ void AYPCharacter::SetCharacterState(ECharacterState NewState)
 		if (bIsPlayer)
 		{
 			DisableInput(YPPlayerController);
+
+			// 플레이어 상태 가져와서 레벨 설정(초기화)
+			auto YPPlayerState = Cast<AYPPlayerState>(GetPlayerState());
+			YPCHECK(nullptr != YPPlayerState);
+			CharacterStat->SetNewLevel(YPPlayerState->GetCharacterLevel());
 		}
 		SetActorHiddenInGame(true);
 		HPBarWidget->SetHiddenInGame(true);
