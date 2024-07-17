@@ -22,6 +22,7 @@ public:
 
 	class UYPHUDWidget* GetHUDWidget() const;
 	void NPCKill(class AYPCharacter* KilledNPC) const;
+	void AddGameScore() const;
 
 protected:
 	virtual void BeginPlay() override;

@@ -17,5 +17,11 @@ class YPP_API AYPGameMode : public AGameModeBase
 public:
 	AYPGameMode();
 
+	virtual void PostInitializeComponents() override;
 	virtual void PostLogin(APlayerController* NewPlayer) override;
+	void AddScore(class AYPPlayerController* ScoredPlayer);
+
+private:
+	UPROPERTY()
+	class AYPGameState* YPGameState;
 };

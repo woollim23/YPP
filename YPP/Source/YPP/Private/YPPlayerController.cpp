@@ -35,6 +35,11 @@ void AYPPlayerController::NPCKill(AYPCharacter* KilledNPC) const
 	YPPlayerState->AddExp(KilledNPC->GetExp());
 }
 
+void AYPPlayerController::AddGameScore() const
+{
+	YPPlayerState->AddGameScore();
+}
+
 void AYPPlayerController::BeginPlay()
 {
 	Super::BeginPlay();

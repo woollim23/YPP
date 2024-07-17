@@ -15,6 +15,12 @@ AYPGameMode::AYPGameMode()
 	GameStateClass = AYPGameState::StaticClass();
 }
 
+void AYPGameMode::PostInitializeComponents()
+{
+	Super::PostInitializeComponents();
+	YPGameState = Cast<AYPGameState>(GameState);
+}
+
 void AYPGameMode::PostLogin(APlayerController* NewPlayer)
 {
 	Super::PostLogin(NewPlayer);
@@ -22,4 +28,19 @@ void AYPGameMode::PostLogin(APlayerController* NewPlayer)
 	auto YPPlayerState = Cast<AYPPlayerState>(NewPlayer->PlayerState);
 	YPCHECK(nullptr != YPPlayerState);
 	YPPlayerState->InitPlayerData();
+}
+
+void AYPGameMode::AddScore(AYPPlayerController* ScoredPlayer)
+{
+	for (FConstPlayerControllerIterator It = GetWorld()->GetPlayerControllerIterator(); It; ++It)
+	{
+		const auto YPPlayerController = Cast<AYPPlayerController>(It->Get());
+		if ((nullptr != YPPlayerController) && (ScoredPlayer == YPPlayerController))
+		{
+			YPPlayerController->AddGameScore();
+			break;
+		}
+	}
+
+	YPGameState->AddGameScore();
 }

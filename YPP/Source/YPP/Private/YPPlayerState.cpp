@@ -50,6 +50,12 @@ bool AYPPlayerState::AddExp(int32 IncomeExp)
 	return DidLevelUp;
 }
 
+void AYPPlayerState::AddGameScore()
+{
+	GameScore++;
+	OnPlayerStateChanged.Broadcast();
+}
+
 void AYPPlayerState::InitPlayerData()
 {
 	SetPlayerName(TEXT("Destiny"));

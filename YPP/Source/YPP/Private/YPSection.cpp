@@ -4,6 +4,8 @@
 #include "YPSection.h"
 #include "YPCharacter.h"
 #include "YPItemBox.h"
+#include "YPPlayerController.h"
+#include "YPGameMode.h"
 
 // Sets default values
 AYPSection::AYPSection()
@@ -203,6 +205,29 @@ void AYPSection::OnGateTriggerBeginOverlap(UPrimitiveComponent* OverlappedCompon
 
 void AYPSection::OnNPCSpawn()
 {
+	//GetWorld()->GetTimerManager().ClearTimer(SpawnNPCTimerHandle);
 	// 새로운 NPC 생성
-	GetWorld()->SpawnActor<AYPCharacter>(GetActorLocation() + FVector::UpVector * 88.0f, FRotator::ZeroRotator);
+	auto KeyNPC = GetWorld()->SpawnActor<AYPCharacter>(GetActorLocation() + FVector::UpVector * 88.0f, FRotator::ZeroRotator);
+	if (nullptr != KeyNPC)
+	{
+		KeyNPC->OnDestroyed.AddDynamic(this, &AYPSection::OnKeyNPCDestroyed);
+	}
+}
+
+void AYPSection::OnKeyNPCDestroyed(AActor* DestroyedActor)
+{
+	auto YPCharacter = Cast<AYPCharacter>(DestroyedActor);
+	YPCHECK(nullptr != YPCharacter);
+
+	// NPC가 제거될때 마지막으로 대미지를 입힌 컨트롤러의 기록은  LastHitBy 속성에 저장됨
+	// 이를 이용해 액터가 제거될 때 마지막에 피격을 가한 플레이어의 정보를 바로 얻어 올수 있따
+	auto YPPlayerController = Cast<AYPPlayerController>(YPCharacter->LastHitBy);
+	YPCHECK(nullptr != YPPlayerController);
+
+	// 점수 올리기
+	auto YPGameMode = Cast<AYPGameMode>(GetWorld()->GetAuthGameMode());
+	YPCHECK(nullptr != YPGameMode);
+	YPGameMode->AddScore(YPPlayerController);
+
+	SetState(ESectionState::COMPLETE);
 }

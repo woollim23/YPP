@@ -48,6 +48,9 @@ private:
 	// 엔피씨 생성 함수
 	void OnNPCSpawn();
 
+	UFUNCTION()
+	void OnKeyNPCDestroyed(AActor* DestroyedActor);
+
 private:
 	// 게이트 매쉬
 	UPROPERTY(VisibleAnywhere, Category = Mesh, Meta = (AllowPrivateAccess = true))
