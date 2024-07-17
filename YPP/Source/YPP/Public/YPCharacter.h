@@ -22,6 +22,7 @@ public:
 	void SetCharacterState(ECharacterState NewState);
 	// 캐릭터 스테이트 가져오기
 	ECharacterState GetCharacterState() const;
+	int32 GetExp() const;
 
 protected:
 	// Called when the game starts or when spawned

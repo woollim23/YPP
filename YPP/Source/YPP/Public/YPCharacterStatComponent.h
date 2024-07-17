@@ -37,9 +37,11 @@ public :
 	// 체력 설정 
 	void SetHP(float NewHP);
 	// 공격데미지 스탯을 리턴해줌
-	float GetAttack();
+	float GetAttack() const;
 	// 체력바 비율
-	float GetHPRatio();
+	float GetHPRatio() const;
+	// 경험치바 비율
+	int32 GetDropExp() const;
 
 	// 체력 0을 감지하는 델리게이트
 	FOnHPIsZeroDelegate OnHPIsZero;

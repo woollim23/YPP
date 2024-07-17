@@ -79,16 +79,21 @@ void UYPCharacterStatComponent::SetHP(float NewHP)
 	}
 }
 
-float UYPCharacterStatComponent::GetAttack()
+float UYPCharacterStatComponent::GetAttack() const
 {
 	YPCHECK(nullptr != CurrentStatData, 0.0f);
 	// 현재 공격 데미지를 리턴해줌
 	return CurrentStatData->Attack;
 }
 
-float UYPCharacterStatComponent::GetHPRatio()
+float UYPCharacterStatComponent::GetHPRatio() const
 {
 	YPCHECK(nullptr != CurrentStatData, 0.0f);
 	// 0 이나 현재 체력 비율 리턴
 	return (CurrentStatData->MaxHP < KINDA_SMALL_NUMBER) ? 0.0f : (CurrentHP / CurrentStatData->MaxHP);
+}
+
+int32 UYPCharacterStatComponent::GetDropExp() const
+{
+	return CurrentStatData->DropExp;
 }

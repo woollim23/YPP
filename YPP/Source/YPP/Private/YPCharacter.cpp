@@ -11,6 +11,7 @@
 #include "YPGameInstance.h"
 #include "YPPlayerController.h"
 #include "YPPlayerState.h"
+#include "YPHUDWidget.h"
 #include "DrawDebugHelpers.h"
 #include "Engine/DamageEvents.h"
 #include "Components/WidgetComponent.h"
@@ -107,6 +108,9 @@ void AYPCharacter::SetCharacterState(ECharacterState NewState)
 		{
 			DisableInput(YPPlayerController);
 
+			// HUD위젯과 캐릭터 스탯 컴포넌트를 연결
+			YPPlayerController->GetHUDWidget()->BindCharacterStat(CharacterStat);
+
 			// 플레이어 상태 가져와서 레벨 설정(초기화)
 			auto YPPlayerState = Cast<AYPPlayerState>(GetPlayerState());
 			YPCHECK(nullptr != YPPlayerState);
@@ -183,6 +187,11 @@ void AYPCharacter::SetCharacterState(ECharacterState NewState)
 ECharacterState AYPCharacter::GetCharacterState() const
 {
 	return CurrentState;
+}
+
+int32 AYPCharacter::GetExp() const
+{
+	return CharacterStat->GetDropExp();
 }
 
 // Called when the game starts or when spawned
@@ -354,6 +363,15 @@ float AYPCharacter::TakeDamage(float DamageAmount, FDamageEvent const& DamageEve
 
 	// 피해입은 데미지 전달
 	CharacterStat->SetDamage(FinalDamage);
+	if (CurrentState == ECharacterState::DEAD)
+	{
+		if (EventInstigator->IsPlayerController())
+		{
+			auto PlayerController = Cast<AYPPlayerController>(EventInstigator);
+			YPCHECK(nullptr != PlayerController, 0.0f);
+			PlayerController->NPCKill(this);
+		}
+	}
 
 	return FinalDamage;
 }
