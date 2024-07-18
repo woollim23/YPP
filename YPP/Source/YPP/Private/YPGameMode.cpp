@@ -44,3 +44,8 @@ void AYPGameMode::AddScore(AYPPlayerController* ScoredPlayer)
 
 	YPGameState->AddGameScore();
 }
+
+int32 AYPGameMode::GetScore() const
+{
+	return YPGameState->GetTotalGameScore();
+}

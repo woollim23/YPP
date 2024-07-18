@@ -20,6 +20,27 @@ AYPWeapon::AYPWeapon()
 
 	// 무기의 충돌 설정을 끔
 	Weapon->SetCollisionProfileName(TEXT("NoCollision"));
+
+	AttackRange = 150.0f;
+	AttackDamageMin = -2.5;
+	AttackDamageMax = 10.0f;
+	AttackModifierMin = 0.85f;
+	AttackModifierMax = 1.25f;
+}
+
+float AYPWeapon::GetAttackRange() const
+{
+	return AttackRange;
+}
+
+float AYPWeapon::GetAttackDamage() const
+{
+	return AttackDamage;
+}
+
+float AYPWeapon::GetAttackModifier() const
+{
+	return AttackModifier;
 }
 
 // Called when the game starts or when spawned
@@ -27,4 +48,7 @@ void AYPWeapon::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	AttackDamage = FMath::RandRange(AttackDamageMin, AttackDamageMax);
+	AttackModifier = FMath::RandRange(AttackModifierMin, AttackModifierMax);
+	YPLOG(Warning, TEXT("Weapon Damage : %f, Modifier : %f"), AttackDamage, AttackModifier);
 }

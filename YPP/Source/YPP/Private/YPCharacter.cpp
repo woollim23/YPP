@@ -12,6 +12,7 @@
 #include "YPPlayerController.h"
 #include "YPPlayerState.h"
 #include "YPHUDWidget.h"
+#include "YPGameMode.h"
 #include "DrawDebugHelpers.h"
 #include "Engine/DamageEvents.h"
 #include "Components/WidgetComponent.h"
@@ -68,7 +69,7 @@ AYPCharacter::AYPCharacter()
 	GetCapsuleComponent()->SetCollisionProfileName(TEXT("YPCharacter"));
 	// AttackCheck 함수의 SweepSingleByChannel에 사용
 	// if ENABLE_DRAW_DEBUG에도 사용
-	AttackRange = 200.0f; // 공격 범위
+	AttackRange = 80.0f; // 공격 범위
 	AttackRadius = 50.0f; // 반지름
 
 	// 체력바 UI 설정
@@ -115,6 +116,19 @@ void AYPCharacter::SetCharacterState(ECharacterState NewState)
 			auto YPPlayerState = Cast<AYPPlayerState>(GetPlayerState());
 			YPCHECK(nullptr != YPPlayerState);
 			CharacterStat->SetNewLevel(YPPlayerState->GetCharacterLevel());
+		}
+		else
+		{
+			// 스코어 오를때마다 NPC 레벨을 상승시킴
+			// 게임 실행 중에 게임모드의 포인터를 가져올 떄는 월드의 GetAuthGameMode() 라는 함수를 사용함
+			auto YPGameMode = Cast<AYPGameMode>(GetWorld()->GetAuthGameMode());
+			YPCHECK(nullptr != YPGameMode);
+			// CeilToInt : 소수점 올림 내림
+			int32 TargetLevel = FMath::CeilToInt(((float)YPGameMode->GetScore() * 0.8f));
+			// Clamp : min 및 max포함 범위로 고정된 value 반환
+			int32 FinalLevel = FMath::Clamp<int32>(TargetLevel, 1, 20);
+			YPLOG(Warning, TEXT("New Npc Level : %d"), FinalLevel);
+			CharacterStat->SetNewLevel(FinalLevel);
 		}
 		SetActorHiddenInGame(true);
 		HPBarWidget->SetHiddenInGame(true);
@@ -192,6 +206,19 @@ ECharacterState AYPCharacter::GetCharacterState() const
 int32 AYPCharacter::GetExp() const
 {
 	return CharacterStat->GetDropExp();
+}
+
+float AYPCharacter::GetFinalAttackRange() const
+{
+	return (nullptr != CurrentWeapon) ? CurrentWeapon->GetAttackRange() : AttackRange;
+}
+
+float AYPCharacter::GetFinalAttackDamage() const
+{
+	float AttackDamage = (nullptr != CurrentWeapon) ? (CharacterStat->GetAttack() + CurrentWeapon->GetAttackDamage()) : CharacterStat->GetAttack();
+	float AttackModifier = (nullptr != CurrentWeapon) ? CurrentWeapon->GetAttackModifier() : 1.0f;
+
+	return AttackDamage * AttackModifier;
 }
 
 // Called when the game starts or when spawned
@@ -416,13 +443,21 @@ void AYPCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 // 무기를 장착할 수 있는지 확인하는 함수
 bool AYPCharacter::CanSetWeapon()
 {
-	return (nullptr == CurrentWeapon);
+	return true;
 }
 
 // 캐릭터에 무기를 장착시키는 함수
 void AYPCharacter::SetWeapon(AYPWeapon* NewWeapon)
 {
-	YPCHECK(nullptr != NewWeapon && nullptr == CurrentWeapon);
+	YPCHECK(nullptr != NewWeapon);
+
+	if (nullptr != CurrentWeapon)
+	{
+		CurrentWeapon->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
+		CurrentWeapon->Destroy();
+		CurrentWeapon = nullptr;
+	}
+
 	FName WeaponSocket(TEXT("hand_rSocket"));
 	if (nullptr != NewWeapon)
 	{
@@ -529,8 +564,6 @@ void AYPCharacter::ViewChange()
 	}
 }
 
-
-
 // 공격 몽타주가 끝나면 호출되는 함수
 void AYPCharacter::OnAttackMontageEnded(UAnimMontage* Montage, bool bInterrupted)
 {
@@ -567,16 +600,17 @@ void AYPCharacter::AttackEndComboState()
 // 공격 유효 타격 탐지 함수
 void AYPCharacter::AttackCheck()
 {
+	float FinalAttackRange = GetFinalAttackRange();
+
 	// 충돌 감지시 충돌된 액터에 관련된 정보를 얻기 위한 구조체
 	FHitResult HitResult;
-	
 	// 채널을 이용하여 범위 내를 특정 도형모양으로 휩쓸어 탐색한다(히트체크)
 	// 공격 명령을 내리는 자신은 탐지에 감지되지 않도록 포인터 this를 무시할 액터 목록에 포함시킴
 	FCollisionQueryParams Params(NAME_None, false, this);
 	bool bResult = GetWorld()->SweepSingleByChannel(
 		HitResult, // 충돌된 액터에 관련된 정보를 얻기 위한 구조체
 		GetActorLocation(), // 탐색 시작 위치
-		GetActorLocation() + GetActorForwardVector() * AttackRange, // 탐색 종료 위치
+		GetActorLocation() + GetActorForwardVector() * FinalAttackRange, // 탐색 종료 위치
 		FQuat::Identity, // 피격판정할 도형의 회전 값, 회전 사용 X
 		ECollisionChannel::ECC_GameTraceChannel2, // 콜리전 채널 할당
 		FCollisionShape::MakeSphere(AttackRadius), // 탐지할 도형 제작
@@ -584,9 +618,9 @@ void AYPCharacter::AttackCheck()
 		);
 
 #if ENABLE_DRAW_DEBUG
-	FVector TraceVec = GetActorForwardVector() * AttackRange; // 시선 방향 벡터
+	FVector TraceVec = GetActorForwardVector() * FinalAttackRange; // 시선 방향 벡터
 	FVector Center = GetActorLocation() + TraceVec * 0.5f; // 벡터의 중점
-	float HalfHeight = AttackRange * 0.5f + AttackRadius; //  벡터 길이의 절반
+	float HalfHeight = FinalAttackRange * 0.5f + AttackRadius; //  벡터 길이의 절반
 	FQuat CapsuleRot = FRotationMatrix::MakeFromZ(TraceVec).ToQuat(); // 캡슐의 Z벡터를 캐릭터 시선방향으로 회전
 	FColor DrawColor = bResult ? FColor::Green : FColor::Red;
 	float DebugLifeTime = 5.0f;
@@ -611,7 +645,7 @@ void AYPCharacter::AttackCheck()
 			FDamageEvent DamageEvent;
 			// 액터에 대미지를 전달하는 함수
 			// 전달할 대미지 세기, 대미지 종류, 공격 명령을 내린 가해자, 대미지 전달을 위해 사용한 도구
-			HitResult.GetActor()->TakeDamage(CharacterStat->GetAttack(), DamageEvent, GetController(), this);
+			HitResult.GetActor()->TakeDamage(GetFinalAttackDamage(), DamageEvent, GetController(), this);
 		}
 	}
 }
