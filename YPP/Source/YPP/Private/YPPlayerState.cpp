@@ -3,17 +3,25 @@
 
 #include "YPPlayerState.h"
 #include "YPGameInstance.h"
+#include "YPSaveGame.h"
 
 AYPPlayerState::AYPPlayerState()
 {
 	CharacterLevel = 1;
 	GameScore = 0;
+	GameHighScore = 0;
 	Exp = 0;
+	SaveSlotName = TEXT("Player1");
 }
 
 int32 AYPPlayerState::GetGameScore() const
 {
 	return GameScore;
+}
+
+int32 AYPPlayerState::GetGameHighScore() const
+{
+	return GameHighScore;
 }
 
 int32 AYPPlayerState::GetCharacterLevel() const
@@ -47,22 +55,49 @@ bool AYPPlayerState::AddExp(int32 IncomeExp)
 
 	// 캐릭터 상태 변경 델리게이트 브로드캐스트
 	OnPlayerStateChanged.Broadcast();
+	SavePlayerData();
 	return DidLevelUp;
 }
 
 void AYPPlayerState::AddGameScore()
 {
 	GameScore++;
+	if (GameScore >= GameHighScore)
+	{
+		GameHighScore = GameScore;
+	}
 	OnPlayerStateChanged.Broadcast();
+	SavePlayerData();
 }
 
 void AYPPlayerState::InitPlayerData()
 {
-	SetPlayerName(TEXT("Destiny"));
-	SetCharacterLevel(5);
-	CharacterLevel = 5;
+	auto YPSaveGame = Cast<UYPSaveGame>(UGameplayStatics::LoadGameFromSlot(SaveSlotName, 0));
+	if (nullptr == YPSaveGame)
+	{
+		YPSaveGame = GetMutableDefault<UYPSaveGame>();
+	}
+
+	SetPlayerName(YPSaveGame->PlayerName);
+	SetCharacterLevel(YPSaveGame->Level);
 	GameScore = 0;
-	Exp = 0;
+	GameHighScore = YPSaveGame->HighScore;
+	Exp = YPSaveGame->Exp;
+	SavePlayerData();
+}
+
+void AYPPlayerState::SavePlayerData()
+{
+	UYPSaveGame* NewPlayerData = NewObject<UYPSaveGame>();
+	NewPlayerData->PlayerName = GetPlayerName();
+	NewPlayerData->Level = CharacterLevel;
+	NewPlayerData->Exp = Exp;
+	NewPlayerData->HighScore = GameHighScore;
+
+	if (!UGameplayStatics::SaveGameToSlot(NewPlayerData, SaveSlotName, 0))
+	{
+		YPLOG(Error, TEXT("SaveGame Error!"));
+	}
 }
 
 // 캐릭터 레벨, 스탯 데이터 설정

@@ -1,9 +1,0 @@
-{
-	"SourceFiles": [
-		"C:\\Git\\YPP\\YPP\\Source\\YPPSetting\\YPPSetting.Build.cs",
-		"C:\\Git\\YPP\\YPP\\Source\\YPP\\YPP.Build.cs",
-		"C:\\Git\\YPP\\YPP\\Source\\YPP.Target.cs",
-		"C:\\Git\\YPP\\YPP\\Source\\YPPEditor.Target.cs"
-	],
-	"EngineVersion": "5.4.2"
-}
