@@ -12,6 +12,7 @@ AYPPlayerState::AYPPlayerState()
 	GameHighScore = 0;
 	Exp = 0;
 	SaveSlotName = TEXT("Player1");
+	CharacterIndex = 0;
 }
 
 int32 AYPPlayerState::GetGameScore() const
@@ -27,6 +28,11 @@ int32 AYPPlayerState::GetGameHighScore() const
 int32 AYPPlayerState::GetCharacterLevel() const
 {
 	return CharacterLevel;
+}
+
+int32 AYPPlayerState::GetCharacterIndex() const
+{
+	return CharacterIndex;
 }
 
 float AYPPlayerState::GetExpRatio() const
@@ -83,6 +89,7 @@ void AYPPlayerState::InitPlayerData()
 	GameScore = 0;
 	GameHighScore = YPSaveGame->HighScore;
 	Exp = YPSaveGame->Exp;
+	CharacterIndex = YPSaveGame->CharacterIndex;
 	SavePlayerData();
 }
 
@@ -93,6 +100,7 @@ void AYPPlayerState::SavePlayerData()
 	NewPlayerData->Level = CharacterLevel;
 	NewPlayerData->Exp = Exp;
 	NewPlayerData->HighScore = GameHighScore;
+	NewPlayerData->CharacterIndex = CharacterIndex;
 
 	if (!UGameplayStatics::SaveGameToSlot(NewPlayerData, SaveSlotName, 0))
 	{

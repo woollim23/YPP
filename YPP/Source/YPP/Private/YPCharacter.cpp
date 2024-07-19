@@ -247,7 +247,10 @@ void AYPCharacter::BeginPlay()
 	// AI가 조종하는 NPC인 경우 캐릭터 애셋 목록에서 랜덤으로 가져온다
 	if (bIsPlayer)
 	{
-		AssetIndex = 4;
+		// 저장된 플레이어 캐릭터 인덱스를 불러옴
+		auto YPPlayerState = Cast<AYPPlayerState>(GetPlayerState());
+		YPCHECK(nullptr != YPPlayerState);
+		AssetIndex = YPPlayerState->GetCharacterIndex();
 	}
 	else
 	{
