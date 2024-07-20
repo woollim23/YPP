@@ -5,6 +5,7 @@
 #include "YPHUDWidget.h"
 #include "YPPlayerState.h"
 #include "YPCharacter.h"
+#include "YPGameplayWidget.h"
 
 AYPPlayerController::AYPPlayerController()
 {
@@ -12,6 +13,12 @@ AYPPlayerController::AYPPlayerController()
 	if (UI_HUD_C.Succeeded())
 	{
 		HUDWidgetClass = UI_HUD_C.Class;
+	}
+
+	static ConstructorHelpers::FClassFinder<UYPGameplayWidget> UI_MENU_C(TEXT("/Game/Book/UI/UI_Menu.UI_Menu_C"));
+	if (UI_MENU_C.Succeeded())
+	{
+		MenuWidgetClass = UI_MENU_C.Class;
 	}
 }
 
@@ -40,15 +47,33 @@ void AYPPlayerController::AddGameScore() const
 	YPPlayerState->AddGameScore();
 }
 
+void AYPPlayerController::ChangeInputMode(bool bGameMode)
+{
+	if (bGameMode)
+	{
+		SetInputMode(GameInputMode);
+		bShowMouseCursor = false;
+	}
+	else
+	{
+		SetInputMode(UIInputMode);
+		bShowMouseCursor = true;
+	}
+}
+
+
 void AYPPlayerController::BeginPlay()
 {
 	Super::BeginPlay();
+
+	ChangeInputMode(true);
 	
 	FInputModeGameOnly InputMode;
 	SetInputMode(InputMode);
 	
 	HUDWidget = CreateWidget<UYPHUDWidget>(this, HUDWidgetClass);
-	HUDWidget->AddToViewport();
+	YPCHECK(nullptr != HUDWidget);
+	HUDWidget->AddToViewport(1);
 
 
 	// HUD 위젝과 플레이어 스테이트를 연결
@@ -57,4 +82,20 @@ void AYPPlayerController::BeginPlay()
 	HUDWidget->BindPlayerState(YPPlayerState);
 	YPPlayerState->OnPlayerStateChanged.Broadcast();
 	
+}
+
+void AYPPlayerController::SetupInputComponent()
+{
+	Super::SetupInputComponent();
+	InputComponent->BindAction(TEXT("GamePause"), EInputEvent::IE_Pressed, this, &AYPPlayerController::OnGamePause);
+}
+
+void AYPPlayerController::OnGamePause()
+{
+	MenuWidget = CreateWidget<UYPGameplayWidget>(this, MenuWidgetClass);
+	YPCHECK(nullptr != MenuWidget);
+	MenuWidget->AddToViewport(3);
+
+	SetPause(true);
+	ChangeInputMode(false);
 }
