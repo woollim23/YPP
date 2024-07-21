@@ -6,6 +6,8 @@
 #include "YPPlayerState.h"
 #include "YPCharacter.h"
 #include "YPGameplayWidget.h"
+#include "YPGameplayResultWidget.h"
+#include "YPGameState.h"
 
 AYPPlayerController::AYPPlayerController()
 {
@@ -19,6 +21,12 @@ AYPPlayerController::AYPPlayerController()
 	if (UI_MENU_C.Succeeded())
 	{
 		MenuWidgetClass = UI_MENU_C.Class;
+	}
+
+	static ConstructorHelpers::FClassFinder<UYPGameplayResultWidget> UI_RESULT_C(TEXT("/Game/Book/UI/UI_Result.UI_Result_C"));
+	if (UI_RESULT_C.Succeeded())
+	{
+		ResultWidgetClass = UI_RESULT_C.Class;
 	}
 }
 
@@ -61,6 +69,16 @@ void AYPPlayerController::ChangeInputMode(bool bGameMode)
 	}
 }
 
+void AYPPlayerController::ShowResultUI()
+{
+	auto YPGameState = Cast<AYPGameState>(UGameplayStatics::GetGameState(this));
+	YPCHECK(nullptr != YPGameState);
+	ResultWidget->BindGameState(YPGameState);
+
+	ResultWidget->AddToViewport();
+	ChangeInputMode(false);
+}
+
 
 void AYPPlayerController::BeginPlay()
 {
@@ -73,8 +91,10 @@ void AYPPlayerController::BeginPlay()
 	
 	HUDWidget = CreateWidget<UYPHUDWidget>(this, HUDWidgetClass);
 	YPCHECK(nullptr != HUDWidget);
-	HUDWidget->AddToViewport(1);
+	HUDWidget->AddToViewport();
 
+	ResultWidget = CreateWidget<UYPGameplayResultWidget>(this, ResultWidgetClass);
+	YPCHECK(nullptr != ResultWidget);
 
 	// HUD 위젝과 플레이어 스테이트를 연결
 	YPPlayerState = Cast<AYPPlayerState>(PlayerState);

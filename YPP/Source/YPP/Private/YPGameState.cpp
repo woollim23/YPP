@@ -6,6 +6,7 @@
 AYPGameState::AYPGameState()
 {
 	TotalGameScore = 0;
+	bGameCleared = false;
 }
 
 int32 AYPGameState::GetTotalGameScore() const
@@ -16,4 +17,14 @@ int32 AYPGameState::GetTotalGameScore() const
 void AYPGameState::AddGameScore()
 {
 	TotalGameScore++;
+}
+
+void AYPGameState::SetGameCleared()
+{
+	bGameCleared = true;
+}
+
+bool AYPGameState::IsGameCleared() const
+{
+	return bGameCleared;
 }

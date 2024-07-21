@@ -45,4 +45,7 @@ void UYPGameplayWidget::OnReturnToTitleClicked()
 
 void UYPGameplayWidget::OnRetryGameClicked()
 {
+	auto YPPlayerController = Cast<AYPPlayerController>(GetOwningPlayer());
+	YPCHECK(nullptr != YPPlayerController);
+	YPPlayerController->RestartLevel();
 }

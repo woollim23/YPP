@@ -25,4 +25,6 @@ public:
 private:
 	UPROPERTY()
 	class AYPGameState* YPGameState;
+	UPROPERTY()
+	int32 ScoreToClear;
 };

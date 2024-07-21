@@ -1,0 +1,16 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-YPPSetting.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"C:\Git\YPP\YPP\Intermediate\Build\Win64\x64\YPPEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.InclOrderUnreal5_1.h.obj"
+"C:\Git\YPP\YPP\Intermediate\Build\Win64\x64\UnrealEditor\Development\YPPSetting\YPCharacterSetting.gen.cpp.obj"
+"C:\Git\YPP\YPP\Intermediate\Build\Win64\x64\UnrealEditor\Development\YPPSetting\YPPSetting.init.gen.cpp.obj"
+"C:\Git\YPP\YPP\Intermediate\Build\Win64\x64\UnrealEditor\Development\YPPSetting\YPCharacterSetting.cpp.obj"
+"C:\Git\YPP\YPP\Intermediate\Build\Win64\x64\UnrealEditor\Development\YPPSetting\YPPCharacterSetting.cpp.obj"
+"C:\Git\YPP\YPP\Intermediate\Build\Win64\x64\UnrealEditor\Development\YPPSetting\YPPSetting.cpp.obj"
+"C:\Git\YPP\YPP\Intermediate\Build\Win64\x64\UnrealEditor\Development\YPPSetting\Default.rc2.res"
+/OUT:"C:\Git\YPP\YPP\Intermediate\Build\Win64\x64\UnrealEditor\Development\YPPSetting\UnrealEditor-YPPSetting.lib"

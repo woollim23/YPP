@@ -186,7 +186,8 @@ void AYPCharacter::SetCharacterState(ECharacterState NewState)
 		GetWorld()->GetTimerManager().SetTimer(DeadTimerHandle, FTimerDelegate::CreateLambda([this]()-> void {
 			if (bIsPlayer)
 			{
-				YPPlayerController->RestartLevel();
+				YPPlayerController->ShowResultUI();
+				//YPPlayerController->RestartLevel();
 			}
 			else
 			{

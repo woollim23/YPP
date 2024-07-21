@@ -6,6 +6,9 @@
 #include "YPPlayerController.h"
 #include "YPPlayerState.h"
 #include "YPGameState.h"
+#include "EngineUtils.h"
+#include "Engine/World.h"
+#include "GameFramework/Pawn.h"
 
 AYPGameMode::AYPGameMode()
 {
@@ -13,6 +16,8 @@ AYPGameMode::AYPGameMode()
 	PlayerControllerClass = AYPPlayerController::StaticClass();
 	PlayerStateClass = AYPPlayerState::StaticClass();
 	GameStateClass = AYPGameState::StaticClass();
+
+	ScoreToClear = 1;
 }
 
 void AYPGameMode::PostInitializeComponents()
@@ -43,6 +48,31 @@ void AYPGameMode::AddScore(AYPPlayerController* ScoredPlayer)
 	}
 
 	YPGameState->AddGameScore();
+
+	if (GetScore() >= ScoreToClear)
+	{
+		YPGameState->SetGameCleared();
+		
+		UWorld* World = GetWorld();
+		if (!World) return;
+		//
+		for (APawn* Pawn : TActorRange<APawn>(World))
+		{
+			if (Pawn)
+			{
+				Pawn->TurnOff();
+			}
+		}
+		//
+		for (FConstPlayerControllerIterator It = GetWorld()->GetPlayerControllerIterator(); It; ++It)
+		{
+			const auto YPPlayerController = Cast<AYPPlayerController>(It->Get());
+			if (nullptr != YPPlayerController)
+			{
+				YPPlayerController->ShowResultUI();
+			}
+		}
+	}
 }
 
 int32 AYPGameMode::GetScore() const
