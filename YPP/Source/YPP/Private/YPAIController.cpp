@@ -16,14 +16,14 @@ const FName AYPAIController::TargetKey(TEXT("Target"));
 AYPAIController::AYPAIController()
 {
 	// 만들어둔 블랙보드 데이터 불러옴
-	static ConstructorHelpers::FObjectFinder<UBlackboardData> BBObject(TEXT("/Script/AIModule.BlackboardData'/Game/Book/AI/BB_YPCharacter.BB_YPCharacter'"));
+	static ConstructorHelpers::FObjectFinder<UBlackboardData> BBObject(TEXT("/Game/Book/AI/BB_YPCharacter.BB_YPCharacter"));
 	if (BBObject.Succeeded())
 	{
 		BBAsset = BBObject.Object;
 	}
 
 	// 만들어둔 비헤비어트리 불러옴
-	static ConstructorHelpers::FObjectFinder<UBehaviorTree> BTObject(TEXT("/Script/AIModule.BehaviorTree'/Game/Book/AI/BT_YPCharacter.BT_YPCharacter'"));
+	static ConstructorHelpers::FObjectFinder<UBehaviorTree> BTObject(TEXT("/Game/Book/AI/BT_YPCharacter.BT_YPCharacter"));
 	if (BTObject.Succeeded())
 	{
 		BTAsset = BTObject.Object;
@@ -33,19 +33,6 @@ AYPAIController::AYPAIController()
 void AYPAIController::OnPossess(APawn* InPawn)
 {
 	Super::OnPossess(InPawn);
-	/*
-	UBlackboardComponent* BlackboardComp = Blackboard.Get();
-	if (UseBlackboard(BBAsset, BlackboardComp))
-	{
-		// HomePosKey의 위치값을 폰의 초기 위치로 설정
-		BlackboardComp->SetValueAsVector(HomePosKey, InPawn->GetActorLocation()); 
-		if (!RunBehaviorTree(BTAsset))
-		{
-			YPLOG(Error, TEXT("AIController couldn't run behavior tree!"));
-		}
-	}
-	this->Blackboard = BlackboardComp;
-	*/
 }
 
 void AYPAIController::RunAI()

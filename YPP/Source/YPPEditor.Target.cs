@@ -8,9 +8,9 @@ public class YPPEditorTarget : TargetRules
 	public YPPEditorTarget(TargetInfo Target) : base(Target)
 	{
 		Type = TargetType.Editor;
-		DefaultBuildSettings = BuildSettingsVersion.V5;
-		IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_1;
-		//ExtraModuleNames.Add("YPP");
+
+        DefaultBuildSettings = BuildSettingsVersion.V5;
+        IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_1;
 
         ExtraModuleNames.AddRange(new string[] { "YPP", "YPPSetting" });
     }

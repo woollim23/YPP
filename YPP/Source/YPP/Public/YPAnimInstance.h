@@ -45,7 +45,6 @@ private:
 	// 노티파이 멤버 함수 - 다음 공격 체크
 	UFUNCTION()
 	void AnimNotify_NextAttackCheck();
-
 	// 몽타주 섹션 이름 얻는 함수
 	FName GetAttackMontageSectionName(int32 Section);
 

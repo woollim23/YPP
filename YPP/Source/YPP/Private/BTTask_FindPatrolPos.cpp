@@ -33,7 +33,7 @@ EBTNodeResult::Type UBTTask_FindPatrolPos::ExecuteTask(UBehaviorTreeComponent& O
 	// 현재 갈수 있는 곳중 랜덤 포인트를 집어주겠다
 	// 500 거리 안
 	// true면 갈 수 있는 곳이 있는 것
-	if (NavSystem->GetRandomPointInNavigableRadius(FVector::ZeroVector, 500.0f, NextPatrol))
+	if (NavSystem->GetRandomPointInNavigableRadius(Origin, 500.0f, NextPatrol))
 	{
 		// 블랙보드에다가 패트롤 포지션으로 바꿔치기 해줌
 		// NextPatrol 값을 전달하여 랜덤 다음 위치 전달

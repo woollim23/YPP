@@ -38,8 +38,8 @@ protected:
 	float AttackModifierMin;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Attack)
 	float AttackModifierMax;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Attack)
+	UPROPERTY(Transient, VisibleInstanceOnly, BlueprintReadOnly, Category = Attack)
 	float AttackDamage;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Attack)
+	UPROPERTY(Transient, VisibleInstanceOnly, BlueprintReadOnly, Category = Attack)
 	float AttackModifier;
 };

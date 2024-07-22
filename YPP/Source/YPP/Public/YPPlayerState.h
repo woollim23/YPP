@@ -38,16 +38,12 @@ public:
 protected:
 	UPROPERTY(Transient)
 	int32 GameScore;
-
 	UPROPERTY(Transient)
 	int32 GameHighScore;
-
 	UPROPERTY(Transient)
 	int32 CharacterLevel;
-
 	UPROPERTY(Transient)
 	int32 Exp;
-
 	UPROPERTY(Transient)
 	int32 CharacterIndex;
 

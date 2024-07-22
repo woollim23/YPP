@@ -68,6 +68,15 @@ public:
 	bool CanSetWeapon();
 	// 캐릭터에 무기를 장착시키는 함수
 	void SetWeapon(class AYPWeapon* NewWeapon);
+	// 공격 함수
+	void Attack();
+
+	// 플레이어의 공격이 종료되면 공격 태스크에서 해당 알림을 받을 수 있도록 하는 델리게이트
+	// 공격이 종료될 때 이를 호출하게 함
+	// 태스크에서 람다 함수를 해당 델리게이트에 등록하고 틱 함수로직에서 이를 파악
+	// FinishLatenTask 함수를 호출하여 태스크 종료하도록 함
+	FOnAttackEndDelegate OnAttackEnd;
+
 	// 현재 무기 정보 변수
 	UPROPERTY(VisibleAnywhere, Category = Weapon)
 	class AYPWeapon* CurrentWeapon;
@@ -85,14 +94,8 @@ public:
 	UPROPERTY(VisibleAnywhere, Category = UI)
 	class UWidgetComponent* HPBarWidget;
 
-	// 공격 함수
-	void Attack();
 
-	// 플레이어의 공격이 종료되면 공격 태스크에서 해당 알림을 받을 수 있도록 하는 델리게이트
-	// 공격이 종료될 때 이를 호출하게 함
-	// 태스크에서 람다 함수를 해당 델리게이트에 등록하고 틱 함수로직에서 이를 파악
-	// FinishLatenTask 함수를 호출하여 태스크 종료하도록 함
-	FOnAttackEndDelegate OnAttackEnd;
+
 
 private:
 	// 위아래 방향키 입력 함수
@@ -116,7 +119,6 @@ private:
 	void AttackEndComboState();
 	// 공격 유효 타격 탐지 함수
 	void AttackCheck();
-	//
 	void OnAssetLoadCompleted();
 
 private:
@@ -153,7 +155,7 @@ private:
 
 	int32 AssetIndex = 0;
 
-	// npc 에셋 주소
+	// npc 애셋 주소
 	FSoftObjectPath CharacterAssetToLoad = FSoftObjectPath(nullptr);
 	TSharedPtr<struct FStreamableHandle> AssetStreamingHandle;
 

@@ -88,8 +88,8 @@ const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AYPWeapon_Stati
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AYPWeapon_Statics::NewProp_AttackDamageMax = { "AttackDamageMax", nullptr, (EPropertyFlags)0x0020080000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AYPWeapon, AttackDamageMax), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_AttackDamageMax_MetaData), NewProp_AttackDamageMax_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AYPWeapon_Statics::NewProp_AttackModifierMin = { "AttackModifierMin", nullptr, (EPropertyFlags)0x0020080000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AYPWeapon, AttackModifierMin), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_AttackModifierMin_MetaData), NewProp_AttackModifierMin_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AYPWeapon_Statics::NewProp_AttackModifierMax = { "AttackModifierMax", nullptr, (EPropertyFlags)0x0020080000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AYPWeapon, AttackModifierMax), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_AttackModifierMax_MetaData), NewProp_AttackModifierMax_MetaData) };
-const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AYPWeapon_Statics::NewProp_AttackDamage = { "AttackDamage", nullptr, (EPropertyFlags)0x0020080000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AYPWeapon, AttackDamage), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_AttackDamage_MetaData), NewProp_AttackDamage_MetaData) };
-const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AYPWeapon_Statics::NewProp_AttackModifier = { "AttackModifier", nullptr, (EPropertyFlags)0x0020080000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AYPWeapon, AttackModifier), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_AttackModifier_MetaData), NewProp_AttackModifier_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AYPWeapon_Statics::NewProp_AttackDamage = { "AttackDamage", nullptr, (EPropertyFlags)0x0020080000022815, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AYPWeapon, AttackDamage), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_AttackDamage_MetaData), NewProp_AttackDamage_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AYPWeapon_Statics::NewProp_AttackModifier = { "AttackModifier", nullptr, (EPropertyFlags)0x0020080000022815, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AYPWeapon, AttackModifier), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_AttackModifier_MetaData), NewProp_AttackModifier_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AYPWeapon_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AYPWeapon_Statics::NewProp_Weapon,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AYPWeapon_Statics::NewProp_AttackRange,
@@ -141,10 +141,10 @@ AYPWeapon::~AYPWeapon() {}
 struct Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_YPWeapon_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AYPWeapon, AYPWeapon::StaticClass, TEXT("AYPWeapon"), &Z_Registration_Info_UClass_AYPWeapon, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AYPWeapon), 4125772945U) },
+		{ Z_Construct_UClass_AYPWeapon, AYPWeapon::StaticClass, TEXT("AYPWeapon"), &Z_Registration_Info_UClass_AYPWeapon, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AYPWeapon), 1236909720U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_YPWeapon_h_4127195451(TEXT("/Script/YPP"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_YPWeapon_h_2461345521(TEXT("/Script/YPP"),
 	Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_YPWeapon_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_YPWeapon_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

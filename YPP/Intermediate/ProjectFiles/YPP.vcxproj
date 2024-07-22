@@ -529,16 +529,11 @@
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
     </ClCompile>
-    <ClCompile Include="..\..\Source\YPPSetting\Private\YPPCharacterSetting.cpp">
-      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
-    </ClCompile>
     <ClCompile Include="..\..\Source\YPPSetting\Private\YPPSetting.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
     </ClCompile>
     <ClInclude Include="..\..\Source\YPPSetting\Public\YPCharacterSetting.h"/>
-    <ClInclude Include="..\..\Source\YPPSetting\Public\YPPCharacterSetting.h"/>
     <ClInclude Include="..\..\Source\YPPSetting\Public\YPPSetting.h"/>
     <None Include="..\..\Source\YPP\YPP.Build.cs"/>
     <ClCompile Include="..\..\Source\YPP\Private\BTDecorator_IsInAttackRange.cpp">

@@ -34,10 +34,8 @@ protected:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = UI)
 	TSubclassOf<class UYPHUDWidget> HUDWidgetClass;
-
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = UI)
 	TSubclassOf<class UYPGameplayWidget> MenuWidgetClass;
-
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = UI)
 	TSubclassOf<class UYPGameplayResultWidget>  ResultWidgetClass;
 

@@ -37,7 +37,7 @@ AYPCharacter::AYPCharacter()
 	SpringArm->SetRelativeRotation(FRotator(-15.0f, 0.0f, 0.0f));
 
 	// 스켈레탈 메시 불러오기
-	static ConstructorHelpers::FObjectFinder<USkeletalMesh> SK_CARDBOARD(TEXT("/Script/Engine.SkeletalMesh'/Game/InfinityBladeWarriors/Character/CompleteCharacters/SK_CharM_Cardboard.SK_CharM_Cardboard'"));
+	static ConstructorHelpers::FObjectFinder<USkeletalMesh> SK_CARDBOARD(TEXT("/Game/InfinityBladeWarriors/Character/CompleteCharacters/SK_CharM_Cardboard.SK_CharM_Cardboard"));
 	if (SK_CARDBOARD.Succeeded())
 	{
 		GetMesh()->SetSkeletalMesh(SK_CARDBOARD.Object);
@@ -85,7 +85,6 @@ AYPCharacter::AYPCharacter()
 	AIControllerClass = AYPAIController::StaticClass();
 	// 앞으로 생성되는 플레이어가 조종하는 것 외의 모든 캐릭터는 YPAIController의 지배를 받음
 	AutoPossessAI = EAutoPossessAI::PlacedInWorldOrSpawned;
-	
 
 	AssetIndex = 4;
 
@@ -187,7 +186,6 @@ void AYPCharacter::SetCharacterState(ECharacterState NewState)
 			if (bIsPlayer)
 			{
 				YPPlayerController->ShowResultUI();
-				//YPPlayerController->RestartLevel();
 			}
 			else
 			{
@@ -512,7 +510,6 @@ void AYPCharacter::UpDown(float NewAxisValue)
 
 void AYPCharacter::LeftRight(float NewAxisValue)
 {
-
 	switch (CurrentControlMode)
 	{
 	case EControlMode::GTA:

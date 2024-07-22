@@ -45,9 +45,6 @@
     <ClCompile Include="..\..\Source\YPPSetting\Private\YPCharacterSetting.cpp">
       <Filter>Source\YPPSetting\Private</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\YPPSetting\Private\YPPCharacterSetting.cpp">
-      <Filter>Source\YPPSetting\Private</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\YPPSetting\Private\YPPSetting.cpp">
       <Filter>Source\YPPSetting\Private</Filter>
     </ClCompile>
@@ -55,9 +52,6 @@
       <UniqueIdentifier>{015505C5-E57B-3760-89D7-F1D0DCA92427}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Source\YPPSetting\Public\YPCharacterSetting.h">
-      <Filter>Source\YPPSetting\Public</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\YPPSetting\Public\YPPCharacterSetting.h">
       <Filter>Source\YPPSetting\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\YPPSetting\Public\YPPSetting.h">

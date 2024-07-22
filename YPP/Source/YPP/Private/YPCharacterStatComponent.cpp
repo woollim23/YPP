@@ -19,9 +19,6 @@ UYPCharacterStatComponent::UYPCharacterStatComponent()
 void UYPCharacterStatComponent::BeginPlay()
 {
 	Super::BeginPlay();
-
-	// ...
-	
 }
 
 // 액터의 PostInitializeComponents에 대응 하는 컴포넌트 함수, PostInitializeComponents 함수가 호출되기 전에 호출됨

@@ -205,7 +205,6 @@ void AYPSection::OnGateTriggerBeginOverlap(UPrimitiveComponent* OverlappedCompon
 
 void AYPSection::OnNPCSpawn()
 {
-	//GetWorld()->GetTimerManager().ClearTimer(SpawnNPCTimerHandle);
 	// 货肺款 NPC 积己
 	auto KeyNPC = GetWorld()->SpawnActor<AYPCharacter>(GetActorLocation() + FVector::UpVector * 88.0f, FRotator::ZeroRotator);
 	if (nullptr != KeyNPC)
