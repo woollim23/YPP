@@ -42,13 +42,7 @@ struct Z_Construct_UClass_UYPCharacterStatComponent_Statics
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CurrentHP_MetaData[] = {
 		{ "AllowPrivateAccess", "TRUE" },
 		{ "Category", "Stat" },
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "// Transient : \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xc8\xad\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xdc\xbd\xef\xbf\xbd\xc5\xb4\n" },
-#endif
 		{ "ModuleRelativePath", "Public/YPCharacterStatComponent.h" },
-#if !UE_BUILD_SHIPPING
-		{ "ToolTip", "Transient : \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xc8\xad\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xdc\xbd\xef\xbf\xbd\xc5\xb4" },
-#endif
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FIntPropertyParams NewProp_Level;
@@ -107,10 +101,10 @@ UYPCharacterStatComponent::~UYPCharacterStatComponent() {}
 struct Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_YPCharacterStatComponent_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UYPCharacterStatComponent, UYPCharacterStatComponent::StaticClass, TEXT("UYPCharacterStatComponent"), &Z_Registration_Info_UClass_UYPCharacterStatComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UYPCharacterStatComponent), 3067223100U) },
+		{ Z_Construct_UClass_UYPCharacterStatComponent, UYPCharacterStatComponent::StaticClass, TEXT("UYPCharacterStatComponent"), &Z_Registration_Info_UClass_UYPCharacterStatComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UYPCharacterStatComponent), 1480765962U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_YPCharacterStatComponent_h_2486617307(TEXT("/Script/YPP"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_YPCharacterStatComponent_h_3518234126(TEXT("/Script/YPP"),
 	Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_YPCharacterStatComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Git_YPP_YPP_Source_YPP_Public_YPCharacterStatComponent_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

@@ -11,7 +11,6 @@
 			"YPAnimInstance.gen.cpp.obj",
 			"YPCharacter.gen.cpp.obj",
 			"YPCharacterSelectWidget.gen.cpp.obj",
-			"YPCharacterStatComponent.gen.cpp.obj",
 			"YPCharacterWidget.gen.cpp.obj",
 			"YPGameInstance.gen.cpp.obj",
 			"YPGameMode.gen.cpp.obj",
@@ -21,7 +20,6 @@
 			"YPHUDWidget.gen.cpp.obj",
 			"YPItemBox.gen.cpp.obj",
 			"YPP.gen.cpp.obj",
-			"YPP.init.gen.cpp.obj",
 			"YPPlayerController.gen.cpp.obj",
 			"YPPlayerState.gen.cpp.obj",
 			"YPSaveGame.gen.cpp.obj",
@@ -37,7 +35,6 @@
 			"YPAnimInstance.cpp.obj",
 			"YPCharacter.cpp.obj",
 			"YPCharacterSelectWidget.cpp.obj",
-			"YPCharacterStatComponent.cpp.obj",
 			"YPCharacterWidget.cpp.obj",
 			"YPGameInstance.cpp.obj",
 			"YPGameMode.cpp.obj",
@@ -52,7 +49,10 @@
 			"YPSaveGame.cpp.obj",
 			"YPSection.cpp.obj",
 			"YPUIPlayerController.cpp.obj",
-			"YPWeapon.cpp.obj"
+			"YPWeapon.cpp.obj",
+			"YPCharacterStatComponent.gen.cpp.obj",
+			"YPP.init.gen.cpp.obj",
+			"YPCharacterStatComponent.cpp.obj"
 		]
 	}
 }
