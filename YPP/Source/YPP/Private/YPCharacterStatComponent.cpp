@@ -26,11 +26,16 @@ void UYPCharacterStatComponent::BeginPlay()
 void UYPCharacterStatComponent::InitializeComponent()
 {
 	Super::InitializeComponent();
+	// 레벨 스탯 적용
 	SetNewLevel(Level);
 }
 
+// 데이터는 모두 프라이빗으로 선언하고
+// 이 함수를 통해서만 변경할 수 있도록 설계
 void UYPCharacterStatComponent::SetNewLevel(int32 NewLevel)
 {
+	// 게임 인스턴스에서 데이터를 가져와 초기화함
+	// 레벨이 변경되면 해당 스탯이 바뀌도록 제작
 	auto YPGameInstance = Cast<UYPGameInstance>(UGameplayStatics::GetGameInstance(GetWorld()));
 
 	YPCHECK(nullptr != YPGameInstance);
@@ -51,6 +56,7 @@ void UYPCharacterStatComponent::SetNewLevel(int32 NewLevel)
 void UYPCharacterStatComponent::SetDamage(float NewDamage)
 {
 	YPCHECK(nullptr != CurrentStatData);
+	// 현재 체력에서 받은 데미지 만큼 뺌
 	SetHP(FMath::Clamp<float>(CurrentHP - NewDamage, 0.0f, CurrentStatData->MaxHP));
 
 }
@@ -58,10 +64,14 @@ void UYPCharacterStatComponent::SetDamage(float NewDamage)
 void UYPCharacterStatComponent::SetHP(float NewHP)
 {
 	CurrentHP = NewHP;
+	// 체력 변화 감지 하면 브로드캐스트 하는 델리게이트
 	OnHpChanged.Broadcast();
+	//
 	if (CurrentHP <= KINDA_SMALL_NUMBER)
 	{
+		// 체력을 0으로 변경
 		CurrentHP = 0.0f;
+		// 체력 0을 감지하는 델리게이트 발동
 		OnHPIsZero.Broadcast();
 	}
 }
@@ -69,12 +79,14 @@ void UYPCharacterStatComponent::SetHP(float NewHP)
 float UYPCharacterStatComponent::GetAttack() const
 {
 	YPCHECK(nullptr != CurrentStatData, 0.0f);
+	// 현재 공격 데미지를 리턴해줌
 	return CurrentStatData->Attack;
 }
 
 float UYPCharacterStatComponent::GetHPRatio() const
 {
 	YPCHECK(nullptr != CurrentStatData, 0.0f);
+	// 0 이나 현재 체력 비율 리턴
 	return (CurrentStatData->MaxHP < KINDA_SMALL_NUMBER) ? 0.0f : (CurrentHP / CurrentStatData->MaxHP);
 }
 
