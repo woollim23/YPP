@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\YPP.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{F31BBDD1-B3E8-3BCC-9652-680E16935819}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\YPP.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\YPPEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\.vsconfig" />
+    <Filter Include="Config">
+      <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEditorPerProjectUserSettings.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultYPP.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\YPPSetting">
+      <UniqueIdentifier>{3C5EC49B-4C47-34DD-9A1E-15879EC4E539}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\YPPSetting\YPPSetting.Build.cs">
+      <Filter>Source\YPPSetting</Filter>
+    </None>
+    <Filter Include="Source\YPPSetting\Private">
+      <UniqueIdentifier>{FEBC63F5-127A-37EB-945F-9348F646AF1F}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\YPPSetting\Private\YPCharacterSetting.cpp">
+      <Filter>Source\YPPSetting\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\YPPSetting\Private\YPPSetting.cpp">
+      <Filter>Source\YPPSetting\Private</Filter>
+    </ClCompile>
+    <Filter Include="Source\YPPSetting\Public">
+      <UniqueIdentifier>{015505C5-E57B-3760-89D7-F1D0DCA92427}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\YPPSetting\Public\YPCharacterSetting.h">
+      <Filter>Source\YPPSetting\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\YPPSetting\Public\YPPSetting.h">
+      <Filter>Source\YPPSetting\Public</Filter>
+    </ClInclude>
+    <Filter Include="Source\YPP">
+      <UniqueIdentifier>{66F23F1D-9606-307E-990E-9CD86B24415C}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\YPP\YPP.Build.cs">
+      <Filter>Source\YPP</Filter>
+    </None>
+    <Filter Include="Source\YPP\Private">
+      <UniqueIdentifier>{815B6C02-9491-3BD7-A742-D47E8DAF4EED}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\YPP\Private\BTDecorator_IsInAttackRange.cpp">
+      <Filter>Source\YPP\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\YPP\Private\BTService_Detect.cpp">
+      <Filter>Source\YPP\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\YPP\Private\BTTask_Attack.cpp">
+      <Filter>Source\YPP\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\YPP\Private\BTTask_FindPatrolPos.cpp">
+      <Filter>Source\YPP\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\YPP\Private\BTTask_TurnToTarget.cpp">
+      <Filter>Source\YPP\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\YPP\Private\YPAIController.cpp">
+      <Filter>Source\YPP\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\YPP\Private\YPAnimInstance.cpp">
+      <Filter>Source\YPP\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\YPP\Private\YPCharacter.cpp">
+      <Filter>Source\YPP\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\YPP\Private\YPCharacterSelectWidget.cpp">
+      <Filter>Source\YPP\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\YPP\Private\YPCharacterStatComponent.cpp">
+      <Filter>Source\YPP\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\YPP\Private\YPCharacterWidget.cpp">
+      <Filter>Source\YPP\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\YPP\Private\YPGameInstance.cpp">
+      <Filter>Source\YPP\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\YPP\Private\YPGameMode.cpp">
+      <Filter>Source\YPP\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\YPP\Private\YPGameplayResultWidget.cpp">
+      <Filter>Source\YPP\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\YPP\Private\YPGameplayWidget.cpp">
+      <Filter>Source\YPP\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\YPP\Private\YPGameState.cpp">
+      <Filter>Source\YPP\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\YPP\Private\YPHUDWidget.cpp">
+      <Filter>Source\YPP\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\YPP\Private\YPItemBox.cpp">
+      <Filter>Source\YPP\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\YPP\Private\YPP.cpp">
+      <Filter>Source\YPP\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\YPP\Private\YPPlayerController.cpp">
+      <Filter>Source\YPP\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\YPP\Private\YPPlayerState.cpp">
+      <Filter>Source\YPP\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\YPP\Private\YPSaveGame.cpp">
+      <Filter>Source\YPP\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\YPP\Private\YPSection.cpp">
+      <Filter>Source\YPP\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\YPP\Private\YPUIPlayerController.cpp">
+      <Filter>Source\YPP\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\YPP\Private\YPWeapon.cpp">
+      <Filter>Source\YPP\Private</Filter>
+    </ClCompile>
+    <Filter Include="Source\YPP\Public">
+      <UniqueIdentifier>{8AF7A0EF-DBB3-3E31-ABDF-066358B05F3B}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\YPP\Public\BTDecorator_IsInAttackRange.h">
+      <Filter>Source\YPP\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\YPP\Public\BTService_Detect.h">
+      <Filter>Source\YPP\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\YPP\Public\BTTask_Attack.h">
+      <Filter>Source\YPP\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\YPP\Public\BTTask_FindPatrolPos.h">
+      <Filter>Source\YPP\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\YPP\Public\BTTask_TurnToTarget.h">
+      <Filter>Source\YPP\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\YPP\Public\YPAIController.h">
+      <Filter>Source\YPP\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\YPP\Public\YPAnimInstance.h">
+      <Filter>Source\YPP\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\YPP\Public\YPCharacter.h">
+      <Filter>Source\YPP\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\YPP\Public\YPCharacterSelectWidget.h">
+      <Filter>Source\YPP\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\YPP\Public\YPCharacterStatComponent.h">
+      <Filter>Source\YPP\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\YPP\Public\YPCharacterWidget.h">
+      <Filter>Source\YPP\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\YPP\Public\YPGameInstance.h">
+      <Filter>Source\YPP\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\YPP\Public\YPGameMode.h">
+      <Filter>Source\YPP\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\YPP\Public\YPGameplayResultWidget.h">
+      <Filter>Source\YPP\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\YPP\Public\YPGameplayWidget.h">
+      <Filter>Source\YPP\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\YPP\Public\YPGameState.h">
+      <Filter>Source\YPP\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\YPP\Public\YPHUDWidget.h">
+      <Filter>Source\YPP\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\YPP\Public\YPItemBox.h">
+      <Filter>Source\YPP\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\YPP\Public\YPP.h">
+      <Filter>Source\YPP\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\YPP\Public\YPPlayerController.h">
+      <Filter>Source\YPP\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\YPP\Public\YPPlayerState.h">
+      <Filter>Source\YPP\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\YPP\Public\YPSaveGame.h">
+      <Filter>Source\YPP\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\YPP\Public\YPSection.h">
+      <Filter>Source\YPP\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\YPP\Public\YPUIPlayerController.h">
+      <Filter>Source\YPP\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\YPP\Public\YPWeapon.h">
+      <Filter>Source\YPP\Public</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
